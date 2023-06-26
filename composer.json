@@ -1,0 +1,19 @@
+{
+    "name": "networkrailbusinesssystems/support-page",
+    "description": "Allows you quickly add a support page to your project",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Networkrailbusinesssystems\\SupportPage\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sim Roberts",
+            "email": "simran.roberts@networkrail.co.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
