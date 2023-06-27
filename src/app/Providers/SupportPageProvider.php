@@ -1,7 +1,11 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Providers;
+namespace Networkrailbusinesssystems\SupportPage\Providers;
 
-use Ill
+use Illuminate\Support\ServiceProvider;
 
 class SupportPageProvider extends ServiceProvider
+{
+
+
+}
