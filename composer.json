@@ -1,19 +1,48 @@
 {
     "name": "networkrailbusinesssystems/support-page",
     "description": "Allows you quickly add a support page to your project",
+    "keywords": [
+        "support",
+        "support page",
+        "help",
+        "help page",
+        "blade template"
+    ],
     "type": "library",
+    "homepage": "https://github.com/Network-Rail-Business-Systems/support-page",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Networkrailbusinesssystems\\SupportPage\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Sim Roberts",
-            "email": "simran.roberts@networkrail.co.uk"
+            "email": "simran.roberts@networkrail.co.uk",
+            "role": "Developer"
         }
     ],
+    "require": {
+        "php": "^8",
+        "illuminate/support": "^10"
+    },
+    "require-dev": {
+        "laravel/pint": "^1",
+        "nunomaduro/larastan": "^2.6",
+        "orchestra/testbench": "^8",
+        "phpunit/phpunit": "^10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Networkrailbusinesssystems\\SupportPage\\": "src/app"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NetworkRailBusinessSystems\\SupportPage\\Providers\\SupportPageProvider"
+            ]
+        },
+        "npm": {
+            "govuk-frontend": "^4"
+        }
+    },
     "minimum-stability": "dev",
-    "require": {}
+    "prefer-stable": true
 }
