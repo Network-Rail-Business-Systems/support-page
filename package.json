@@ -9,7 +9,6 @@
     "test-slow": "php ./vendor/bin/phpunit"
   },
   "devDependencies": {
-    "govuk-frontend": "^4",
     "husky": "^8",
     "laravel-vite-plugin": "^0",
     "sass": "^1",

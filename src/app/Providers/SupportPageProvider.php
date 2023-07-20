@@ -32,6 +32,5 @@ class SupportPageProvider extends ServiceProvider
             __DIR__.'/../../resources/views',
             'support-page'
         );
-
     }
 }

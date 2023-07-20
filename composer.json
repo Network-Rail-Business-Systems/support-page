@@ -39,9 +39,6 @@
             "providers": [
                 "NetworkRailBusinessSystems\\SupportPage\\Providers\\SupportPageProvider"
             ]
-        },
-        "npm": {
-            "govuk-frontend": "^4"
         }
     },
     "minimum-stability": "dev",
