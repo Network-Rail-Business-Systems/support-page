@@ -1,10 +1,11 @@
+@php use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion; @endphp
 @section('main')
 
     @foreach($groups as $type => $group)
         <x-support-group
-                description="{{ \Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion::DESCRIPTIONS[$type] }}"
+                description="{{ TypeQuestion::DESCRIPTIONS[$type] }}"
                 :group="$group"
-                title="{{ \Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion::OPTIONS[$type] }}"
+                title="{{ TypeQuestion::OPTIONS[$type] }}"
         />
     @endforeach
 

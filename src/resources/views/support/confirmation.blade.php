@@ -10,7 +10,7 @@
 <x-govuk::h2>What would you like to do now?</x-govuk::h2>
 <x-govuk::ul bulleted spaced>
     <li>
-        <x-govuk::a href="{{ \App\Models\SupportDetail::editFormRoute($subject) }}">
+        <x-govuk::a href="{{ Networkrailbusinesssystems\SupportPage\Models\SupportDetail::editFormRoute($subject) }}">
             View created Support Detail
         </x-govuk::a>
     </li>

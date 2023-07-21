@@ -3,7 +3,7 @@
 namespace Networkrailbusinesssystems\SupportPage\Http\Controllers\Support;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
-use App\Http\Resources\SupportDetailCollection;
+use Networkrailbusinesssystems\SupportPage\Http\Resources\SupportDetailCollection;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
