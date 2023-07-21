@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Support;
+namespace Networkrailbusinesssystems\SupportPage\Http\Controllers\Support;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller as BaseController;
 use App\Http\Resources\SupportDetailCollection;
-use App\Models\SupportDetail;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Networkrailbusinesssystems\SupportPage\Models\SupportDetail;
 
-class SupportDetailController extends Controller
+class SupportDetailController extends BaseController
 {
     public function index(): View
     {

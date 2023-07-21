@@ -2,8 +2,8 @@
 
 namespace Networkrailbusinesssystems\SupportPage\Providers;
 
-use App\Http\Controllers\Support\SupportController;
-use App\Http\Controllers\Support\SupportDetailController;
+use Networkrailbusinesssystems\SupportPage\Http\Controllers\Support\SupportController;
+use Networkrailbusinesssystems\SupportPage\Http\Controllers\Support\SupportDetailController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
