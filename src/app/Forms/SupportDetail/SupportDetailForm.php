@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Forms\SupportDetail;
+namespace Networkrailbusinesssystems\SupportPage\Forms\SupportDetail;
 
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
-use App\Forms\SupportDetail\Questions\LabelQuestion;
-use App\Forms\SupportDetail\Questions\TargetQuestion;
-use App\Forms\SupportDetail\Questions\TypeQuestion;
-use App\Models\SupportDetail;
+use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
+use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
+use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use Illuminate\Database\Eloquent\Model;
+use Networkrailbusinesssystems\SupportPage\Models\SupportDetail;
 
 class SupportDetailForm extends Form
 {
@@ -51,7 +51,7 @@ class SupportDetailForm extends Form
         return 'support.confirmation';
     }
 
-    public function exitRoute(Model|null $subject = null): string
+    public function exitRoute(Model $subject = null): string
     {
         return route('support-details.create');
     }

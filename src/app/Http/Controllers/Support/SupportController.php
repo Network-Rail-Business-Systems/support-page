@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Support;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
-use App\Forms\SupportDetail\Questions\TypeQuestion;
+use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\SupportDetailCollection;
 use App\Models\SupportDetail;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Support;
 
-use App\Forms\SupportDetail\Questions\LabelQuestion;
+use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LabelRequest extends FormRequest
