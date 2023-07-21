@@ -2,6 +2,9 @@
 
 namespace Networkrailbusinesssystems\SupportPage\Providers;
 
+use App\Http\Controllers\Support\SupportController;
+use App\Http\Controllers\Support\SupportDetailController;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class SupportPageProvider extends ServiceProvider
@@ -24,8 +27,22 @@ class SupportPageProvider extends ServiceProvider
 
     protected function bootRoutes(): void
     {
-        //ADD ROUTES
+        Route::prefix('/support')
+            ->name('support')
+            ->controller(SupportController::class)
+            ->group(function () {
+                Route::get('/', 'support');
+                Route::get('/owner-team/{role}', 'owners')->name('.owners');
+            });
 
+        Route::prefix('/support-details')
+            ->name('support-details.')
+            ->controller(SupportDetailController::class)
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::get('/delete/{supportDetail}', 'delete')->name('delete');
+            });
     }
 
     protected function bootViews(): void
