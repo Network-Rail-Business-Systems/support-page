@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Support;
 
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 
 class TypeRequest extends FormRequest
 {

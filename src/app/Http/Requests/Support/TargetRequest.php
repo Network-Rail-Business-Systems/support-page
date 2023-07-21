@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\Support;
 
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use Illuminate\Foundation\Http\FormRequest;
+use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 
 class TargetRequest extends FormRequest
 {

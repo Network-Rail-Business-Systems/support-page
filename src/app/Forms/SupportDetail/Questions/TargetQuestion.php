@@ -5,7 +5,6 @@ namespace Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions;
 use AnthonyEdmonds\GovukLaravel\Forms\Question;
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion as GovukQuestionHelper;
 use AnthonyEdmonds\GovukLaravel\Questions\Question as GovukQuestion;
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use App\Http\Requests\Support\TargetRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\FormRequest;

@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Support;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\SupportDetailCollection;
 use App\Models\SupportDetail;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 
 class SupportController extends Controller
 {

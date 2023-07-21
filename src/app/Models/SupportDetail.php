@@ -3,13 +3,13 @@
 namespace Networkrailbusinesssystems\SupportPage\Models;
 
 use AnthonyEdmonds\GovukLaravel\Traits\HasForm;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
 use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Models\Role;
 
 /**
