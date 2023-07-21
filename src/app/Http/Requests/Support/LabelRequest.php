@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Support;
+namespace Networkrailbusinesssystems\SupportPage\Http\Requests\Support;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;

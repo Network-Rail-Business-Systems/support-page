@@ -3,11 +3,11 @@
 namespace Networkrailbusinesssystems\SupportPage\Http\Controllers\Support;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
-use Illuminate\Routing\Controller as BaseController;
 use App\Http\Resources\SupportDetailCollection;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Controller as BaseController;
 use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use Networkrailbusinesssystems\SupportPage\Models\SupportDetail;
 
