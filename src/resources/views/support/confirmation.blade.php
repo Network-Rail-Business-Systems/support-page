@@ -11,7 +11,7 @@
 <x-govuk::ul bulleted spaced>
     <li>
         //add this model to the config so it can be customisable
-        <x-govuk::a href="{{ Networkrailbusinesssystems\SupportPage\Models\SupportDetail::editFormRoute($subject) }}">
+        <x-govuk::a href="{{ config('support-page.support_detail_model')::editFormRoute($subject) }}">
             View created Support Detail
         </x-govuk::a>
     </li>
