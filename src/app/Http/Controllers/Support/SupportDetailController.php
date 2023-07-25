@@ -3,10 +3,10 @@
 namespace Networkrailbusinesssystems\SupportPage\Http\Controllers\Support;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
-use Networkrailbusinesssystems\SupportPage\Http\Resources\SupportDetailCollection;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller as BaseController;
+use Networkrailbusinesssystems\SupportPage\Http\Resources\SupportDetailCollection;
 use Networkrailbusinesssystems\SupportPage\Models\SupportDetail;
 
 class SupportDetailController extends BaseController

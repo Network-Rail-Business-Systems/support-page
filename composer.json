@@ -22,8 +22,8 @@
         "php": "^8",
         "anthonyedmonds/govuk-laravel": "^1",
         "illuminate/support": "^10",
-        "spatie/laravel-permission": "^5"
-        //"laracasts/flash": "^3"
+        "spatie/laravel-permission": "^5",
+        "laracasts/flash": "^3"
 
     },
     "require-dev": {

@@ -5,10 +5,10 @@ namespace Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions;
 use AnthonyEdmonds\GovukLaravel\Forms\Question;
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion as GovukQuestionHelper;
 use AnthonyEdmonds\GovukLaravel\Questions\Question as GovukQuestion;
-use Networkrailbusinesssystems\SupportPage\Http\Requests\Support\LabelRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
+use Networkrailbusinesssystems\SupportPage\Http\Requests\Support\LabelRequest;
 use Networkrailbusinesssystems\SupportPage\Models\SupportDetail;
 
 class LabelQuestion extends Question

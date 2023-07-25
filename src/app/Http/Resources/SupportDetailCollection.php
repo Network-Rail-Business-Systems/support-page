@@ -7,7 +7,6 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class SupportDetailCollection extends ResourceCollection
 {
-
     //try to remove this trait and test
     use ResourceCollectionAsArray;
 
