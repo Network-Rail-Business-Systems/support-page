@@ -38,6 +38,7 @@
 
     <x-govuk::ul spaced>
         <li>
+            //add this model to the config so it can be customisable
             <x-govuk::a href="{{ Networkrailbusinesssystems\SupportPage\Models\SupportDetail::startFormRoute() }}">
                 Create a new Support Detail
             </x-govuk::a>

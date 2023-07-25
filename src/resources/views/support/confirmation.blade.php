@@ -10,6 +10,7 @@
 <x-govuk::h2>What would you like to do now?</x-govuk::h2>
 <x-govuk::ul bulleted spaced>
     <li>
+        //add this model to the config so it can be customisable
         <x-govuk::a href="{{ Networkrailbusinesssystems\SupportPage\Models\SupportDetail::editFormRoute($subject) }}">
             View created Support Detail
         </x-govuk::a>

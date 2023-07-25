@@ -4,7 +4,6 @@ namespace Networkrailbusinesssystems\SupportPage\Http\Controllers\Support;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use Networkrailbusinesssystems\SupportPage\Http\Resources\SupportDetailCollection;
-use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller as BaseController;
@@ -50,7 +49,7 @@ class SupportController extends BaseController
 
     public function owners(string $role): RedirectResponse
     {
-        $emails = User::byRole($role, 'id')
+        $emails = config('support-page.user_model')::byRole($role, 'id')
             ->pluck('email')
             ->join(';');
 

@@ -26,6 +26,7 @@ class TargetQuestion extends Question
     {
         if ($subject->type === TypeQuestion::SYSTEM_QUESTIONS) {
 
+            //can add reference to the role model in config
             $roles = Role::pluck('name', 'id')->toArray();
 
             $roles['divider'] = [
