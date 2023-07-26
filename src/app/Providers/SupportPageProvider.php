@@ -23,6 +23,7 @@ class SupportPageProvider extends ServiceProvider
             __DIR__.'/../../resources/views/errors' => resource_path('views/errors'),
             __DIR__.'/../../resources/views/components' => resource_path('views/components'),
             __DIR__.'/../../resources/views/support' => resource_path('views/support'),
+            __DIR__.'/../../resources/views/admin.blade.php' => resource_path('views/admin.blade.php'),
         ]);
     }
 
