@@ -28,6 +28,7 @@ class SupportPageProvider extends ServiceProvider
     protected function bootPublishes(): void
     {
         $this->publishes([
+            __DIR__.'/../../config/support-page.php' => config_path('support-page.php'),
             __DIR__.'/../../resources/views/errors' => resource_path('views/errors'),
             __DIR__.'/../../resources/views/components' => resource_path('views/components'),
             __DIR__.'/../../resources/views/support' => resource_path('views/support'),
