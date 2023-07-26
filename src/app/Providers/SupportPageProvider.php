@@ -11,6 +11,7 @@ class SupportPageProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        $this->addPermission();
         $this->bootPublishes();
         $this->bootRoutes();
         $this->bootViews();
@@ -52,4 +53,14 @@ class SupportPageProvider extends ServiceProvider
             'support-page'
         );
     }
+
+    protected function addPermission(): array
+    {
+        $permissions = config('support-page.update.permissions')::PERMISSIONS;
+        $permissions['manage_support_page'] = [config('support-page.update.permissions')::ADMIN];
+
+        return $permissions;
+    }
+
+    //admin blade - need to add manage support page section
 }
