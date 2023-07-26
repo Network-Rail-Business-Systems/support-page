@@ -9,6 +9,14 @@ use Networkrailbusinesssystems\SupportPage\Http\Controllers\Support\SupportDetai
 
 class SupportPageProvider extends ServiceProvider
 {
+    public function register(): void
+    {
+        $this->mergeConfigFrom(
+            __DIR__.'/../../config/support-page.php',
+            'support-page'
+        );
+    }
+
     public function boot(): void
     {
         $this->addPermission();
@@ -62,6 +70,4 @@ class SupportPageProvider extends ServiceProvider
 
         return $permissions;
     }
-
-    //admin blade - need to add manage support page section
 }
