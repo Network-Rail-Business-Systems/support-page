@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Controllers\Support;
+namespace Unit\Controllers\Support;
 
 use App\Console\Commands\UpdatePermissions;
 use Illuminate\Http\RedirectResponse;
