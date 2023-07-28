@@ -1,15 +1,15 @@
 <?php
 
-namespace Networkrailbusinesssystems\SupportPage\Models;
+namespace NetworkRailBusinessSystems\SupportPage\Models;
 
 use AnthonyEdmonds\GovukLaravel\Traits\HasForm;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 use Spatie\Permission\Models\Role;
 
 /**

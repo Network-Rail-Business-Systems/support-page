@@ -2,11 +2,10 @@
 
 namespace Tests\Unit\Controllers\Support;
 
-use App\Forms\SupportDetail\Questions\TypeQuestion;
-use App\Http\Controllers\Support\SupportController;
-use App\Models\SupportDetail;
 use Illuminate\Contracts\View\View;
-use Tests\TestCase;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
+use TestCase;
 
 class SupportTest extends TestCase
 {
@@ -90,7 +89,7 @@ class SupportTest extends TestCase
     protected function createSupportDetails(): void
     {
         foreach (TypeQuestion::OPTIONS as $key => $value) {
-            SupportDetail::factory()
+            config('support-page.user_model')->factory()
                 ->withType($key)
                 ->create();
         }

@@ -1,6 +1,5 @@
 <?php
 
-
 use AnthonyEdmonds\LaravelLdapEmulator\Providers\LdapEmulatorServiceProvider;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;

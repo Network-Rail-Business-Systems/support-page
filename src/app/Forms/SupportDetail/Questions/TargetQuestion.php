@@ -1,6 +1,6 @@
 <?php
 
-namespace Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions;
+namespace NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions;
 
 use AnthonyEdmonds\GovukLaravel\Forms\Question;
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion as GovukQuestionHelper;
@@ -8,8 +8,8 @@ use AnthonyEdmonds\GovukLaravel\Questions\Question as GovukQuestion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
-use Networkrailbusinesssystems\SupportPage\Http\Requests\Support\TargetRequest;
-use Networkrailbusinesssystems\SupportPage\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TargetRequest;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use Spatie\Permission\Models\Role;
 
 class TargetQuestion extends Question

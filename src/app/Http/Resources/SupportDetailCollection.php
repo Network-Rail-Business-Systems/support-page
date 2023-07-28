@@ -1,6 +1,6 @@
 <?php
 
-namespace Networkrailbusinesssystems\SupportPage\Http\Resources;
+namespace NetworkRailBusinessSystems\SupportPage\Http\Resources;
 
 //use App\Traits\ResourceCollectionAsArray;
 use Illuminate\Http\Resources\Json\ResourceCollection;

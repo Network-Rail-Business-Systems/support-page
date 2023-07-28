@@ -35,7 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Networkrailbusinesssystems\\SupportPage\\": "src/app"
+            "NetworkRailBusinessSystems\\SupportPage\\": "src/app"
         }
     },
     "extra": {

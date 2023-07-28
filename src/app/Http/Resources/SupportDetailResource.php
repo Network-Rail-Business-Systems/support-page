@@ -1,9 +1,9 @@
 <?php
 
-namespace Networkrailbusinesssystems\SupportPage\Http\Resources;
+namespace NetworkRailBusinessSystems\SupportPage\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Networkrailbusinesssystems\SupportPage\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 
 /**
  * @mixin SupportDetail

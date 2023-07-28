@@ -1,13 +1,13 @@
 <?php
 
-namespace Networkrailbusinesssystems\SupportPage\Forms\SupportDetail;
+namespace NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail;
 
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
 use Illuminate\Database\Eloquent\Model;
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-use Networkrailbusinesssystems\SupportPage\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 
 class SupportDetailForm extends Form
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Networkrailbusinesssystems\SupportPage\Http\Requests\Support;
+namespace NetworkRailBusinessSystems\SupportPage\Http\Requests\Support;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 
 class TypeRequest extends FormRequest
 {

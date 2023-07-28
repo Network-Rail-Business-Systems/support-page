@@ -2,12 +2,11 @@
 
 namespace Unit\Controllers\Support;
 
-use App\Console\Commands\UpdatePermissions;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Collection;
-use Networkrailbusinesssystems\SupportPage\Http\Controllers\Support\SupportController;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
 use Spatie\Permission\Models\Role;
-use TestCase;
+use config('support-page.test_case');
 
 class OwnersTest extends TestCase
 {
@@ -23,12 +22,12 @@ class OwnersTest extends TestCase
 
         $this->users = config('support-page.user_model')->factory(
             ->count(3)
-            ->withRole(UpdatePermissions::ADMIN)
+            ->withRole(config('support-page.update_permissions')::ADMIN)
             ->create()
             ->sortBy('first_name');
 
         $this->controller = new SupportController();
-        $this->redirect = $this->controller->owners(Role::findByName(UpdatePermissions::ADMIN)->id);
+        $this->redirect = $this->controller->owners(Role::findByName((config('support-page.update_permissions')::ADMIN)->id);
     }
 
     public function testRedirectsToMailto(): void

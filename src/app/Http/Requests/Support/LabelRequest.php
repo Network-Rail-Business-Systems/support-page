@@ -1,9 +1,9 @@
 <?php
 
-namespace Networkrailbusinesssystems\SupportPage\Http\Requests\Support;
+namespace NetworkRailBusinessSystems\SupportPage\Http\Requests\Support;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Networkrailbusinesssystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
 
 class LabelRequest extends FormRequest
 {

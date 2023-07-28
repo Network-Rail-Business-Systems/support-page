@@ -1,18 +1,18 @@
 <?php
 
-namespace Networkrailbusinesssystems\SupportPage\Providers;
+namespace NetworkRailBusinessSystems\SupportPage\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Networkrailbusinesssystems\SupportPage\Http\Controllers\Support\SupportController;
-use Networkrailbusinesssystems\SupportPage\Http\Controllers\Support\SupportDetailController;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportDetailController;
 
 class SupportPageProvider extends ServiceProvider
 {
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/support-page.php',
+            __DIR__.'/config/support-page.php',
             'support-page'
         );
     }
@@ -28,12 +28,11 @@ class SupportPageProvider extends ServiceProvider
     protected function bootPublishes(): void
     {
         $this->publishes([
-            __DIR__.'/../../config/support-page.php' => config_path('support-page.php'),
-            __DIR__.'/../../resources/views/errors' => resource_path('views/errors'),
-            __DIR__.'/../../resources/views/components' => resource_path('views/components'),
-            __DIR__.'/../../resources/views/support' => resource_path('views/support'),
-            __DIR__.'/../../resources/views/admin.blade.php' => resource_path('views/admin.blade.php'),
-        ]);
+            __DIR__.'/config/support-page.php' => config_path('support-page.php'),
+            __DIR__.'/src/resources/views/components' => resource_path('views/components'),
+            __DIR__.'/src/resources/views/support' => resource_path('views/support'),
+            __DIR__.'/src/resources/views/admin.blade.php' => resource_path('views/admin.blade.php'),
+        ], 'support-page');
     }
 
     protected function bootRoutes(): void
@@ -59,7 +58,7 @@ class SupportPageProvider extends ServiceProvider
     protected function bootViews(): void
     {
         $this->loadViewsFrom(
-            __DIR__.'/../../resources/views',
+            __DIR__.'/src/resources/views',
             'support-page'
         );
     }
@@ -69,6 +68,6 @@ class SupportPageProvider extends ServiceProvider
         $permissions = config('support-page.update.permissions')::PERMISSIONS;
         $permissions['manage_support_page'] = [config('support-page.update.permissions')::ADMIN];
 
-        return $permissions;
+        return $permissions; // put a line in the readme to add permission- maybe put in config
     }
 }
