@@ -30,7 +30,6 @@ class SupportPageProvider extends ServiceProvider
             __DIR__.'/src/app/config/support-page.php' => config_path('support-page.php'),
             __DIR__.'/src/resources/views/components' => resource_path('views/components'),
             __DIR__.'/src/resources/views/support' => resource_path('views/support'),
-            __DIR__.'/src/resources/views/admin.blade.php' => resource_path('views/admin.blade.php'),
         ], 'support-page');
     }
 
@@ -62,11 +61,11 @@ class SupportPageProvider extends ServiceProvider
         );
     }
 
-   /* protected function addPermission(): array
-    {
-        $permissions = config('support-page.update.permissions')::PERMISSIONS;
-        $permissions['manage_support_page'] = [config('support-page.update.permissions')::ADMIN];
+    /* protected function addPermission(): array
+     {
+         $permissions = config('support-page.update.permissions')::PERMISSIONS;
+         $permissions['manage_support_page'] = [config('support-page.update.permissions')::ADMIN];
 
-        return $permissions; // put a line in the readme to add permission- maybe put in config
-    }*/
+         return $permissions; // put a line in the readme to add permission- maybe put in config
+     }*/
 }
