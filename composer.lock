@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b151da3850e9ee4bc61c406f27684d9e",
+    "content-hash": "72827ed25e2e8e9cb9d96af0de764df7",
     "packages": [
         {
             "name": "anthonyedmonds/govuk-laravel",

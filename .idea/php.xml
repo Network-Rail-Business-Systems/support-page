@@ -56,7 +56,6 @@
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
       <path value="$PROJECT_DIR$/vendor/laracasts/flash" />
       <path value="$PROJECT_DIR$/vendor/nunomaduro/laravel-mojito" />
-      <path value="$PROJECT_DIR$/vendor/anthonyedmonds/govuk-laravel" />
       <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
       <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
       <path value="$PROJECT_DIR$/vendor/phpmyadmin/sql-parser" />
@@ -135,6 +134,7 @@
       <path value="$PROJECT_DIR$/vendor/orchestra/workbench" />
       <path value="$PROJECT_DIR$/vendor/orchestra/testbench" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/anthonyedmonds/govuk-laravel" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
