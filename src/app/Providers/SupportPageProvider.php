@@ -12,7 +12,7 @@ class SupportPageProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'src/app/config/support-page.php',
+            __DIR__.'/../../config/support-page.php',
             'support-page'
         );
     }
@@ -27,9 +27,9 @@ class SupportPageProvider extends ServiceProvider
     protected function bootPublishes(): void
     {
         $this->publishes([
-            __DIR__.'src/app/config/support-page.php' => config_path('support-page.php'),
-            __DIR__.'src/resources/views/components' => resource_path('views/components'),
-            __DIR__.'src/resources/views/support' => resource_path('views/support'),
+            __DIR__.'/../../config/support-page.php' => config_path('support-page.php'),
+            __DIR__.'/../../resources/views/components' => resource_path('views/components'),
+            __DIR__.'/../../resources/views/support' => resource_path('views/support'),
         ], 'support-page');
 
         $this->publishes([
@@ -60,7 +60,7 @@ class SupportPageProvider extends ServiceProvider
     protected function bootViews(): void
     {
         $this->loadViewsFrom(
-            __DIR__.'/src/resources/views',
+            __DIR__.'/../../resources/views',
             'support-page'
         );
     }

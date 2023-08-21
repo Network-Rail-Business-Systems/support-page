@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="NetworkRailBusinessSystems\SupportPage\" />
       <sourceFolder url="file://$MODULE_DIR$/src/app" isTestSource="false" packagePrefix="NetworkRailBusinessSystems\SupportPage\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/anthonyedmonds/govuk-laravel" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
