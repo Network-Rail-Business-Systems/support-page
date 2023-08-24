@@ -19,6 +19,10 @@ class SupportPageProvider extends ServiceProvider
 
     public function boot(): void
     {
+        $this->publishes([
+            __DIR__.'/test' => config_path('test'),
+        ], 'test');
+
         $this->bootPublishes();
         $this->bootRoutes();
         $this->bootViews();
