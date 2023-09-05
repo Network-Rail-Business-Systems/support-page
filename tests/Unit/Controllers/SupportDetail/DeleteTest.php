@@ -5,7 +5,7 @@ namespace Tests\Unit\Controllers\SupportDetail;
 use App\Http\Controllers\Support\SupportDetailController;
 use App\Models\SupportDetail;
 use Illuminate\Http\RedirectResponse;
-use Tests\TestCase;
+use TestCase;
 
 class DeleteTest extends TestCase
 {

@@ -6,6 +6,7 @@
         <cache>
           <versions>
             <info id="Local" version="10.2.6" />
+            <info id="Local/home/simran/Projects/support-page/vendor/autoload.php" version="10.3.2" />
           </versions>
         </cache>
       </tool>
