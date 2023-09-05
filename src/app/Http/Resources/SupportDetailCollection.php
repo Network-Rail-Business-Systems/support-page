@@ -2,13 +2,12 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Http\Resources;
 
-//use App\Traits\ResourceCollectionAsArray;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use NetworkRailBusinessSystems\SupportPage\Traits\ResourceCollectionAsArray;
 
 class SupportDetailCollection extends ResourceCollection
 {
-    //try to remove this trait and test
-    //use ResourceCollectionAsArray;
+    use ResourceCollectionAsArray;
 
     public $collects = SupportDetailResource::class;
 }

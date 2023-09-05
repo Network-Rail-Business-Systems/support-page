@@ -19,10 +19,6 @@ class SupportPageProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->publishes([
-            __DIR__.'/test' => config_path('test'),
-        ], 'test');
-
         $this->bootPublishes();
         $this->bootRoutes();
         $this->bootViews();
@@ -36,9 +32,10 @@ class SupportPageProvider extends ServiceProvider
             __DIR__.'/../../resources/views/support' => resource_path('views/support'),
         ], 'support-page');
 
-        $this->publishes([
-            __DIR__.'/../../resources/views' => resource_path('views'),
-        ], 'support-page-blade');
+        //        $this->publishes([
+        //            __DIR__.'/../../database/factories/SupportDetailFactory.php' => database_path('factories/SupportDetailFactory.php'),
+        //            __DIR__.'/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
+        //        ], 'support-page-data');
     }
 
     protected function bootRoutes(): void
@@ -68,12 +65,4 @@ class SupportPageProvider extends ServiceProvider
             'support-page'
         );
     }
-
-    /* protected function addPermission(): array
-     {
-         $permissions = config('support-page.update.permissions')::PERMISSIONS;
-         $permissions['manage_support_page'] = [config('support-page.update.permissions')::ADMIN];
-
-         return $permissions; // put a line in the readme to add permission- maybe put in config
-     }*/
 }

@@ -18,18 +18,18 @@ use Tests\Traits\SignsInUsers;
 
 abstract class TestCase extends BaseTestCase
 {
-    use \Tests\CreatesApplication;
-    use LazilyRefreshDatabase;
     use AssertsActivities;
-    use AssertsResults;
-    use AssertsFormRequests;
     use AssertsFlashMessages;
-    use AssertsPolicies;
+    use AssertsFormRequests;
     use AssertsOrder;
-    use SignsInUsers;
+    use AssertsPolicies;
+    use AssertsResults;
+    use AssertsValidationRules;
     use GetsRawCsvs;
     use GetsStreamedResponses;
-    use AssertsValidationRules;
+    use LazilyRefreshDatabase;
+    use SignsInUsers;
+    use \Tests\CreatesApplication;
 
     public function tearDown(): void
     {
