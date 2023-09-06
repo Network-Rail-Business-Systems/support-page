@@ -1,5 +1,4 @@
 @php use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion; @endphp
-@php use NetworkRailBusinessSystems\SupportPage\resources\views\components\support-group; @endphp
 @section('main')
 
     @foreach($groups as $type => $group)
