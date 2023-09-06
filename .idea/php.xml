@@ -135,8 +135,8 @@
       <path value="$PROJECT_DIR$/vendor/orchestra/canvas" />
       <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
       <path value="$PROJECT_DIR$/vendor/psy/psysh" />
-      <path value="$PROJECT_DIR$/vendor/nunomaduro/laravel-mojito" />
       <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/nunomaduro/laravel-mojito" />
       <path value="$PROJECT_DIR$/vendor/anthonyedmonds/govuk-laravel" />
       <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
     </include_path>
