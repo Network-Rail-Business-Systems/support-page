@@ -3,7 +3,7 @@
 @section('main')
 
     @foreach($groups as $type => $group)
-        <x-vendor.support-page.components.support-group
+        <x-support-page::support-group
                 description="{{ TypeQuestion::DESCRIPTIONS[$type] }}"
                 :group="$group"
                 title="{{ TypeQuestion::OPTIONS[$type] }}"
