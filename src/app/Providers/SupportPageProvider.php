@@ -53,7 +53,6 @@ class SupportPageProvider extends ServiceProvider
             ->controller(SupportDetailController::class)
             ->group(function () {
                 Route::get('/', 'index')->name('index');
-                Route::get('/create', 'create')->name('create');
                 Route::get('/delete/{supportDetail}', 'delete')->name('delete');
             });
     }

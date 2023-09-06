@@ -53,6 +53,6 @@ class SupportDetailForm extends Form
 
     public function exitRoute(Model $subject = null): string
     {
-        return route('support-details.create');
+        return route('support-details.index');
     }
 }
