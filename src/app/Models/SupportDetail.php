@@ -4,7 +4,6 @@ namespace NetworkRailBusinessSystems\SupportPage\Models;
 
 use AnthonyEdmonds\GovukLaravel\Traits\HasForm;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
@@ -23,7 +22,6 @@ use Spatie\Permission\Models\Role;
  */
 class SupportDetail extends Model
 {
-    use HasFactory;
     use HasForm;
 
     protected $fillable = ['type', 'target', 'label'];

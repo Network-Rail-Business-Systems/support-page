@@ -28,10 +28,8 @@ class SupportPageProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../../config/support-page.php' => config_path('support-page.php'),
-            __DIR__.'/../../resources/views/components' => resource_path('views/components'),
-            __DIR__.'/../../resources/views/support' => resource_path('views/support'),
-            //            __DIR__.'/../../resources/views/components' => resource_path('views/vendor/support-page/components'),
-            //            __DIR__.'/../../resources/views/support' => resource_path('views/vendor/support-page/support'),
+            __DIR__.'/../../resources/views/components' => resource_path('views/vendor/support-page/components'),
+            __DIR__.'/../../resources/views/support' => resource_path('views/vendor/support-page/support'),
         ], 'support-page');
 
         //        $this->publishes([

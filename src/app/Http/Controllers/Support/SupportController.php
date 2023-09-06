@@ -36,7 +36,7 @@ class SupportController extends BaseController
             );
         }
 
-        return GovukPage::custom('Support', 'support.page', [])
+        return GovukPage::custom('Support', 'vendor.support-page.support.page', [])
             ->with('list', [
                 'Name' => config('app.name'),
                 'Acronym' => config('app.acronym'),
