@@ -20,7 +20,7 @@ class SupportDetailController extends BaseController
 
     public function index(): View
     {
-        return GovukPage::custom('Manage Support Details', 'vendor.support-page.support.index', [
+        return GovukPage::custom('Manage Support Details', 'support-page::support.index', [
             'Admin' => route('dashboard.admin'),
             'Manage Support Details' => route('support-details.index'),
         ])->with('supportDetails', SupportDetailCollection::make(
