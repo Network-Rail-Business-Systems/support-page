@@ -39,21 +39,23 @@ class SupportPageProvider extends ServiceProvider
 
     protected function bootRoutes(): void
     {
-        Route::prefix('/support')
-            ->name('support')
-            ->controller(SupportController::class)
-            ->group(function () {
-                Route::get('/', 'support');
-                Route::get('/owner-team/{role}', 'owners')->name('.owners');
-            });
+        Route::macro('Support', function () {
+            Route::prefix('/support')
+                ->name('support')
+                ->controller(SupportController::class)
+                ->group(function () {
+                    Route::get('/', 'support');
+                    Route::get('/owner-team/{role}', 'owners')->name('.owners');
+                });
 
-        Route::prefix('/support-details')
-            ->name('support-details.')
-            ->controller(SupportDetailController::class)
-            ->group(function () {
-                Route::get('/', 'index')->name('index');
-                Route::get('/delete/{supportDetail}', 'delete')->name('delete');
-            });
+            Route::prefix('/support-details')
+                ->name('support-details.')
+                ->controller(SupportDetailController::class)
+                ->group(function () {
+                    Route::get('/', 'index')->name('index');
+                    Route::get('/delete/{supportDetail}', 'delete')->name('delete');
+                });
+        });
     }
 
     protected function bootViews(): void

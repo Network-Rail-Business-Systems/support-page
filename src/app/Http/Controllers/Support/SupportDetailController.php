@@ -31,6 +31,7 @@ class SupportDetailController extends BaseController
     public function delete(SupportDetail $supportDetail): RedirectResponse
     {
         $supportDetail->delete();
+
         flash()->success("Record $supportDetail->id delete.");
 
         return redirect()->route('support-details.index');
