@@ -4,6 +4,9 @@ namespace NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support;
 
 use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller as BaseController;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
@@ -12,6 +15,10 @@ use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 
 class SupportController extends BaseController
 {
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
+
     public function support(): View
     {
         $groups = SupportDetail::query()
@@ -53,6 +60,6 @@ class SupportController extends BaseController
             ->pluck('email')
             ->join(';');
 
-        return redirect("mailto:$emails?subject=".SupportDetail::getEnquirySubject());
+        return redirect("mailto:$emails?subject=".config('support-page.support_detail_model')::getEnquirySubject());
     }
 }

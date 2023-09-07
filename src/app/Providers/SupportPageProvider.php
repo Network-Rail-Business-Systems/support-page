@@ -28,14 +28,13 @@ class SupportPageProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../../config/support-page.php' => config_path('support-page.php'),
-            __DIR__.'/../../resources/views/components' => resource_path('views/vendor/support-page/components'),
             __DIR__.'/../../resources/views/support' => resource_path('views/vendor/support-page/support'),
         ], 'support-page');
 
-        //        $this->publishes([
-        //            __DIR__.'/../../database/factories/SupportDetailFactory.php' => database_path('factories/SupportDetailFactory.php'),
-        //            __DIR__.'/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
-        //        ], 'support-page-data');
+        $this->publishes([
+            __DIR__.'/../../database/factories/SupportDetailFactory.php' => database_path('factories/SupportDetailFactory.php'),
+            __DIR__.'/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
+        ], 'support-page-data');
     }
 
     protected function bootRoutes(): void
