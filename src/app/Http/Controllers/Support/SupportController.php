@@ -56,11 +56,11 @@ class SupportController extends BaseController
 
     public function owners(string $role): RedirectResponse
     {
+        dd(config('support-page.user_model'));
+
         $emails = config('support-page.user_model')::byRole($role, 'id')
             ->pluck('email')
             ->join(';');
-
-        dd($emails);
 
         return redirect("mailto:$emails?subject=".config('support-page.support_detail_model')::getEnquirySubject());
     }
