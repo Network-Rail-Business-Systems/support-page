@@ -19,6 +19,8 @@ class TargetQuestion extends Question
         return 'target';
     }
 
+    // change param model to be config('support-page.support_detail_model')?
+
     /**
      * @param  SupportDetail  $subject
      */
@@ -26,7 +28,6 @@ class TargetQuestion extends Question
     {
         if ($subject->type === TypeQuestion::SYSTEM_QUESTIONS) {
 
-            //can add reference to the role model in config
             $roles = Role::pluck('name', 'id')->toArray();
 
             $roles['divider'] = [

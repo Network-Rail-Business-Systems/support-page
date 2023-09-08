@@ -21,20 +21,22 @@ class SupportController extends BaseController
 
     public function support(): View
     {
-        $groups = SupportDetail::query()
+        $groups = config('support-page.support_detail_model')::query()
             ->orderBy('type')
             ->orderBy('label')
             ->get()
             ->groupBy('type')
             ->sortKeys()
             ->map(function ($group) {
-                return SupportDetailCollection::make($group);
+                return config('support-page.support_detail_collection')::make($group);
             });
 
+        //issues changing support detail model to config config('support-page.support_detail_model')
+        //adding support detail collection config works - php storm doesnt like it
         if ($groups->has(TypeQuestion::TECHNICAL_ISSUES) === false) {
             $groups->put(
                 TypeQuestion::TECHNICAL_ISSUES,
-                SupportDetailCollection::make([
+                config('support-page.support_detail_collection')::make([
                     new SupportDetail([
                         'target' => route('enquiry-form'),
                         'label' => 'Submit an enquiry',

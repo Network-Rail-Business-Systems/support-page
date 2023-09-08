@@ -35,6 +35,8 @@ class SupportDetailForm extends Form
         return new SupportDetail();
     }
 
+    // change param model to be config('support-page.support_detail_model')?
+
     /** @param  SupportDetail  $subject */
     protected function submitForm(Model $subject, string $mode): void
     {

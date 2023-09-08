@@ -36,6 +36,8 @@ class TypeQuestion extends Question
         return 'type';
     }
 
+    // change param model to be config('support-page.support_detail_model')?
+
     /**
      * @param  SupportDetail  $subject
      */
