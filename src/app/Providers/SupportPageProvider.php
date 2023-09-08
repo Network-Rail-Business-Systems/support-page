@@ -38,7 +38,7 @@ class SupportPageProvider extends ServiceProvider
 
     protected function bootRoutes(): void
     {
-        Route::macro('Support', function () {
+        Route::macro('supportPage', function () {
             Route::prefix('/support')
                 ->name('support')
                 ->controller(SupportController::class)
