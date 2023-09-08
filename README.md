@@ -23,8 +23,8 @@ Publish via the terminal: `php artisan vendor:publish --provider="NetworkRailBus
 * Register the form in the Govuk config:
 ```php
 return [
-'forms' => [
-SupportDetailForm::class,
+    'forms' => [
+        SupportDetailForm::class,
 ],
 ```
 * run `php artisan update:permissions` and `php artisan migrate` in the terminal
@@ -49,27 +49,26 @@ Need to make some tests
 
 This library was created from Network Rails template, using a branch created support page and support page admin.
 
-This branch has not been merged yet and it includes a change to the User Model which is required for this library:
+This branch is yet to be merged yet and  includes a change to the User Model which is required for this library:
 
 * Update the User Model Method scopeByRole:
 ```php
 public function scopeByRole(Builder $query, string $role, string $column = 'name'): Builder
 {
-return $query->whereHas('roles', function (Builder $query) use ($role, $column) {
-$query->where($column, '=', $role);
-});
+    return $query->whereHas('roles', function (Builder $query) use ($role, $column) {
+        $query->where($column, '=', $role);
+    });
+}
 ```
 An additional request when working on this library included adding the support page to the Navbar.
 
-* Update the header.blade in GOVUK:
+* Update the header.blade in govuk->layout:
 ```php
 'Support' => [
-'auth' => true,
-'link' => route('support'),
+    'auth' => true,
+    'link' => route('support'),
 ],
 ```
 The Model update will be merged as it is an approved PR.
 
 The GOVUK update will be required to be created and submitted as a PR
-
-```
