@@ -60,6 +60,7 @@ class SupportController extends BaseController
             ->pluck('email')
             ->join(';');
 
+        dd($emails);
         return redirect("mailto:$emails?subject=".config('support-page.support_detail_model')::getEnquirySubject());
     }
 }

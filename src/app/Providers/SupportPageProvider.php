@@ -32,7 +32,6 @@ class SupportPageProvider extends ServiceProvider
         ], 'support-page');
 
         $this->publishes([
-            __DIR__.'/../../database/factories/SupportDetailFactory.php' => database_path('factories/SupportDetailFactory.php'),
             __DIR__.'/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
         ], 'support-page-data');
     }
