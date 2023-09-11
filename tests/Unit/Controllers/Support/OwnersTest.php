@@ -3,13 +3,13 @@
 namespace NetworkRailBusinessSystems\SupportPage\Unit\Controllers\Support;
 
 use App\Console\Commands\UpdatePermissions;
-use App\Http\Controllers\Support\SupportController;
-use App\Models\SupportDetail;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Collection;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use Spatie\Permission\Models\Role;
-use Tests\TestCase;
+use TestCase;
 
 class OwnersTest extends TestCase
 {

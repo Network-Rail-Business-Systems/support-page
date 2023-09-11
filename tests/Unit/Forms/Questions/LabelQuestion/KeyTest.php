@@ -4,7 +4,6 @@ namespace NetworkRailBusinessSystems\SupportPage\Unit\Forms\Questions\LabelQuest
 
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
 use TestCase;
-use Tests\;
 
 class KeyTest extends TestCase
 {
