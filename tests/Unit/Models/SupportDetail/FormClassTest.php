@@ -4,7 +4,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Unit\Models\SupportDetail;
 
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class FormClassTest extends TestCase
 {

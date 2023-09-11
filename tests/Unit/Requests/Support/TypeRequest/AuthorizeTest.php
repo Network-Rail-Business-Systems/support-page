@@ -3,7 +3,7 @@
 namespace NetworkRailBusinessSystems\SupportPage\Unit\Requests\Support\TypeRequest;
 
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TypeRequest;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class AuthorizeTest extends TestCase
 {

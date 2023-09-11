@@ -5,7 +5,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Unit\Resources\SupportDetailRes
 use Illuminate\Http\Request;
 use NetworkRailBusinessSystems\SupportPage\Http\Resources\SupportDetailResource;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ToArrayTest extends TestCase
 {

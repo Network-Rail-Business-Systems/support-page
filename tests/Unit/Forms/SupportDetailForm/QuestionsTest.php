@@ -6,7 +6,7 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQu
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class QuestionsTest extends TestCase
 {

@@ -5,7 +5,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Unit\Forms\Questions\TypeQuesti
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TypeRequest;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class StoreTest extends TestCase
 {

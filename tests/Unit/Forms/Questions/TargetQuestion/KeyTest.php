@@ -3,7 +3,7 @@
 namespace NetworkRailBusinessSystems\SupportPage\Unit\Forms\Questions\TargetQuestion;
 
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class KeyTest extends TestCase
 {

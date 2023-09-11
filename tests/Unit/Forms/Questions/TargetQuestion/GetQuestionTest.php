@@ -6,7 +6,7 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQ
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use Spatie\Permission\Models\Role;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class GetQuestionTest extends TestCase
 {

@@ -5,7 +5,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Unit\Forms\Questions\LabelQuest
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\LabelRequest;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class StoreTest extends TestCase
 {

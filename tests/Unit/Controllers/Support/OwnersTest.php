@@ -1,6 +1,6 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Unit\Controllers\Support;
+namespace Tests\Unit\Controllers\Support;
 
 use App\Console\Commands\UpdatePermissions;
 use App\Models\User;
@@ -8,8 +8,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Collection;
 use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
+use PHPUnit\Framework\TestCase;
 use Spatie\Permission\Models\Role;
-use TestCase;
 
 class OwnersTest extends TestCase
 {

@@ -4,7 +4,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Unit\Requests\Support\LabelRequ
 
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\LabelRequest;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class RulesTest extends TestCase
 {

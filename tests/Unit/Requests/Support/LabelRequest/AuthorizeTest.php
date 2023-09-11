@@ -3,7 +3,7 @@
 namespace NetworkRailBusinessSystems\SupportPage\Unit\Requests\Support\LabelRequest;
 
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\LabelRequest;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class AuthorizeTest extends TestCase
 {

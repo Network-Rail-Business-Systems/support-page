@@ -1,10 +1,9 @@
 <?php
 
-use AnthonyEdmonds\LaravelLdapEmulator\Providers\LdapEmulatorServiceProvider;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Support\Facades\Artisan;
-use LdapRecord\Laravel\Testing\DirectoryEmulator;
+use Tests\CreatesApplication;
 use Tests\Traits\AssertsActivities;
 use Tests\Traits\AssertsFlashMessages;
 use Tests\Traits\AssertsFormRequests;
@@ -29,18 +28,7 @@ abstract class TestCase extends BaseTestCase
     use GetsStreamedResponses;
     use LazilyRefreshDatabase;
     use SignsInUsers;
-    use \Tests\CreatesApplication;
-
-    public function tearDown(): void
-    {
-        DirectoryEmulator::tearDown();
-        parent::tearDown();
-    }
-
-    public function useLdapEmulator(): void
-    {
-        LdapEmulatorServiceProvider::start();
-    }
+    use CreatesApplication;
 
     public function usePages(): void
     {

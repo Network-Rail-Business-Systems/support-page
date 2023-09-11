@@ -3,7 +3,7 @@
 namespace NetworkRailBusinessSystems\SupportPage\Unit\Models\SupportDetail;
 
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class GetEnquirySubjectTest extends TestCase
 {

@@ -5,7 +5,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Unit\Requests\Support\TargetReq
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TargetRequest;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class RulesTest extends TestCase
 {

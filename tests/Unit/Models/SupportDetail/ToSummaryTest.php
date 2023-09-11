@@ -5,7 +5,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Unit\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use Spatie\Permission\Models\Role;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ToSummaryTest extends TestCase
 {

@@ -4,7 +4,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Unit\Forms\SupportDetailForm;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class CheckAccessTest extends TestCase
 {

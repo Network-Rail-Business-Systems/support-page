@@ -6,7 +6,7 @@ use App\Http\Controllers\Support\SupportDetailController;
 use App\Http\Resources\SupportDetailCollection;
 use App\Models\SupportDetail;
 use Illuminate\Contracts\View\View;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class IndexTest extends TestCase
 {

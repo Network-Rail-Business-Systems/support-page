@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use TestCase;
+use PHPUnit\Framework\TestCase;
 
 class SubmitFormTest extends TestCase
 {
