@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Unit\Controllers\SupportDetail;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\SupportDetail;
 
-use App\Http\Controllers\Support\SupportDetailController;
-use App\Http\Resources\SupportDetailCollection;
-use App\Models\SupportDetail;
 use Illuminate\Contracts\View\View;
-use PHPUnit\Framework\TestCase;
+use NetworkRailBusinessSystems\SupportPage\Tests\Http\Controllers\Support\SupportDetailController;
+use NetworkRailBusinessSystems\SupportPage\Tests\Http\Resources\SupportDetailCollection;
+use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class IndexTest extends TestCase
 {

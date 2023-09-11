@@ -1,9 +1,9 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Unit\Forms\Questions\TargetQuestion;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\Questions\TargetQuestion;
 
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
-use PHPUnit\Framework\TestCase;
+use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TargetQuestion;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class KeyTest extends TestCase
 {

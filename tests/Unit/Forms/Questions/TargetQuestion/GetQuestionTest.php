@@ -1,12 +1,12 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Unit\Forms\Questions\TargetQuestion;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\Questions\TargetQuestion;
 
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TargetQuestion;
+use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 use Spatie\Permission\Models\Role;
-use PHPUnit\Framework\TestCase;
 
 class GetQuestionTest extends TestCase
 {

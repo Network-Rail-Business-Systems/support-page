@@ -1,11 +1,11 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Unit\Models\SupportDetail;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Models\SupportDetail;
 
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 use Spatie\Permission\Models\Role;
-use PHPUnit\Framework\TestCase;
 
 class ToSummaryTest extends TestCase
 {

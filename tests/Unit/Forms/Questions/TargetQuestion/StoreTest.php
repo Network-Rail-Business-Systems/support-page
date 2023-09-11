@@ -1,13 +1,13 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Unit\Forms\Questions\TargetQuestion;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\Questions\TargetQuestion;
 
 use App\Console\Commands\UpdatePermissions;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TargetRequest;
-use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use PHPUnit\Framework\TestCase;
+use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TargetQuestion;
+use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Tests\Http\Requests\Support\TargetRequest;
+use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class StoreTest extends TestCase
 {

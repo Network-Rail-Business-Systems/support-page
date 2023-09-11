@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8",
         "anthonyedmonds/govuk-laravel": "^1",
         "illuminate/support": "^10",
         "laracasts/flash": "^3",
@@ -39,7 +39,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "NetworkRailBusinessSystems\\SupportPage\\": "tests/"
+            "NetworkRailBusinessSystems\\SupportPage\\Tests\\": "tests/"
         }
     },
     "extra": {

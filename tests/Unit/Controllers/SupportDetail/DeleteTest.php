@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Unit\Controllers\SupportDetail;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\SupportDetail;
 
-use App\Http\Controllers\Support\SupportDetailController;
-use App\Models\SupportDetail;
 use Illuminate\Http\RedirectResponse;
-use PHPUnit\Framework\TestCase;
+use NetworkRailBusinessSystems\SupportPage\Tests\Http\Controllers\Support\SupportDetailController;
+use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class DeleteTest extends TestCase
 {

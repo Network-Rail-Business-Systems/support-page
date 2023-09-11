@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Unit\Controllers\Support;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\Support;
 
 use Illuminate\Contracts\View\View;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
-use PHPUnit\Framework\TestCase;
+use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Tests\Http\Controllers\Support\SupportController;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class SupportTest extends TestCase
 {

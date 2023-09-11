@@ -1,14 +1,14 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Unit\Forms\SupportDetailForm;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\SupportDetailForm;
 
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
-use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use PHPUnit\Framework\TestCase;
+use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\SupportDetailForm;
+use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class SubmitFormTest extends TestCase
 {

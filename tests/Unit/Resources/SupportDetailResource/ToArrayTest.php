@@ -1,11 +1,11 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Unit\Resources\SupportDetailResource;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Resources\SupportDetailResource;
 
 use Illuminate\Http\Request;
-use NetworkRailBusinessSystems\SupportPage\Http\Resources\SupportDetailResource;
-use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use PHPUnit\Framework\TestCase;
+use NetworkRailBusinessSystems\SupportPage\Tests\Http\Resources\SupportDetailResource;
+use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class ToArrayTest extends TestCase
 {

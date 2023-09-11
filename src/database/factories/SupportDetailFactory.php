@@ -1,5 +1,7 @@
 <?php
 
+namespace NetworkRailBusinessSystems\src\database\factories;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;

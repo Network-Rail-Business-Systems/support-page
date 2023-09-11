@@ -1,9 +1,9 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Unit\Requests\Support\TargetRequest;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Requests\Support\TargetRequest;
 
-use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TargetRequest;
-use PHPUnit\Framework\TestCase;
+use NetworkRailBusinessSystems\SupportPage\Tests\Http\Requests\Support\TargetRequest;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class AuthorizeTest extends TestCase
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Unit\Requests\Support\TargetRequest;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Requests\Support\TargetRequest;
 
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TargetRequest;
-use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use PHPUnit\Framework\TestCase;
+use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Tests\Http\Requests\Support\TargetRequest;
+use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class RulesTest extends TestCase
 {
