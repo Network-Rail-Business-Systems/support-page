@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "php": "^8",
+        "php": "^8.2",
         "anthonyedmonds/govuk-laravel": "^1",
         "illuminate/support": "^10",
         "laracasts/flash": "^3",
