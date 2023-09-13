@@ -47,6 +47,9 @@ class SupportPageProvider extends ServiceProvider
                     Route::get('/', 'support')->name('show');
                     Route::get('/owner-team/{role}', 'owners')->name('owners');
                 });
+
+            Route::redirect('/enquiry-form', 'https://systems.networkrail.co.uk/enquiry')->name('enquiry-form');
+
         });
     }
 
