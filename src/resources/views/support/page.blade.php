@@ -1,30 +1,21 @@
 @php use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion; @endphp
-<head>
-    <title>Support</title>
-</head>
-    <body>
-        <section>
-            <aside>
-                <div style="float: right;">
-                    <h2>System details</h2>
-                    <x-support-page::support-summary-list :list="$list"/>
-                </div>
-            </aside>
-        </section>
 
-        <div>
-            <section>
-                @foreach($groups as $type => $group)
-                    <x-support-page::support-group
-                            description="{{ TypeQuestion::DESCRIPTIONS[$type] }}"
-                            :group="$group"
-                            title="{{ TypeQuestion::OPTIONS[$type] }}"
-                    />
-                @endforeach
-            </section>
-        </div>
-    </body>
+<div class="columns">
+    <section class="column is-two-thirds">
+        @foreach($groups as $type => $group)
+            <x-support-page::support-group
+                    description="{{ TypeQuestion::DESCRIPTIONS[$type] }}"
+                    :group="$group"
+                    title="{{ TypeQuestion::OPTIONS[$type] }}"
+            />
+        @endforeach
+    </section>
 
-
-
+    <section class="column is-one-third">
+        <aside>
+            <p class="subtitle is-4"><b>System details</b></p>
+            <x-support-page::support-summary-list :list="$list"/>
+        </aside>
+    </section>
+</div>
 

@@ -27,19 +27,19 @@ class SupportPageProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../../config/support-page.php' => config_path('support-page.php'),
-            __DIR__.'/../../resources/views/support' => resource_path('views/vendor/support-page/support'),
+            __DIR__.'/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
         ], 'support-page');
 
         $this->publishes([
-            __DIR__.'/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
-        ], 'support-page-data');
+            __DIR__.'/../../resources/views/support' => resource_path('views/vendor/support-page/support'),
+        ], 'support-page-views');
     }
 
     protected function bootRoutes(): void
     {
         Route::macro('supportPage', function () {
-            Route::prefix('/support-details')
-                ->name('support-details.')
+            Route::prefix('/support-page')
+                ->name('support-page.')
                 ->controller(SupportDetailController::class)
                 ->group(function () {
                     Route::get('/manage', 'index')->name('index');
