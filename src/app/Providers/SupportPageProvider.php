@@ -4,7 +4,6 @@ namespace NetworkRailBusinessSystems\SupportPage\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
 use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportDetailController;
 
 class SupportPageProvider extends ServiceProvider

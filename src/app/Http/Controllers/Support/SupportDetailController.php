@@ -2,7 +2,6 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support;
 
-use AnthonyEdmonds\GovukLaravel\Helpers\GovukPage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -25,14 +24,6 @@ class SupportDetailController extends BaseController
             ->with('supportDetails', SupportDetailCollection::make(
                 SupportDetail::query()->paginate()
             ));
-
-//            'Manage Support Details', 'support-page::support.index', [
-//            'Admin' => route('dashboard.admin'),
-//            'Manage Support Details' => route('support-details.index'),
-
-//        ])->with('supportDetails', SupportDetailCollection::make(
-//            SupportDetail::query()->paginate()
-//        ));
     }
 
     public function delete(SupportDetail $supportDetail): RedirectResponse
@@ -57,12 +48,10 @@ class SupportDetailController extends BaseController
                 return config('support-page.support_detail_collection')::make($group);
             });
 
-        //issues changing support detail model to config config('support-page.support_detail_model')
-        //adding support detail collection config works - php storm doesnt like it
         if ($groups->has(TypeQuestion::TECHNICAL_ISSUES) === false) {
             $groups->put(
                 TypeQuestion::TECHNICAL_ISSUES,
-                config('support-page.support_detail_collection')::make([
+                SupportDetailCollection::make([
                     new SupportDetail([
                         'target' => route('enquiry-form'),
                         'label' => 'Submit an enquiry',
@@ -71,7 +60,7 @@ class SupportDetailController extends BaseController
             );
         }
 
-        return GovukPage::custom('Support', 'support-page::support.page', [])
+        return view('support-page::support.page')
             ->with('list', [
                 'Name' => config('app.name'),
                 'Acronym' => config('app.acronym'),
