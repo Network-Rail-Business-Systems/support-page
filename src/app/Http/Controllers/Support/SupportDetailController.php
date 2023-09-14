@@ -32,7 +32,7 @@ class SupportDetailController extends BaseController
 
         flash()->success("Record $supportDetail->id delete.");
 
-        return redirect()->route('support-details.index');
+        return redirect()->route('support-page.index');
 
     }
 
