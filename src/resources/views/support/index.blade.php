@@ -1,45 +1,45 @@
 @section('main')
-    <x-govuk::p>This page allows you to manage Support Details.</x-govuk::p>
+    <p>This page allows you to manage Support Details.</p>
 
-    <x-govuk::p>You can:</x-govuk::p>
+    <p>You can:</p>
 
-    <x-govuk::ul bulleted spaced>
+    <ul bulleted spaced>
         <li>Create a new Support Detail</li>
         <li>Manage existing Support Details</li>
-    </x-govuk::ul>
+    </ul>
 
-    <x-govuk::section-break />
+    <section-break />
 
-    <x-govuk::table
+    <table
         caption="Exising Support Details"
         :data="$supportDetails"
         empty-message="No Support Details exist"
     >
-        <x-govuk::table-column label="Type">
+        <table-column label="Type">
             ~type
-        </x-govuk::table-column>
+        </table-column>
 
-        <x-govuk::table-column label="Label">
+        <table-column label="Label">
             ~label
-        </x-govuk::table-column>
+        </table-column>
 
-        <x-govuk::table-column label="" numeric>
-            <x-govuk::a href="~editLink">Edit<x-govuk::hidden> ~type</x-govuk::hidden></x-govuk::a>
-        </x-govuk::table-column>
+        <table-column label="" numeric>
+            <a href="~editLink">Edit<hidden> ~type</hidden></a>
+        </table-column>
 
-        <x-govuk::table-column label="" numeric>
-            <x-govuk::a href="~deleteLink">Delete<x-govuk::hidden> ~type</x-govuk::hidden></x-govuk::a>
-        </x-govuk::table-column>
-    </x-govuk::table>
+        <table-column label="" numeric>
+            <a href="~deleteLink">Delete<hidden> ~type</hidden></a>
+        </table-column>
+    </table>
 @endsection
 
 @section('aside')
-    <x-govuk::h2>Actions</x-govuk::h2>
+    <h2>Actions</h2>
 
-    <x-govuk::ul spaced>
+    <ul spaced>
         <li>
-            <x-govuk::a href="{{ config('support-page.support_detail_model')::startFormRoute() }}">
+            <a href="{{ config('support-page.support_detail_model')::startFormRoute() }}">
                 Create a new Support Detail
-            </x-govuk::a>
-    </x-govuk::ul>
+            </a>
+    </ul>
 @endsection
