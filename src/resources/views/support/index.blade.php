@@ -1,54 +1,46 @@
-<div class="columns">
-    <section class="column is-two-thirds">
-        <p class="column is-0-desktop-only">This page allows you to manage Support Details.</p>
+@php use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm; @endphp
 
-        <p class="column is-0-desktop-only">You can:</p>
+    <section>
+        <div class="content">
+            <p>This page allows you to manage Support Details.</p>
 
-        <div class="-list-ul" style="margin-left: 2rem;">
-            <li>
-                Create a new Support Detail
-            </li>
-            <li>
-                Manage existing Support Details
-            </li>
-            <br/>
-        </div>
+            <p>You can:</p>
 
-        <div>
-            <x-support-page::table
-                caption="Exising Support Details"
-                :data="$supportDetails"
-                empty-message="No Support Details exist"
-            >
-                <table-column label="Type">
-                    ~type
-                </table-column>
-
-                <table-column label="Label">
-                    ~label
-                </table-column>
-
-                <xtable-column label="" numeric>
-                    <a href="~editLink">Edit<hidden> ~type</hidden></a>
-                </xtable-column>
-
-                <table-column label="" numeric>
-                    <a href="~deleteLink">Delete<hidden> ~type</hidden></a>
-                </table-column>
-            </x-support-page::table>
-        </div>
-    </section>
-
-    <section class="column is-one-third">
-        <aside>
-            <p class="subtitle is-4"><b>Actions</b></p>
             <ul>
                 <li>
-                    <a href="{{ config('support-page.support_detail_model')::startFormRoute() }}">
-                        Create a new Support Detail
-                    </a>
+                    <a href="{{ config('support-page.support_detail_model')::startFormRoute() }}">Create a new Support Detail</a>
                 </li>
+                <li>Manage existing Support Details</li>
             </ul>
-        </aside>
+        </div>
+
+        {{--            empty-message="No Support Details exist"--}}
+
+        <table class="table">
+            <caption class="subtitle has-text-left">Exising Support Details</caption>
+
+            <thead>
+            <tr>
+                <th>Type</th>
+                <th>Label</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            @foreach($supportDetails as $supportDetail)
+                <tr>
+                    <td>{{ $supportDetail->type }}</td>
+                    <td>{{ $supportDetail->label }}</td>
+                    <td>
+                        <a href="{{ route('forms.edit', [SupportDetailForm::key(), $supportDetail->id])}}">Edit</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('support-page.delete', $supportDetail->id) }}">Delete</a>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </section>
-</div>
