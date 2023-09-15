@@ -15,7 +15,7 @@
         </div>
 
         <div>
-            <table
+            <x-support-page::table
                 caption="Exising Support Details"
                 :data="$supportDetails"
                 empty-message="No Support Details exist"
@@ -35,7 +35,7 @@
                 <table-column label="" numeric>
                     <a href="~deleteLink">Delete<hidden> ~type</hidden></a>
                 </table-column>
-            </table>
+            </x-support-page::table>
         </div>
     </section>
 

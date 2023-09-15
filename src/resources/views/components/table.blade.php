@@ -53,26 +53,29 @@
     }
 @endphp
 
-<table class="support-table">
-    <caption class="support-table__caption support-table__caption--{{ $captionSize }}">
-        {{ $caption }}
-    </caption>
 
-    <x-govuk::table.header
-        :columns="$columns"
-    />
+<div class="content">
+    <table class="support-table">
+        <caption class="support-table__caption support-table__caption--{{ $captionSize }}">
+            {{ $caption }}
+        </caption>
 
-    <x-govuk::table.body
-        :columns="$columns"
-        :empty-message="$emptyMessage"
-        :rows="$rows"
-    />
-</table>
+        <x-support-page::table.header
+            :columns="$columns"
+        />
 
-@if($paginator !== null)
-    <x-govuk::pagination
-        :label="$caption"
-        :paginator="$paginator"
-        :show-counter="$showCounter"
-    />
-@endif
+        <x-support-page::table.body
+            :columns="$columns"
+            :empty-message="$emptyMessage"
+            :rows="$rows"
+        />
+    </table>
+</div>
+
+{{--@if($paginator !== null)--}}
+{{--    <x-govuk::pagination--}}
+{{--        :label="$caption"--}}
+{{--        :paginator="$paginator"--}}
+{{--        :show-counter="$showCounter"--}}
+{{--    />--}}
+{{--@endif--}}

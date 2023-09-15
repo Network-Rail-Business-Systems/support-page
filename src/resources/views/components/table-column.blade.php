@@ -17,4 +17,6 @@
     );
 @endphp
 
+<div class="content">
 ~~{!! $content !!}~~
+</div>
