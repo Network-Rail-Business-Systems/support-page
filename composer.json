@@ -29,7 +29,9 @@
         "brianium/paratest": "^7.1",
         "laravel/pint": "^1",
         "nunomaduro/larastan": "^2.6",
+        "orchestra/testbench": "^8",
         "phpunit/phpunit": "^10"
+
     },
     "autoload": {
         "psr-4": {
