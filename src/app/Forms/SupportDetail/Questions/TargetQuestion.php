@@ -41,6 +41,7 @@ class TargetQuestion extends Question
                     [
                         'label' => 'Which email address would you like to use?',
                         'name' => 'email',
+                        'hint' => 'Enter an email address including @networkrail.co.uk',
                     ],
                 ],
             ];

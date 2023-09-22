@@ -26,34 +26,20 @@ class SupportDetailController extends BaseController
             ));
     }
 
-//    public function Confirmdelete(SupportDetail $supportDetail): View
-//    {
-//
-//    }
+    public function confirmDelete(SupportDetail $supportDetail): View
+    {
+        return view('support-page::support.confirm-delete')
+            ->with('supportDetail', $supportDetail);
+    }
 
     public function delete(SupportDetail $supportDetail): RedirectResponse
     {
-        redirect('support-page::support.confirm-delete');
-
         $supportDetail->delete();
 
-         flash()->success("Record $supportDetail->id delete.");
+        flash()->success("Record #$supportDetail->id was successfully deleted.");
 
         return redirect()->route('support-page.index');
     }
-////
-//////
-////                    else
-////                        flash()->info("delete of $supportDetail->id aborted")
-////
-////                return redirect()->route('support-page.index');
-//
-//        //take to a confiramtion page NOT A FLAH/POP UP
-//
-////        confirm delete controller end point
-////     if yes go to delete end point
-////    confirm end point
-//    }
 
     public function support(): View
     {
