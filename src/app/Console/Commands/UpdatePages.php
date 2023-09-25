@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace NetworkRailBusinessSystems\SupportPage\Console\Commands;
 
 use App\Models\Page;
 use Illuminate\Console\Command;

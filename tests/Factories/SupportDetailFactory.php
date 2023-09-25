@@ -3,8 +3,8 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 
 class SupportDetailFactory extends Factory
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console;
+namespace NetworkRailBusinessSystems\SupportPage\Console;
 
 use App\Jobs\CleanupFailedJobs;
 use Illuminate\Console\Scheduling\Schedule;

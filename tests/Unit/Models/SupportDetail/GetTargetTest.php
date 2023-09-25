@@ -2,8 +2,8 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Tests\Unit\Models\SupportDetail;
 
-use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class GetTargetTest extends TestCase

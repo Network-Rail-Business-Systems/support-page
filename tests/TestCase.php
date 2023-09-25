@@ -39,4 +39,20 @@ abstract class TestCase extends BaseTestCase
         $this->runLaravelMigrations();
     }
 
+
+    public function tearDown(): void
+    {
+        DirectoryEmulator::tearDown();
+        parent::tearDown();
+    }
+
+    public function useLdapEmulator(): void
+    {
+        LdapEmulatorServiceProvider::start();
+    }
+
+    public function usePages(): void
+    {
+        Artisan::call('update:pages');
+    }
 }

@@ -33,7 +33,7 @@ $app->singleton(
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    App\Console\Kernel::class
+    NetworkRailBusinessSystems\SupportPage\Console\Kernel::class
 );
 
 $app->singleton(

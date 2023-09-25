@@ -2,7 +2,7 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Requests\Support\LabelRequest;
 
-use NetworkRailBusinessSystems\SupportPage\Tests\Http\Requests\Support\LabelRequest;
+use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\LabelRequest;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class AuthorizeTest extends TestCase
