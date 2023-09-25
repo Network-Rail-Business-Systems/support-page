@@ -9,7 +9,7 @@ use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsActivities;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsFlashMessages;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsFormRequests;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsResults;
-
+use Tests\CreatesApplication;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -32,13 +32,6 @@ abstract class TestCase extends BaseTestCase
             SupportPageProvider::class,
         ];
     }
-
-    protected function useDatabase(): void
-    {
-        $this->app->useDatabasePath(__DIR__.'/Database');
-        $this->runLaravelMigrations();
-    }
-
 
     public function tearDown(): void
     {
