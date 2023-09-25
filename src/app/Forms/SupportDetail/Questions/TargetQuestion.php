@@ -28,6 +28,8 @@ class TargetQuestion extends Question
     {
         if ($subject->type === TypeQuestion::SYSTEM_QUESTIONS) {
 
+            $isEmail = str_contains($subject->target, '@');
+
             $roles = Role::pluck('name', 'id')->toArray();
 
             $roles['divider'] = [
@@ -42,6 +44,7 @@ class TargetQuestion extends Question
                         'label' => 'Which email address would you like to use?',
                         'name' => 'email',
                         'hint' => 'Enter an email address including @networkrail.co.uk',
+                        'value' => $isEmail === true ? $subject->target : null,
                     ],
                 ],
             ];
@@ -51,7 +54,7 @@ class TargetQuestion extends Question
                 'role',
                 $roles
             )->hint('Select a system role or provide an email address')
-                ->value($subject);
+                ->value($isEmail === true ? 'email' : $subject->target);
 
         } else {
             return GovukQuestionHelper::input(
@@ -60,7 +63,7 @@ class TargetQuestion extends Question
                     : 'What is the link to the enquiry form?',
                 'url',
             )->hint('Make sure the link is accessible to anyone in Network Rail.')
-                ->value($subject);
+                ->value($subject->target);
         }
     }
 

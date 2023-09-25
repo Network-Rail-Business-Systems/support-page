@@ -29,7 +29,7 @@ class LabelQuestion extends Question
         return GovukQuestionHelper::input(
             'What is the label for this Support Detail?',
             self::key(),
-        );
+        )->value($subject->label);
     }
 
     /**
