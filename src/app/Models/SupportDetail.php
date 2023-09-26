@@ -10,6 +10,7 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQu
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
+use NetworkRailBusinessSystems\SupportPage\Tests\Database\Factories\SupportDetailFactory;
 use Spatie\Permission\Models\Role;
 
 /**
@@ -107,5 +108,10 @@ class SupportDetail extends Model
                 $showChange
             ),
         ];
+    }
+
+    protected static function newFactory(): SupportDetailFactory
+    {
+        return new SupportDetailFactory();
     }
 }

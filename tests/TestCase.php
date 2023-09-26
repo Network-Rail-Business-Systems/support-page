@@ -3,13 +3,12 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests;
 
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
-use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Orchestra\Testbench\TestCase as BaseTestCase;
 use NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsActivities;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsFlashMessages;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsFormRequests;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsResults;
-use Tests\CreatesApplication;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -17,14 +16,7 @@ abstract class TestCase extends BaseTestCase
     use AssertsFlashMessages;
     use AssertsFormRequests;
     use AssertsResults;
-    use LazilyRefreshDatabase;
-    use CreatesApplication;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-    }
+    //use LazilyRefreshDatabase;
 
     protected function getPackageProviders($app): array
     {
@@ -33,19 +25,17 @@ abstract class TestCase extends BaseTestCase
         ];
     }
 
-    public function tearDown(): void
-    {
-        DirectoryEmulator::tearDown();
-        parent::tearDown();
-    }
+//    protected function useDatabase(): void
+//    {
+//        $this->app->useDatabasePath(__DIR__.'/Database');
+//        $this->runLaravelMigrations();
+//    }
 
-    public function useLdapEmulator(): void
-    {
-        LdapEmulatorServiceProvider::start();
-    }
 
-    public function usePages(): void
+    protected function setUp(): void
     {
-        Artisan::call('update:pages');
+        parent::setUp();
+        config()->set('database.default', 'sqlite');
+
     }
 }

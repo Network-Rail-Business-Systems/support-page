@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace NetworkRailBusinessSystems\SupportPage\Tests;
 
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Application;

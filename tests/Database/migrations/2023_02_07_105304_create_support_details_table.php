@@ -1,6 +1,6 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Tests\Migrations;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Database\Migrations;
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
