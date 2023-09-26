@@ -35,7 +35,9 @@
     },
     "autoload": {
         "psr-4": {
-            "NetworkRailBusinessSystems\\SupportPage\\": "src/app"
+            "NetworkRailBusinessSystems\\SupportPage\\": "src/app",
+            "NetworkRailBusinessSystems\\SupportPage\\Database\\Factories\\": "src/database/factories"
+
         }
     },
     "autoload-dev": {

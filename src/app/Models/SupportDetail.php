@@ -10,7 +10,7 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQu
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
-use NetworkRailBusinessSystems\SupportPage\Tests\Database\Factories\SupportDetailFactory;
+use NetworkRailBusinessSystems\SupportPage\Database\Factories\SupportDetailFactory;
 use Spatie\Permission\Models\Role;
 
 /**

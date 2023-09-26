@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="NetworkRailBusinessSystems\SupportPage\Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/src/app" isTestSource="false" packagePrefix="NetworkRailBusinessSystems\SupportPage\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/database/factories" isTestSource="false" packagePrefix="NetworkRailBusinessSystems\SupportPage\Database\Factories\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/anthonyedmonds/govuk-laravel" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />

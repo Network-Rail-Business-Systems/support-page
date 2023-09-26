@@ -23,6 +23,7 @@ class SubmitFormTest extends TestCase
         parent::setUp();
 
         $this->form = new SupportDetailForm();
+        $this->useDatabase();
         $this->subject = SupportDetail::factory()->create();
     }
 

@@ -3,12 +3,12 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests;
 
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
-use Orchestra\Testbench\TestCase as BaseTestCase;
 use NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsActivities;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsFlashMessages;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsFormRequests;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsResults;
+use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -25,12 +25,11 @@ abstract class TestCase extends BaseTestCase
         ];
     }
 
-//    protected function useDatabase(): void
-//    {
-//        $this->app->useDatabasePath(__DIR__.'/Database');
-//        $this->runLaravelMigrations();
-//    }
-
+    protected function useDatabase(): void
+    {
+        $this->app->useDatabasePath(__DIR__.'/../src/database');
+        $this->runLaravelMigrations();
+    }
 
     protected function setUp(): void
     {

@@ -1,4 +1,3 @@
 /vendor/
-/database/
 /.phpunit.cache/
 /node_modules/
