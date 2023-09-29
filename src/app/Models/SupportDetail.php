@@ -44,7 +44,7 @@ class SupportDetail extends Model
 
     public static function getEnquirySubject(): string
     {
-        return 'Enquiry about '.config('app.name');
+        return 'Enquiry about '.rawurlencode(config('app.name'));
     }
 
     public function getType(): string
