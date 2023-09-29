@@ -1,6 +1,6 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Tests\Tests\Unit\Models\SupportDetail;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Models\SupportDetail;
 
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
@@ -32,10 +32,10 @@ class GetTargetTest extends TestCase
     public function testTargetWhenRole(): void
     {
         $this->supportDetail->type = TypeQuestion::SYSTEM_QUESTIONS;
-        $this->supportDetail->target = 'support.owners';
+        $this->supportDetail->target = 'support-page.owners';
 
         $this->assertEquals(
-            route('support.owners', [$this->supportDetail->target]),
+            route('support-page.owners', [$this->supportDetail->target]),
             $this->supportDetail->getTarget()
         );
     }

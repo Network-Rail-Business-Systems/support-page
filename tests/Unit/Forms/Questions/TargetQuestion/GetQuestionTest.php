@@ -7,6 +7,7 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQue
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 use Spatie\Permission\Models\Role;
+use NetworkRailBusinessSystems\SupportPage\Console\Commands\UpdatePermissions;
 
 class GetQuestionTest extends TestCase
 {

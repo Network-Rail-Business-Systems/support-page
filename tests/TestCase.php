@@ -2,7 +2,10 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests;
 
-use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use AnthonyEdmonds\GovukLaravel\Providers\GovukServiceProvider;
+use Illuminate\Support\Facades\Config;
+use Laracasts\Flash\FlashServiceProvider;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 use NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsActivities;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsFlashMessages;
@@ -16,11 +19,12 @@ abstract class TestCase extends BaseTestCase
     use AssertsFlashMessages;
     use AssertsFormRequests;
     use AssertsResults;
-    //use LazilyRefreshDatabase;
 
     protected function getPackageProviders($app): array
     {
         return [
+            GovukServiceProvider::class,
+            FlashServiceProvider::class,
             SupportPageProvider::class,
         ];
     }
@@ -35,6 +39,19 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
         config()->set('database.default', 'sqlite');
+        $this->setUpRoutes();
+        $this->useDatabase();
+    }
 
+    protected function setUpRoutes(): void
+    {
+        Config::set('govuk.forms', [
+            SupportDetailForm::class,
+        ]);
+
+        $router = app('router');
+        $router->get('/')->name('/');
+        $router->govukLaravelForms();
+        $router->supportPage();
     }
 }
