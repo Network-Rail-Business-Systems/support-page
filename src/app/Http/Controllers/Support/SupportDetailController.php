@@ -82,7 +82,7 @@ class SupportDetailController extends BaseController
             ->pluck('email')
             ->join(';');
 
-        $subject = htmlspecialchars(
+        $subject = rawurlencode(
             config('support-page.support_detail_model')::getEnquirySubject()
         );
 

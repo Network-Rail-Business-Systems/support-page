@@ -6,11 +6,11 @@ use AnthonyEdmonds\GovukLaravel\Traits\HasForm;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use NetworkRailBusinessSystems\SupportPage\Database\Factories\SupportDetailFactory;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
-use NetworkRailBusinessSystems\SupportPage\Database\Factories\SupportDetailFactory;
 use Spatie\Permission\Models\Role;
 
 /**
