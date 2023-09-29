@@ -8,4 +8,5 @@ return [
     'user_model' => env('USER_MODEL', User::class),
     'support_detail_model' => env('SUPPORT_DETAIL_MODEL', SupportDetail::class),
     'support_detail_collection' => env('SUPPORT_DETAIL_COLLECTION', SupportDetailCollection::class),
+    'excluded_roles' => env('EXCLUDED_ROLES', null),
 ];

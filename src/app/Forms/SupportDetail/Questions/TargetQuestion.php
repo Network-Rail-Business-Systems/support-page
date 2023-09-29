@@ -32,6 +32,16 @@ class TargetQuestion extends Question
 
             $roles = Role::pluck('name', 'id')->toArray();
 
+            $excludedRoles = config('support-page.excluded_roles');
+
+            foreach ($excludedRoles as $excludedRoleName) {
+                $excludedRoleId = array_search($excludedRoleName, $roles);
+
+                if ($excludedRoleId !== false) {
+                    unset($roles[$excludedRoleId]);
+                }
+            }
+
             $roles['divider'] = [
                 'divider' => true,
                 'label' => 'or',
