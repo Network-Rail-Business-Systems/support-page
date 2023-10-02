@@ -20,6 +20,17 @@ abstract class TestCase extends BaseTestCase
     use AssertsFormRequests;
     use AssertsResults;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        config()->set('database.default', 'sqlite');
+        config()->set('database.connections.sqlite.database', ':memory:');
+
+        $this->setUpRoutes();
+        $this->useDatabase();
+    }
+
     protected function getPackageProviders($app): array
     {
         return [
@@ -33,14 +44,7 @@ abstract class TestCase extends BaseTestCase
     {
         $this->app->useDatabasePath(__DIR__.'/../src/database');
         $this->runLaravelMigrations();
-    }
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        config()->set('database.default', 'sqlite');
-        $this->setUpRoutes();
-        $this->useDatabase();
     }
 
     protected function setUpRoutes(): void

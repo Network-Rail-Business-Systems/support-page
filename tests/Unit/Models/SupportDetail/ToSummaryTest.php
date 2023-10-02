@@ -14,6 +14,7 @@ class ToSummaryTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->useDatabase();
 
         $this->supportDetail = new SupportDetail();
     }

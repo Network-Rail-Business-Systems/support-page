@@ -24,15 +24,10 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $name
  * @property Collection|null $roles
  */
-class User extends Authenticatable implements LdapAuthenticatable
+class User extends Authenticatable
 {
-    use AuthenticatesWithLdap;
-    use CausesActivity;
-    use Findable;
     use HasFactory;
     use HasRoles;
-    use Impersonate;
-    use LogsActivity;
     use Notifiable;
     use SoftDeletes;
 

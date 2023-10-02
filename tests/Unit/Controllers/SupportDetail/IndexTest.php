@@ -42,8 +42,7 @@ class IndexTest extends TestCase
     {
         $this->assertEquals(
             [
-                'Admin' => route('dashboard.admin'),
-                'Manage Support Details' => route('support-details.index'),
+                'Manage Support Details' => route('support-page.index'),
             ],
             $this->view->getData()['breadcrumbs']
         );

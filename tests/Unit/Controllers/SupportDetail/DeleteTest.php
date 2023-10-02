@@ -36,7 +36,7 @@ class DeleteTest extends TestCase
     public function testFlashesSuccessMessage(): void
     {
         $this->assertFlashed(
-            "Record {$this->supportDetail->id} deleted.",
+            "Record #{$this->supportDetail->id}was successfully deleted.",
             'success',
         );
     }
@@ -44,7 +44,7 @@ class DeleteTest extends TestCase
     public function testRedirects(): void
     {
         $this->assertEquals(
-            route('support-details.index'),
+            route('support-page.index'),
             $this->redirect->getTargetUrl(),
         );
     }
