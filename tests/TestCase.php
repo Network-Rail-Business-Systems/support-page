@@ -24,9 +24,6 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        config()->set('database.default', 'sqlite');
-        config()->set('database.connections.sqlite.database', ':memory:');
-
         $this->setUpRoutes();
         $this->useDatabase();
     }

@@ -11,7 +11,6 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQu
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
-use Spatie\Permission\Models\Role;
 
 /**
  * @property string $targetLabel
@@ -85,7 +84,7 @@ class SupportDetail extends Model
         $targetKey = $this->targetLabel;
 
         $targetKey === 'Role' && $this->target !== null
-           ? $targetValue = Role::find($this->target)->name
+           ? $targetValue = config('support-page.role')::find($this->target)->name
            : $targetValue = $this->target;
 
         return [

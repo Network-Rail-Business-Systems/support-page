@@ -6,7 +6,6 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQ
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
-use Spatie\Permission\Models\Role;
 
 class GetQuestionTest extends TestCase
 {

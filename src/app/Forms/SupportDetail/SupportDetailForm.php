@@ -3,6 +3,7 @@
 namespace NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail;
 
 use AnthonyEdmonds\GovukLaravel\Forms\Form;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\Model;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
@@ -16,9 +17,12 @@ class SupportDetailForm extends Form
         return 'support-detail';
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function checkAccess(): void
     {
-        //
+        $this->authorize('manage_support_page');
     }
 
     public function questions(): array
@@ -34,8 +38,6 @@ class SupportDetailForm extends Form
     {
         return new SupportDetail();
     }
-
-    // change param model to be config('support-page.support_detail_model')?
 
     /** @param  SupportDetail  $subject */
     protected function submitForm(Model $subject, string $mode): void

@@ -18,8 +18,9 @@ Publish via the terminal: `php artisan vendor:publish --provider="NetworkRailBus
 
 * Add `'manage_support_page'` with admin rights to the UpdatePermissions Command
 * Add a support page admin link to admin blade and prefix it with `@can'manage_support_page'`
-* Add `Route::supportPage();` to web.php
-
+* Add `Route::supportPage();` to web.php to enable the Support Page views.
+* Add `Route::supportPageAdmin();` to web.php to enable the Admin Support Page views.
+* 
 * Register the form in the Govuk config:
 ```php
 return [
@@ -28,6 +29,13 @@ return [
 ],
 ```
 * run `php artisan update:permissions` and `php artisan migrate` in the terminal
+
+There are two role related items in the config:
+`'role' => Spatie\Permission\Models\Role::class,
+'excluded_roles' => [],`
+
+'role' default is the class used to find and parse roles in library
+'excluded_roles' default is an empty array, role names can be added to this to exclude them from showing on questions.
 
 ## Environment variables
 

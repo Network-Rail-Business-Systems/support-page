@@ -4,6 +4,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
 use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportDetailController;
 
 class SupportPageProvider extends ServiceProvider
@@ -40,13 +41,21 @@ class SupportPageProvider extends ServiceProvider
         Route::macro('supportPage', function () {
             Route::prefix('/support-page')
                 ->name('support-page.')
+                ->controller(SupportController::class)
+                ->group(function () {
+                    Route::get('/', 'support')->name('show');
+                    Route::get('/owner-team/{role}', 'owners')->name('owners');
+                });
+        });
+
+        Route::macro('supportPageAdmin', function () {
+            Route::prefix('/support-page')
+                ->name('support-page.')
                 ->controller(SupportDetailController::class)
                 ->group(function () {
                     Route::get('/manage', 'index')->name('index');
                     Route::get('/confirm-delete/{supportDetail}', 'confirmDelete')->name('confirm-delete');
                     Route::delete('/delete/{supportDetail}', 'delete')->name('delete');
-                    Route::get('/', 'support')->name('show');
-                    Route::get('/owner-team/{role}', 'owners')->name('owners');
                 });
 
             Route::redirect('/enquiry-form', 'https://systems.networkrail.co.uk/enquiry')->name('enquiry-form');

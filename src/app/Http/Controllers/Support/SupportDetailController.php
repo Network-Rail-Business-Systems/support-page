@@ -2,13 +2,13 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controller as BaseController;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Http\Resources\SupportDetailCollection;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 
@@ -18,72 +18,41 @@ class SupportDetailController extends BaseController
     use DispatchesJobs;
     use ValidatesRequests;
 
+    /**
+     * @throws AuthorizationException
+     */
     public function index(): View
     {
+        $this->authorize('manage_support_page');
+
         return view('support-page::support.index')
             ->with('supportDetails', SupportDetailCollection::make(
                 SupportDetail::query()->paginate()
             ));
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function confirmDelete(SupportDetail $supportDetail): View
     {
+        $this->authorize('manage_support_page');
+
         return view('support-page::support.confirm-delete')
             ->with('supportDetail', $supportDetail);
     }
 
+    /**
+     * @throws AuthorizationException
+     */
     public function delete(SupportDetail $supportDetail): RedirectResponse
     {
+        $this->authorize('manage_support_page');
+
         $supportDetail->delete();
 
         flash()->success("Record #$supportDetail->id was successfully deleted.");
 
         return redirect()->route('support-page.index');
-    }
-
-    public function support(): View
-    {
-        $groups = config('support-page.support_detail_model')::query()
-            ->orderBy('type')
-            ->orderBy('label')
-            ->get()
-            ->groupBy('type')
-            ->sortKeys()
-            ->map(function ($group) {
-                return config('support-page.support_detail_collection')::make($group);
-            });
-
-        if ($groups->has(TypeQuestion::TECHNICAL_ISSUES) === false) {
-            $groups->put(
-                TypeQuestion::TECHNICAL_ISSUES,
-                SupportDetailCollection::make([
-                    new SupportDetail([
-                        'target' => route('enquiry-form'),
-                        'label' => 'Submit an enquiry',
-                    ]),
-                ])
-            );
-        }
-
-        return view('support-page::support.page')
-            ->with('list', [
-                'Name' => config('app.name'),
-                'Acronym' => config('app.acronym'),
-                'Build' => config('app.build'),
-                'Laravel' => app()->version(),
-                'PHP' => phpversion(),
-            ])
-            ->with('groups', $groups);
-    }
-
-    public function owners(string $role): RedirectResponse
-    {
-        $emails = config('support-page.user_model')::byRole($role, 'id')
-            ->pluck('email')
-            ->join(';');
-
-        $subject = config('support-page.support_detail_model')::getEnquirySubject();
-
-        return redirect("mailto:$emails?subject=$subject");
     }
 }

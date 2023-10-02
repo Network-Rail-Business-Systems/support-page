@@ -1,20 +1,20 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\SupportDetail;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\Support;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Collection;
-use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportDetailController;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\Models\User;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
-use Spatie\Permission\Models\Role;
+use NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\SupportDetail\Role;
 
 class OwnersTest extends TestCase
 {
     protected Collection $users;
 
-    protected SupportDetailController $controller;
+    protected SupportController $controller;
 
     protected RedirectResponse $redirect;
 
@@ -28,7 +28,7 @@ class OwnersTest extends TestCase
             ->create()
             ->sortBy('first_name');
 
-        $this->controller = new SupportDetailController();
+        $this->controller = new SupportController();
         $this->redirect = $this->controller->owners(Role::findByName('admin')->id);
     }
 

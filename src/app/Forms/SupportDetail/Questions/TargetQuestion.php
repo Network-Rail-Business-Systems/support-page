@@ -10,7 +10,6 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TargetRequest;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use Spatie\Permission\Models\Role;
 
 class TargetQuestion extends Question
 {
@@ -18,8 +17,6 @@ class TargetQuestion extends Question
     {
         return 'target';
     }
-
-    // change param model to be config('support-page.support_detail_model')?
 
     /**
      * @param  SupportDetail  $subject
@@ -30,7 +27,7 @@ class TargetQuestion extends Question
 
             $isEmail = str_contains($subject->target, '@');
 
-            $roles = Role::pluck('name', 'id')->toArray();
+            $roles = config('support-page.role')::pluck('name', 'id')->toArray();
 
             $excludedRoles = config('support-page.excluded_roles');
 

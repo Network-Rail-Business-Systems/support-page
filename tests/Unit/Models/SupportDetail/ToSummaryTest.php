@@ -5,7 +5,6 @@ namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Models\SupportDetail
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
-use Spatie\Permission\Models\Role;
 
 class ToSummaryTest extends TestCase
 {

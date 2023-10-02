@@ -22,8 +22,7 @@
         "php": "^8.2",
         "anthonyedmonds/govuk-laravel": "^1",
         "illuminate/support": "^10",
-        "laracasts/flash": "^3",
-        "spatie/laravel-permission": "^5"
+        "laracasts/flash": "^3"
     },
     "require-dev": {
         "brianium/paratest": "^7.1",
