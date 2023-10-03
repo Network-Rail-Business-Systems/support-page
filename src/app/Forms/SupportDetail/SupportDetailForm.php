@@ -25,8 +25,8 @@ class SupportDetailForm extends Form
      */
     public function checkAccess(): void
     {
-        if ($this->permissionIsSet() === true) {
-            $this->authorize($this->permissionName());
+        if (config('support-page.permission') === true) {
+            $this->authorize(config('support-page.permission'));
         }
     }
 

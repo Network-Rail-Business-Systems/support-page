@@ -69,9 +69,7 @@ class SupportPageController extends Controller
 
     public function index(): View
     {
-        if ($this->permissionIsSet() === true) {
-            $this->authorize($this->permissionName());
-        }
+        $this->checkAccess();
 
         return view('support-page::details.index')
             ->with('supportDetails', SupportDetailCollection::make(
@@ -81,9 +79,7 @@ class SupportPageController extends Controller
 
     public function confirm(SupportDetail $supportDetail): View
     {
-        if ($this->permissionIsSet() === true) {
-            $this->authorize($this->permissionName());
-        }
+        $this->checkAccess();
 
         return view('support-page::details.confirm')
             ->with('supportDetail', $supportDetail);
@@ -91,14 +87,19 @@ class SupportPageController extends Controller
 
     public function delete(SupportDetail $supportDetail): RedirectResponse
     {
-        if ($this->permissionIsSet() === true) {
-            $this->authorize($this->permissionName());
-        }
+        $this->checkAccess();
 
         $supportDetail->delete();
 
         flash()->success("Record #$supportDetail->id was successfully deleted.");
 
         return redirect()->route('support-page.admin.index');
+    }
+
+    protected function checkAccess(): void
+    {
+        if (config('support-page.permission') === true) {
+            $this->authorize(config('support-page.permission'));
+        }
     }
 }
