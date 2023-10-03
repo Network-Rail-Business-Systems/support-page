@@ -10,12 +10,10 @@ use Illuminate\Routing\Controller;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Http\Resources\SupportDetailCollection;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use NetworkRailBusinessSystems\SupportPage\Traits\SupportPageConfig;
 
 class SupportPageController extends Controller
 {
     use AuthorizesRequests;
-    use SupportPageConfig;
 
     public function show(): View
     {
@@ -54,7 +52,7 @@ class SupportPageController extends Controller
 
     public function owners(string $role): RedirectResponse
     {
-        $emails = $this->userModel()::query()
+        $emails = config('support-page.user_model')::query()
             ->whereHas('roles', function (Builder $query) use ($role) {
                 $query->where('id', '=', $role);
             })

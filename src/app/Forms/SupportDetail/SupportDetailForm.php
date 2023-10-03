@@ -9,12 +9,9 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQu
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use NetworkRailBusinessSystems\SupportPage\Traits\SupportPageConfig;
 
 class SupportDetailForm extends Form
 {
-    use SupportPageConfig;
-
     public static function key(): string
     {
         return 'support-detail';
