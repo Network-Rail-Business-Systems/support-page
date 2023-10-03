@@ -9,9 +9,12 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQu
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Traits\SupportPageConfig;
 
 class SupportDetailForm extends Form
 {
+    use SupportPageConfig;
+
     public static function key(): string
     {
         return 'support-detail';
@@ -22,7 +25,9 @@ class SupportDetailForm extends Form
      */
     public function checkAccess(): void
     {
-        $this->authorize('manage_support_page');
+        if ($this->permissionIsSet() === true) {
+            $this->authorize($this->permissionName());
+        }
     }
 
     public function questions(): array
@@ -57,6 +62,6 @@ class SupportDetailForm extends Form
 
     public function exitRoute(Model $subject = null): string
     {
-        return route('support-page.index');
+        return route('support-page.admin.index');
     }
 }

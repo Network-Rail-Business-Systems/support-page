@@ -4,27 +4,23 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePermissionTables extends Migration
+return new class extends Migration
 {
+    const TABLE_NAMES = [
+        'roles' => 'roles',
+        'permissions' => 'permissions',
+        'model_has_permissions' => 'model_has_permissions',
+        'model_has_roles' => 'model_has_roles',
+        'role_has_permissions' => 'role_has_permissions',
+    ];
+
     public function up(): void
     {
-        $tableNames = [
-            'roles' => 'roles',
-            'permissions' => 'permissions',
-            'model_has_permissions' => 'user_has_permissions',
-            'model_has_roles' => 'user_has_roles',
-            'role_has_permissions' => 'role_has_permissions',
-        ];
+        $tableNames = self::TABLE_NAMES;
 
         $columnNames = [
-            'model_morph_key' => 'user_id',
+            'model_morph_key' => 'model_id',
         ];
-
-        if (empty($tableNames)) {
-            throw new Exception(
-                'Error: config/permission.php not loaded. Run [php artisan config:clear] and try again.',
-            );
-        }
 
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
             $table->increments('id');
@@ -60,7 +56,7 @@ class CreatePermissionTables extends Migration
                 ->onDelete('cascade');
 
             $table
-                ->foreign('user_id')
+                ->foreign('model_id')
                 ->references('id')
                 ->on('users')
                 ->onUpdate('cascade')
@@ -93,7 +89,7 @@ class CreatePermissionTables extends Migration
                 ->onDelete('cascade');
 
             $table
-                ->foreign('user_id')
+                ->foreign('model_id')
                 ->references('id')
                 ->on('users')
                 ->onUpdate('cascade')
@@ -130,27 +126,11 @@ class CreatePermissionTables extends Migration
                 'role_has_permissions_permission_id_role_id_primary',
             );
         });
-
-        app('cache')
-            ->store('spatie.permission.cache')
-            ->forget('spatie.permission.cache');
     }
 
     public function down(): void
     {
-        $tableNames = [
-            'roles' => 'roles',
-            'permissions' => 'permissions',
-            'model_has_permissions' => 'user_has_permissions',
-            'model_has_roles' => 'user_has_roles',
-            'role_has_permissions' => 'role_has_permissions',
-        ];
-
-        if (empty($tableNames)) {
-            throw new Exception(
-                'Error: config/permission.php not found and defaults could not be merged. Please publish the package configuration before proceeding, or drop the tables manually.',
-            );
-        }
+        $tableNames = self::TABLE_NAMES;
 
         Schema::drop($tableNames['role_has_permissions']);
         Schema::drop($tableNames['model_has_roles']);
@@ -158,4 +138,4 @@ class CreatePermissionTables extends Migration
         Schema::drop($tableNames['roles']);
         Schema::drop($tableNames['permissions']);
     }
-}
+};

@@ -6,6 +6,7 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQ
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
+use Spatie\Permission\Models\Role;
 
 class GetQuestionTest extends TestCase
 {
@@ -20,6 +21,9 @@ class GetQuestionTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $this->makeRole('Admin');
+        $this->makeRole('Other role');
 
         $this->question = new TargetQuestion();
         $this->subject = new SupportDetail();
@@ -91,6 +95,7 @@ class GetQuestionTest extends TestCase
                     'label' => 'Which email address would you like to use?',
                     'name' => 'email',
                     'hint' => 'Enter an email address including @networkrail.co.uk',
+                    'value' => null,
                 ],
             ],
         ];
@@ -112,7 +117,7 @@ class GetQuestionTest extends TestCase
     public function testHasSystemQuestionValue(): void
     {
         $this->assertEquals(
-            $this->subject,
+            $this->subject->target,
             $this->question->getQuestion($this->subject)->value,
         );
     }
@@ -172,7 +177,7 @@ class GetQuestionTest extends TestCase
         $this->subject->type = TypeQuestion::GUIDES_AND_RESOURCES;
 
         $this->assertEquals(
-            $this->subject,
+            $this->subject->target,
             $this->question->getQuestion($this->subject)->value,
         );
     }
@@ -182,7 +187,7 @@ class GetQuestionTest extends TestCase
         $this->subject->type = TypeQuestion::TECHNICAL_ISSUES;
 
         $this->assertEquals(
-            $this->subject,
+            $this->subject->target,
             $this->question->getQuestion($this->subject)->value,
         );
     }

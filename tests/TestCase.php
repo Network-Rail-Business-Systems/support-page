@@ -7,11 +7,14 @@ use Illuminate\Support\Facades\Config;
 use Laracasts\Flash\FlashServiceProvider;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 use NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider;
+use NetworkRailBusinessSystems\SupportPage\Tests\Models\User;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsActivities;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsFlashMessages;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsFormRequests;
 use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsResults;
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -26,6 +29,9 @@ abstract class TestCase extends BaseTestCase
 
         $this->setUpRoutes();
         $this->useDatabase();
+
+        Config::set('support-page.permission', null);
+        Config::set('support-page.user_model', User::class);
     }
 
     protected function getPackageProviders($app): array
@@ -33,6 +39,7 @@ abstract class TestCase extends BaseTestCase
         return [
             GovukServiceProvider::class,
             FlashServiceProvider::class,
+            PermissionServiceProvider::class,
             SupportPageProvider::class,
         ];
     }
@@ -41,7 +48,6 @@ abstract class TestCase extends BaseTestCase
     {
         $this->app->useDatabasePath(__DIR__.'/../src/database');
         $this->runLaravelMigrations();
-
     }
 
     protected function setUpRoutes(): void
@@ -54,5 +60,12 @@ abstract class TestCase extends BaseTestCase
         $router->get('/')->name('/');
         $router->govukLaravelForms();
         $router->supportPage();
+    }
+
+    protected function makeRole(string $name): Role
+    {
+        return Role::create([
+            'name' => $name,
+        ]);
     }
 }

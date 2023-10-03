@@ -4,8 +4,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
-use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportDetailController;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\SupportPageController;
 
 class SupportPageProvider extends ServiceProvider
 {
@@ -39,27 +38,23 @@ class SupportPageProvider extends ServiceProvider
     protected function bootRoutes(): void
     {
         Route::macro('supportPage', function () {
-            Route::prefix('/support-page')
+            Route::prefix('/support')
                 ->name('support-page.')
-                ->controller(SupportController::class)
+                ->controller(SupportPageController::class)
                 ->group(function () {
+                    Route::redirect('/enquiry', config('support-page.enquiry_url'))->name('enquiry');
+
                     Route::get('/', 'support')->name('show');
-                    Route::get('/owner-team/{role}', 'owners')->name('owners');
+                    Route::get('/{role}', 'owners')->name('owners');
+
+                    Route::prefix('/admin')
+                        ->name('admin.')
+                        ->group(function () {
+                            Route::get('/manage', 'index')->name('index');
+                            Route::get('/{supportDetail}/confirm', 'confirm')->name('confirm');
+                            Route::delete('/{supportDetail}/delete', 'delete')->name('delete');
+                        });
                 });
-        });
-
-        Route::macro('supportPageAdmin', function () {
-            Route::prefix('/support-page')
-                ->name('support-page.')
-                ->controller(SupportDetailController::class)
-                ->group(function () {
-                    Route::get('/manage', 'index')->name('index');
-                    Route::get('/confirm-delete/{supportDetail}', 'confirmDelete')->name('confirm-delete');
-                    Route::delete('/delete/{supportDetail}', 'delete')->name('delete');
-                });
-
-            Route::redirect('/enquiry-form', 'https://systems.networkrail.co.uk/enquiry')->name('enquiry-form');
-
         });
     }
 

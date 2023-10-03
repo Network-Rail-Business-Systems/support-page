@@ -24,20 +24,11 @@ class TargetQuestion extends Question
     public function getQuestion(Model $subject): GovukQuestion|array
     {
         if ($subject->type === TypeQuestion::SYSTEM_QUESTIONS) {
-
             $isEmail = str_contains($subject->target, '@');
 
-            $roles = config('support-page.role')::pluck('name', 'id')->toArray();
-
-            $excludedRoles = config('support-page.excluded_roles');
-
-            foreach ($excludedRoles as $excludedRoleName) {
-                $excludedRoleId = array_search($excludedRoleName, $roles);
-
-                if ($excludedRoleId !== false) {
-                    unset($roles[$excludedRoleId]);
-                }
-            }
+            $roles = config('support-page.role_model')::query()
+                ->whereNotIn('name', config('support-page.excluded_roles'))
+                ->pluck('name', 'id')->toArray();
 
             $roles['divider'] = [
                 'divider' => true,

@@ -5,15 +5,19 @@ namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Models\SupportDetail
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
+use Spatie\Permission\Models\Role;
 
 class ToSummaryTest extends TestCase
 {
+    protected Role $role;
+
     protected SupportDetail $supportDetail;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->useDatabase();
+
+        $this->role = $this->makeRole('Admin');
 
         $this->supportDetail = new SupportDetail();
     }

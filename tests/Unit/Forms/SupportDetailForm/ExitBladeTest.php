@@ -19,7 +19,7 @@ class ExitBladeTest extends TestCase
     public function testReturnsExitRoute(): void
     {
         $this->assertEquals(
-            route('support-page.index'),
+            route('support-page.admin.index'),
             $this->form->exitRoute(),
         );
     }

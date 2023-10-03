@@ -1,15 +1,16 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\Support;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\SupportPage;
 
 use Illuminate\Contracts\View\View;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\SupportPageController;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
-class SupportTest extends TestCase
+class ShowTest extends TestCase
 {
-    protected SupportController $controller;
+    protected SupportPageController $controller;
 
     protected View $view;
 
@@ -17,27 +18,7 @@ class SupportTest extends TestCase
     {
         parent::setUp();
 
-        $this->controller = new SupportController();
-    }
-
-    public function testHasTitle(): void
-    {
-        $this->makeRequest();
-
-        $this->assertEquals(
-            'Support',
-            $this->view->getData()['title']
-        );
-    }
-
-    public function testHasContent(): void
-    {
-        $this->makeRequest();
-
-        $this->assertEquals(
-            'support.page',
-            $this->view->getData()['content']
-        );
+        $this->controller = new SupportPageController();
     }
 
     public function testHasList(): void
@@ -83,13 +64,13 @@ class SupportTest extends TestCase
             $this->createSupportDetails();
         }
 
-        $this->view = $this->controller->support();
+        $this->view = $this->controller->show();
     }
 
     protected function createSupportDetails(): void
     {
         foreach (TypeQuestion::OPTIONS as $key => $value) {
-            config('support-page.user_model')->factory()
+            SupportDetail::factory()
                 ->withType($key)
                 ->create();
         }
