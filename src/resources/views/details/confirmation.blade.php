@@ -11,12 +11,12 @@
         <p class="subtitle is-4"><b>What would you like to do now?</b></p>
         <ul>
             <li>
-                <a href="{{ config('support-page.support_detail_model')::editFormRoute($subject) }}">
+                <a href="{{ \NetworkRailBusinessSystems\SupportPage\Models\SupportDetail::editFormRoute($subject) }}">
                     View created Support Detail
                 </a>
             </li>
             <li>
-                <a href="{{ route('details-page.index') }}">
+                <a href="{{ route('details-page.admin.index') }}">
                     Return to Manage Support Details page
                 </a>
             </li>
