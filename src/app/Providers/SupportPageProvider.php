@@ -11,7 +11,7 @@ class SupportPageProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/support-page.php',
+            __DIR__ . '/../../config/details-page.php',
             'details-page'
         );
     }
@@ -26,7 +26,7 @@ class SupportPageProvider extends ServiceProvider
     protected function bootPublishes(): void
     {
         $this->publishes([
-            __DIR__.'/../../config/support-page.php' => config_path('details-page.php'),
+            __DIR__ . '/../../config/details-page.php' => config_path('details-page.php'),
             __DIR__.'/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
         ], 'details-page');
 
