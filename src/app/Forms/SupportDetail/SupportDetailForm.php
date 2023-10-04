@@ -54,7 +54,7 @@ class SupportDetailForm extends Form
 
     public function confirmationBlade(): string
     {
-        return 'support-page::support.confirmation';
+        return 'support-page::details.confirmation';
     }
 
     public function exitRoute(Model $subject = null): string

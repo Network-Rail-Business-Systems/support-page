@@ -19,7 +19,7 @@ class ConfirmationBladeTest extends TestCase
     public function testReturnsConfirmationBlade(): void
     {
         $this->assertEquals(
-            'support-page::support.confirmation',
+            'support-page::details.confirmation',
             $this->form->confirmationBlade(),
         );
     }

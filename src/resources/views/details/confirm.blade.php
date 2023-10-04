@@ -4,7 +4,7 @@
     <p><b>Do you want to continue?</b></p>
 </div>
 
-<form action="{{ route('support-page.delete', $supportDetail->id) }}" method="POST">
+<form action="{{ route('support-page.admin.delete', $supportDetail->id) }}" method="POST">
     @csrf
     @method('DELETE')
     <div class="field is-grouped">
@@ -13,7 +13,7 @@
         </p>
 
         <p class="control">
-            <a class="button" href="{{ route('support-page.index') }}">Cancel</a>
+            <a class="button" href="{{ route('support-page.admin.index') }}">Cancel</a>
         </p>
     </div>
 </form>
