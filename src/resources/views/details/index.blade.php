@@ -37,7 +37,7 @@
                         <a href="{{ route('forms.edit', [\NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm::key(), $supportDetail->id])}}">Edit</a>
                     </td>
                     <td>
-                        <a href="{{ route('support-page.admin.confirm', $supportDetail->id) }}">Delete</a>
+                        <a href="{{ route('details-page.admin.confirm', $supportDetail->id) }}">Delete</a>
                     </td>
                 </tr>
             @endforeach
