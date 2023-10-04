@@ -26,7 +26,7 @@ class TargetQuestion extends Question
         if ($subject->type === TypeQuestion::SYSTEM_QUESTIONS) {
             $isEmail = str_contains($subject->target, '@');
 
-            $roles = config('details-page.role_model')::query()
+            $roles = config('support-page.role_model')::query()
                 ->whereNotIn('name', config('details-page.excluded_roles'))
                 ->pluck('name', 'id')->toArray();
 

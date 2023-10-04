@@ -13,7 +13,7 @@
         </p>
 
         <p class="control">
-            <a class="button" href="{{ route('details-page.admin.index') }}">Cancel</a>
+            <a class="button" href="{{ route('support-page.admin.index') }}">Cancel</a>
         </p>
     </div>
 </form>

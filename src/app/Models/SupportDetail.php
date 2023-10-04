@@ -61,7 +61,7 @@ class SupportDetail extends Model
             if (str_contains($this->target, '@') === true) {
                 return "mailto:{$this->target}?subject={$this::getEnquirySubject()}";
             } else {
-                return route('details-page.owners', [$this->target]);
+                return route('support-page.owners', [$this->target]);
             }
         } else {
             return $this->target;
@@ -84,7 +84,7 @@ class SupportDetail extends Model
         $targetKey = $this->targetLabel;
 
         $targetKey === 'Role' && $this->target !== null
-           ? $targetValue = config('details-page.role_model')::find($this->target)->name
+           ? $targetValue = config('support-page.role_model')::find($this->target)->name
            : $targetValue = $this->target;
 
         return [
