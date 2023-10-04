@@ -74,7 +74,7 @@ An additional request when working on this library included adding the support p
 ```php
 'Support' => [
     'auth' => true,
-    'link' => route('support'),
+    'link' => route('details'),
 ],
 ```
 The Model update will be merged as it is an approved PR.

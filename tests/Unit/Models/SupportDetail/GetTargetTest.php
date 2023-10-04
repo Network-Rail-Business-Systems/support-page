@@ -32,10 +32,10 @@ class GetTargetTest extends TestCase
     public function testTargetWhenRole(): void
     {
         $this->supportDetail->type = TypeQuestion::SYSTEM_QUESTIONS;
-        $this->supportDetail->target = 'support-page.owners';
+        $this->supportDetail->target = 'details-page.owners';
 
         $this->assertEquals(
-            route('support-page.owners', [$this->supportDetail->target]),
+            route('details-page.owners', [$this->supportDetail->target]),
             $this->supportDetail->getTarget()
         );
     }

@@ -5,10 +5,10 @@
 
 @php
     $defaultAction = null;
-    $listClasses = 'support-summary-list';
+    $listClasses = 'details-summary-list';
 
     if ($noBorders === true) {
-        $listClasses .= 'support-summary-list--no-border';
+        $listClasses .= 'details-summary-list--no-border';
     }
 
     foreach ($list as $item) {

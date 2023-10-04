@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('support-page.index') }}">
+                <a href="{{ route('details-page.index') }}">
                     Return to Manage Support Details page
                 </a>
             </li>

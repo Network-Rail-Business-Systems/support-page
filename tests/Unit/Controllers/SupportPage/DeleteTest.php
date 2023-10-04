@@ -44,7 +44,7 @@ class DeleteTest extends TestCase
     public function testRedirects(): void
     {
         $this->assertEquals(
-            route('support-page.admin.index'),
+            route('details-page.admin.index'),
             $this->redirect->getTargetUrl(),
         );
     }

@@ -30,7 +30,7 @@ abstract class TestCase extends BaseTestCase
         $this->setUpRoutes();
         $this->useDatabase();
 
-        Config::set('support-page.permission', null);
+        Config::set('details-page.permission', null);
         Config::set('support-page.user_model', User::class);
     }
 

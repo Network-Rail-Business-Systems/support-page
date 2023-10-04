@@ -32,14 +32,14 @@ class SupportPageController extends Controller
                 TypeQuestion::TECHNICAL_ISSUES,
                 SupportDetailCollection::make([
                     new SupportDetail([
-                        'target' => route('support-page.enquiry'),
+                        'target' => route('details-page.enquiry'),
                         'label' => 'Submit an enquiry',
                     ]),
                 ])
             );
         }
 
-        return view('support-page::show')
+        return view('details-page::show')
             ->with('list', [
                 'Name' => config('app.name'),
                 'Acronym' => config('app.acronym'),
@@ -69,7 +69,7 @@ class SupportPageController extends Controller
     {
         $this->checkAccess();
 
-        return view('support-page::details.index')
+        return view('details-page::details.index')
             ->with('supportDetails', SupportDetailCollection::make(
                 SupportDetail::query()->paginate()
             ));
@@ -79,7 +79,7 @@ class SupportPageController extends Controller
     {
         $this->checkAccess();
 
-        return view('support-page::details.confirm')
+        return view('details-page::details.confirm')
             ->with('supportDetail', $supportDetail);
     }
 
@@ -91,13 +91,13 @@ class SupportPageController extends Controller
 
         flash()->success("Record #$supportDetail->id was successfully deleted.");
 
-        return redirect()->route('support-page.admin.index');
+        return redirect()->route('details-page.admin.index');
     }
 
     protected function checkAccess(): void
     {
-        if (config('support-page.permission') === true) {
-            $this->authorize(config('support-page.permission'));
+        if (config('details-page.permission') === true) {
+            $this->authorize(config('details-page.permission'));
         }
     }
 }

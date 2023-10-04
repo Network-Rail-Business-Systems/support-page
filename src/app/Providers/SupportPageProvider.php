@@ -12,7 +12,7 @@ class SupportPageProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(
             __DIR__.'/../../config/support-page.php',
-            'support-page'
+            'details-page'
         );
     }
 
@@ -26,20 +26,20 @@ class SupportPageProvider extends ServiceProvider
     protected function bootPublishes(): void
     {
         $this->publishes([
-            __DIR__.'/../../config/support-page.php' => config_path('support-page.php'),
+            __DIR__.'/../../config/support-page.php' => config_path('details-page.php'),
             __DIR__.'/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
-        ], 'support-page');
+        ], 'details-page');
 
         $this->publishes([
-            __DIR__.'/../../resources/views/support' => resource_path('views/vendor/support-page/support'),
-        ], 'support-page-views');
+            __DIR__.'/../../resources/views/details' => resource_path('views/vendor/details-page/details'),
+        ], 'details-page-views');
     }
 
     protected function bootRoutes(): void
     {
         Route::macro('supportPage', function () {
-            Route::prefix('/support')
-                ->name('support-page.')
+            Route::prefix('/details')
+                ->name('details-page.')
                 ->controller(SupportPageController::class)
                 ->group(function () {
                     Route::redirect('/enquiry', config('support-page.enquiry_url'))->name('enquiry');
@@ -62,7 +62,7 @@ class SupportPageProvider extends ServiceProvider
     {
         $this->loadViewsFrom(
             __DIR__.'/../../resources/views',
-            'support-page'
+            'details-page'
         );
     }
 }

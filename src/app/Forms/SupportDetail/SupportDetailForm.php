@@ -14,7 +14,7 @@ class SupportDetailForm extends Form
 {
     public static function key(): string
     {
-        return 'support-detail';
+        return 'details-detail';
     }
 
     /**
@@ -22,8 +22,8 @@ class SupportDetailForm extends Form
      */
     public function checkAccess(): void
     {
-        if (config('support-page.permission') === true) {
-            $this->authorize(config('support-page.permission'));
+        if (config('details-page.permission') === true) {
+            $this->authorize(config('details-page.permission'));
         }
     }
 
@@ -54,11 +54,11 @@ class SupportDetailForm extends Form
 
     public function confirmationBlade(): string
     {
-        return 'support-page::support.confirmation';
+        return 'details-page::details.confirmation';
     }
 
     public function exitRoute(Model $subject = null): string
     {
-        return route('support-page.admin.index');
+        return route('details-page.admin.index');
     }
 }

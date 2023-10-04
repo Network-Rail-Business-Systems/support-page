@@ -28,7 +28,7 @@ class ConfirmTest extends TestCase
     public function testHasView(): void
     {
         $this->assertEquals(
-            'support-page::details.confirm',
+            'details-page::details.confirm',
             $this->view->name(),
         );
     }
