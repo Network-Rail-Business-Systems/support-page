@@ -52,7 +52,7 @@ class SupportPageController extends Controller
 
     public function owners(string $role): RedirectResponse
     {
-        $emails = config('support-page.user_model')::query()
+        $emails = config('details-page.user_model')::query()
             ->whereHas('roles', function (Builder $query) use ($role) {
                 $query->where('id', '=', $role);
             })

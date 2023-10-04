@@ -61,7 +61,7 @@ class SupportDetail extends Model
             if (str_contains($this->target, '@') === true) {
                 return "mailto:{$this->target}?subject={$this::getEnquirySubject()}";
             } else {
-                return route('details-page.admin.owners', [$this->target]);
+                return route('details-page.owners', [$this->target]);
             }
         } else {
             return $this->target;

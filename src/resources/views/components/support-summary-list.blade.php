@@ -22,7 +22,7 @@
 <div class="content">
     <dl class="{{ $listClasses }}">
         @foreach($list as $key => $data)
-            <x-support-page::support-item
+            <x-details-page::support-item
                     :key="$key"
                     :value="$data['value'] ?? $data"
                     :action="$data['action'] ?? $defaultAction"
