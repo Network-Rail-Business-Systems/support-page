@@ -22,8 +22,8 @@ class SupportDetailForm extends Form
      */
     public function checkAccess(): void
     {
-        if (config('details-page.permission') === true) {
-            $this->authorize(config('details-page.permission'));
+        if (config('support-page.permission') === true) {
+            $this->authorize(config('support-page.permission'));
         }
     }
 
@@ -54,11 +54,11 @@ class SupportDetailForm extends Form
 
     public function confirmationBlade(): string
     {
-        return 'details-page::details.confirmation';
+        return 'support-page::details.confirmation';
     }
 
     public function exitRoute(Model $subject = null): string
     {
-        return route('details-page.admin.index');
+        return route('support-page.admin.index');
     }
 }

@@ -32,14 +32,14 @@ class SupportPageController extends Controller
                 TypeQuestion::TECHNICAL_ISSUES,
                 SupportDetailCollection::make([
                     new SupportDetail([
-                        'target' => route('details-page.enquiry'),
+                        'target' => route('support-page.enquiry'),
                         'label' => 'Submit an enquiry',
                     ]),
                 ])
             );
         }
 
-        return view('details-page::show')
+        return view('support-page::show')
             ->with('list', [
                 'Name' => config('app.name'),
                 'Acronym' => config('app.acronym'),
@@ -52,7 +52,7 @@ class SupportPageController extends Controller
 
     public function owners(string $role): RedirectResponse
     {
-        $emails = config('details-page.user_model')::query()
+        $emails = config('support-page.user_model')::query()
             ->whereHas('roles', function (Builder $query) use ($role) {
                 $query->where('id', '=', $role);
             })
@@ -69,7 +69,7 @@ class SupportPageController extends Controller
     {
         $this->checkAccess();
 
-        return view('details-page::details.index')
+        return view('support-page::details.index')
             ->with('supportDetails', SupportDetailCollection::make(
                 SupportDetail::query()->paginate()
             ));
@@ -79,7 +79,7 @@ class SupportPageController extends Controller
     {
         $this->checkAccess();
 
-        return view('details-page::details.confirm')
+        return view('support-page::details.confirm')
             ->with('supportDetail', $supportDetail);
     }
 
@@ -91,13 +91,13 @@ class SupportPageController extends Controller
 
         flash()->success("Record #$supportDetail->id was successfully deleted.");
 
-        return redirect()->route('details-page.admin.index');
+        return redirect()->route('support-page.admin.index');
     }
 
     protected function checkAccess(): void
     {
-        if (config('details-page.permission') === true) {
-            $this->authorize(config('details-page.permission'));
+        if (config('support-page.permission') === true) {
+            $this->authorize(config('support-page.permission'));
         }
     }
 }

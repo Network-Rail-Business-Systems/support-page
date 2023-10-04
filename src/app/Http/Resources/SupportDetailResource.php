@@ -17,7 +17,7 @@ class SupportDetailResource extends JsonResource
             'target' => $this->target,
             'label' => $this->label,
             'editLink' => SupportDetail::editFormRoute($this->resource),
-            'deleteLink' => route('details-page.admin.delete', $this->id),
+            'deleteLink' => route('support-page.admin.delete', $this->id),
         ];
     }
 }
