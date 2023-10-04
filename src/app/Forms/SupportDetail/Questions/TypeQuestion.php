@@ -22,7 +22,7 @@ class TypeQuestion extends Question
     const DESCRIPTIONS = [
         self::GUIDES_AND_RESOURCES => 'User guides and answers to common problems may be available.',
         self::SYSTEM_QUESTIONS => 'For general enquiries about this system you may contact the owners directly.',
-        self::TECHNICAL_ISSUES => 'For technical details, such as errors and bugs, you may contact the Business Systems Support team.',
+        self::TECHNICAL_ISSUES => 'For technical support, such as errors and bugs, you may contact the Business Systems Support team.',
     ];
 
     const GUIDES_AND_RESOURCES = 'guides-and-resources';

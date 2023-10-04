@@ -10,7 +10,7 @@ class KeyTest extends TestCase
     public function testReturnsKey(): void
     {
         $this->assertEquals(
-            'details-detail',
+            'support-detail',
             SupportDetailForm::key(),
         );
     }

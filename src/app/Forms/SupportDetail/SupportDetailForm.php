@@ -14,7 +14,7 @@ class SupportDetailForm extends Form
 {
     public static function key(): string
     {
-        return 'details-detail';
+        return 'support-detail';
     }
 
     /**
