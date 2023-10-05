@@ -81,7 +81,40 @@ class GetQuestionTest extends TestCase
 
     public function testHasSystemQuestionOptions(): void
     {
-        $roles = Role::pluck('name', 'id')->toArray();
+        $roles = config('support-page.role_model')::query()
+            ->whereNotIn('name', config('support-page.excluded_roles'))
+            ->pluck('name', 'id')->toArray();
+
+        $roles['divider'] = [
+            'divider' => true,
+            'label' => 'or',
+        ];
+
+        $roles['email'] = [
+            'label' => 'Use an email address',
+            'inputs' => [
+                [
+                    'label' => 'Which email address would you like to use?',
+                    'name' => 'email',
+                    'hint' => 'Enter an email address including @networkrail.co.uk',
+                    'value' => null,
+                ],
+            ],
+        ];
+
+        $this->assertEquals(
+            $roles,
+            $this->question->getQuestion($this->subject)->options,
+        );
+    }
+
+    public function testHasSystemQuestionOptionsWithoutExcludedRoles(): void
+    {
+        set config()
+
+        $roles = config('support-page.role_model')::query()
+            ->whereNotIn('name', config('support-page.excluded_roles'))
+            ->pluck('name', 'id')->toArray();
 
         $roles['divider'] = [
             'divider' => true,
