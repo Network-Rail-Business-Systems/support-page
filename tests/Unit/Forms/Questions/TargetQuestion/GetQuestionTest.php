@@ -2,11 +2,11 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\Questions\TargetQuestion;
 
+use Illuminate\Support\Facades\Config;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
-use Spatie\Permission\Models\Role;
 
 class GetQuestionTest extends TestCase
 {
@@ -24,6 +24,9 @@ class GetQuestionTest extends TestCase
 
         $this->makeRole('Admin');
         $this->makeRole('Other role');
+        $this->makeRole('Excluded role');
+
+        Config::set('support-page.excluded_roles', ['Excluded role']);
 
         $this->question = new TargetQuestion();
         $this->subject = new SupportDetail();
@@ -108,34 +111,22 @@ class GetQuestionTest extends TestCase
         );
     }
 
-    public function testHasSystemQuestionOptionsWithoutExcludedRoles(): void
+    public function testIsNullWhenNotEmail(): void
     {
-        set config()
+        $this->subject->target = 'HOLIDAY';
 
-        $roles = config('support-page.role_model')::query()
-            ->whereNotIn('name', config('support-page.excluded_roles'))
-            ->pluck('name', 'id')->toArray();
+        $this->assertNull(
+            $this->question->getQuestion($this->subject)->options['email']['inputs'][0]['value'],
+        );
+    }
 
-        $roles['divider'] = [
-            'divider' => true,
-            'label' => 'or',
-        ];
-
-        $roles['email'] = [
-            'label' => 'Use an email address',
-            'inputs' => [
-                [
-                    'label' => 'Which email address would you like to use?',
-                    'name' => 'email',
-                    'hint' => 'Enter an email address including @networkrail.co.uk',
-                    'value' => null,
-                ],
-            ],
-        ];
+    public function testHasTargetWhenIsEmail(): void
+    {
+        $this->subject->target = 'jesse@pinkman.com';
 
         $this->assertEquals(
-            $roles,
-            $this->question->getQuestion($this->subject)->options,
+            $this->subject->target,
+            $this->question->getQuestion($this->subject)->options['email']['inputs'][0]['value'],
         );
     }
 
