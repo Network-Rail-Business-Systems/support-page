@@ -3,13 +3,13 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\Support;
 
 use Illuminate\Contracts\View\View;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\SupportPageController;
 use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Tests\Http\Controllers\Support\SupportController;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class SupportTest extends TestCase
 {
-    protected SupportController $controller;
+    protected SupportPageController $controller;
 
     protected View $view;
 
@@ -17,7 +17,7 @@ class SupportTest extends TestCase
     {
         parent::setUp();
 
-        $this->controller = new SupportController();
+        $this->controller = new SupportPageController();
     }
 
     public function testHasTitle(): void

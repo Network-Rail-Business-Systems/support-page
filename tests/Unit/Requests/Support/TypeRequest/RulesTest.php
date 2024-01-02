@@ -2,8 +2,8 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Requests\Support\TypeRequest;
 
-use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Tests\Http\Requests\Support\TypeRequest;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TypeRequest;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class RulesTest extends TestCase

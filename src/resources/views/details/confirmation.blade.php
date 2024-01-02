@@ -10,12 +10,12 @@
 <x-govuk::h2>What would you like to do now?</x-govuk::h2>
 <x-govuk::ul bulleted spaced>
     <li>
-        <x-govuk::a href="{{ config('support-page.support_detail_model')::editFormRoute($subject) }}">
+        <x-govuk::a href="{{ \NetworkRailBusinessSystems\SupportPage\Models\SupportDetail::editFormRoute($subject) }}}">
             View created Support Detail
         </x-govuk::a>
     </li>
     <li>
-        <x-govuk::a href="{{ route('support-details.index') }}">
+        <x-govuk::a href="{{ route('support-page.admin.index')  }}">
             Return to Manage Support Details page
         </x-govuk::a>
     </li>
