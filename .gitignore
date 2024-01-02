@@ -1,2 +1,6 @@
+/.idea/
 /vendor/
-/database/
+/.phpunit.cache/
+/node_modules/
+.phpunit.xml.bak
+.phpunit.result.cache
