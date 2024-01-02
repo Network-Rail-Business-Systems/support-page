@@ -2,10 +2,10 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\SupportDetailForm;
 
-use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\LabelQuestion;
-use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TargetQuestion;
-use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\SupportDetailForm;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class QuestionsTest extends TestCase

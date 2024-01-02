@@ -3,7 +3,7 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\SupportDetailForm;
 
 use Illuminate\Auth\Access\AuthorizationException;
-use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\SupportDetailForm;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class CheckAccessTest extends TestCase

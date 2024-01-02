@@ -39,7 +39,6 @@ class SupportPageProvider extends ServiceProvider
     {
         Route::macro('supportPage', function () {
             Route::prefix('/support')
-                ->name('support')
                 ->name('support-page.')
                 ->controller(SupportPageController::class)
                 ->group(function () {

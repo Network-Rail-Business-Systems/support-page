@@ -2,7 +2,7 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Requests\Support\TargetRequest;
 
-use NetworkRailBusinessSystems\SupportPage\Tests\Http\Requests\Support\TargetRequest;
+use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TargetRequest;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class AuthorizeTest extends TestCase

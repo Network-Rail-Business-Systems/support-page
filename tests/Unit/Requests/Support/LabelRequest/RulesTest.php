@@ -2,8 +2,8 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Requests\Support\LabelRequest;
 
-use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\LabelQuestion;
-use NetworkRailBusinessSystems\SupportPage\Tests\Http\Requests\Support\LabelRequest;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
+use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\LabelRequest;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class RulesTest extends TestCase

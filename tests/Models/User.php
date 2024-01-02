@@ -5,7 +5,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Tests\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use NetworkRailBusinessSystems\SupportPage\Tests\Factories\UserFactory;
+use NetworkRailBusinessSystems\SupportPage\Tests\Database\Factories\UserFactory;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable

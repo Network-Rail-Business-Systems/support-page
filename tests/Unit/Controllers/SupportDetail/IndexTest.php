@@ -3,9 +3,9 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\SupportDetail;
 
 use Illuminate\Contracts\View\View;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\Http\Controllers\Support\SupportDetailController;
 use NetworkRailBusinessSystems\SupportPage\Tests\Http\Resources\SupportDetailCollection;
-use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class IndexTest extends TestCase

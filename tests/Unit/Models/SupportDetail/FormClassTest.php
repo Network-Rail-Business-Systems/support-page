@@ -2,8 +2,8 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Models\SupportDetail;
 
-use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\SupportDetailForm;
-use NetworkRailBusinessSystems\SupportPage\Tests\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class FormClassTest extends TestCase
