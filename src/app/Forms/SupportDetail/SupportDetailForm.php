@@ -57,7 +57,7 @@ class SupportDetailForm extends Form
         return 'support-page::details.confirmation';
     }
 
-    public function exitRoute(Model $subject = null): string
+    public function exitRoute(?Model $subject = null): string
     {
         return route('support-page.admin.index');
     }

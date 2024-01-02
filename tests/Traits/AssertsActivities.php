@@ -16,9 +16,9 @@ trait AssertsActivities
     public function assertActivity(
         Model $subject,
         string $event,
-        string $description = null,
-        array $attributes = null,
-        array $old = null,
+        ?string $description = null,
+        ?array $attributes = null,
+        ?array $old = null,
     ): void {
         $activity = $subject->activities->where('event', $event)->last();
 

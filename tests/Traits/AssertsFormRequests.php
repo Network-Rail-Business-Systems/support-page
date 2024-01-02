@@ -15,17 +15,17 @@ use Illuminate\Foundation\Http\FormRequest;
  */
 trait AssertsFormRequests
 {
-    protected function assertFormRequestPasses(FormRequest $request, User $user = null)
+    protected function assertFormRequestPasses(FormRequest $request, ?User $user = null)
     {
         $this->assertTrue($this->runFormRequest($request, $user));
     }
 
-    protected function assertFormRequestFails(FormRequest $request, User $user = null)
+    protected function assertFormRequestFails(FormRequest $request, ?User $user = null)
     {
         $this->assertFalse($this->runFormRequest($request, $user));
     }
 
-    protected function runFormRequest(FormRequest $request, User $user = null): bool
+    protected function runFormRequest(FormRequest $request, ?User $user = null): bool
     {
         if ($user !== null) {
             $request->setUserResolver(function () use ($user) {
