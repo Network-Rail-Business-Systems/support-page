@@ -3,8 +3,8 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\Support;
 
 use Illuminate\Contracts\View\View;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Http\Controllers\SupportPageController;
-use NetworkRailBusinessSystems\SupportPage\Tests\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class SupportTest extends TestCase
@@ -83,7 +83,7 @@ class SupportTest extends TestCase
             $this->createSupportDetails();
         }
 
-        $this->view = $this->controller->support();
+        $this->view = $this->controller->show();
     }
 
     protected function createSupportDetails(): void

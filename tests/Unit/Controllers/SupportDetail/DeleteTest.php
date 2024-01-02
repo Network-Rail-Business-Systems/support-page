@@ -3,15 +3,15 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\SupportDetail;
 
 use Illuminate\Http\RedirectResponse;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\SupportPageController;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use NetworkRailBusinessSystems\SupportPage\Tests\Http\Controllers\Support\SupportDetailController;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class DeleteTest extends TestCase
 {
     protected SupportDetail $supportDetail;
 
-    protected SupportDetailController $controller;
+    protected SupportPageController $controller;
 
     protected RedirectResponse $redirect;
 
@@ -21,7 +21,7 @@ class DeleteTest extends TestCase
 
         $this->supportDetail = SupportDetail::factory()->create();
 
-        $this->controller = new SupportDetailController();
+        $this->controller = new SupportPageController();
         $this->redirect = $this->controller->delete($this->supportDetail);
     }
 

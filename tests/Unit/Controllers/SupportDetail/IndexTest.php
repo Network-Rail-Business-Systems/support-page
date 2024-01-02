@@ -3,14 +3,14 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\SupportDetail;
 
 use Illuminate\Contracts\View\View;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\SupportPageController;
+use NetworkRailBusinessSystems\SupportPage\Http\Resources\SupportDetailCollection;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use NetworkRailBusinessSystems\SupportPage\Tests\Http\Controllers\Support\SupportDetailController;
-use NetworkRailBusinessSystems\SupportPage\Tests\Http\Resources\SupportDetailCollection;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
 class IndexTest extends TestCase
 {
-    protected SupportDetailController $controller;
+    protected SupportPageController $controller;
 
     protected View $view;
 
@@ -18,7 +18,7 @@ class IndexTest extends TestCase
     {
         parent::setUp();
 
-        $this->controller = new SupportDetailController();
+        $this->controller = new SupportPageController();
         $this->view = $this->controller->index();
     }
 
