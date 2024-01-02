@@ -6,11 +6,11 @@ use AnthonyEdmonds\GovukLaravel\Traits\HasForm;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use NetworkRailBusinessSystems\SupportPage\Database\Factories\SupportDetailFactory;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
-use Spatie\Permission\Models\Role;
 
 /**
  * @property string $targetLabel
@@ -43,7 +43,7 @@ class SupportDetail extends Model
 
     public static function getEnquirySubject(): string
     {
-        return 'Enquiry about '.config('app.name');
+        return 'Enquiry about '.rawurlencode(config('app.name'));
     }
 
     public function getType(): string
@@ -61,7 +61,7 @@ class SupportDetail extends Model
             if (str_contains($this->target, '@') === true) {
                 return "mailto:{$this->target}?subject={$this::getEnquirySubject()}";
             } else {
-                return route('support.owners', [$this->target]);
+                return route('support-page.owners', [$this->target]);
             }
         } else {
             return $this->target;
@@ -84,7 +84,7 @@ class SupportDetail extends Model
         $targetKey = $this->targetLabel;
 
         $targetKey === 'Role' && $this->target !== null
-           ? $targetValue = Role::find($this->target)->name
+           ? $targetValue = config('support-page.role_model')::find($this->target)->name
            : $targetValue = $this->target;
 
         return [
@@ -107,5 +107,10 @@ class SupportDetail extends Model
                 $showChange
             ),
         ];
+    }
+
+    protected static function newFactory(): SupportDetailFactory
+    {
+        return new SupportDetailFactory();
     }
 }

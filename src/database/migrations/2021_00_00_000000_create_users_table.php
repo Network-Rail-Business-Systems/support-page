@@ -8,19 +8,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('support_details', function (Blueprint $table) {
-            $table->id();
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
             $table->timestamps();
-
-            $table->string('type');
-            $table->text('target');
-            $table->string('label');
-
+            $table->string('email')->unique();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('support_details');
+        Schema::dropIfExists('users');
     }
 };

@@ -1,11 +1,13 @@
 <?php
 
-use App\Models\User;
-use NetworkRailBusinessSystems\SupportPage\Http\Resources\SupportDetailCollection;
-use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-
 return [
-    'user_model' => env('USER_MODEL', User::class),
-    'support_detail_model' => env('SUPPORT_DETAIL_MODEL', SupportDetail::class),
-    'support_detail_collection' => env('SUPPORT_DETAIL_COLLECTION', SupportDetailCollection::class),
+    'enquiry_url' => 'https://systems.hiav.networkrail.co.uk/home/forms/enquiry/start',
+
+    'excluded_roles' => [],
+
+    'permission' => 'manage_support_page',
+
+    'role_model' => Spatie\Permission\Models\Role::class,
+
+    'user_model' => App\Models\User::class,
 ];

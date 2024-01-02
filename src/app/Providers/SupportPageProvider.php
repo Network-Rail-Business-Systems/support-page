@@ -4,8 +4,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportController;
-use NetworkRailBusinessSystems\SupportPage\Http\Controllers\Support\SupportDetailController;
+use NetworkRailBusinessSystems\SupportPage\Http\Controllers\SupportPageController;
 
 class SupportPageProvider extends ServiceProvider
 {
@@ -28,12 +27,12 @@ class SupportPageProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../../config/support-page.php' => config_path('support-page.php'),
-            __DIR__.'/../../resources/views/support' => resource_path('views/vendor/support-page/support'),
+            __DIR__.'/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
         ], 'support-page');
 
         $this->publishes([
-            __DIR__.'/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
-        ], 'support-page-data');
+            __DIR__.'/../../resources/views/support' => resource_path('views/vendor/support-page/support'),
+        ], 'support-page-views');
     }
 
     protected function bootRoutes(): void
@@ -41,18 +40,21 @@ class SupportPageProvider extends ServiceProvider
         Route::macro('supportPage', function () {
             Route::prefix('/support')
                 ->name('support')
-                ->controller(SupportController::class)
+                ->name('support-page.')
+                ->controller(SupportPageController::class)
                 ->group(function () {
-                    Route::get('/', 'support');
-                    Route::get('/owner-team/{role}', 'owners')->name('.owners');
-                });
+                    Route::redirect('/enquiry', config('support-page.enquiry_url'))->name('enquiry');
 
-            Route::prefix('/support-details')
-                ->name('support-details.')
-                ->controller(SupportDetailController::class)
-                ->group(function () {
-                    Route::get('/', 'index')->name('index');
-                    Route::get('/delete/{supportDetail}', 'delete')->name('delete');
+                    Route::get('/', 'show')->name('show');
+                    Route::get('/{role}', 'owners')->name('owners');
+
+                    Route::prefix('/admin')
+                        ->name('admin.')
+                        ->group(function () {
+                            Route::get('/manage', 'index')->name('index');
+                            Route::get('/{supportDetail}/confirm', 'confirm')->name('confirm');
+                            Route::delete('/{supportDetail}/delete', 'delete')->name('delete');
+                        });
                 });
         });
     }
