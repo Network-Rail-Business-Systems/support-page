@@ -35,7 +35,7 @@ class GetTargetTest extends TestCase
         $this->supportDetail->target = 'support.owners';
 
         $this->assertEquals(
-            route('support.owners', [$this->supportDetail->target]),
+            route('support-page.owners', [$this->supportDetail->target]),
             $this->supportDetail->getTarget()
         );
     }

@@ -2,7 +2,6 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\Questions\TargetQuestion;
 
-use App\Console\Commands\UpdatePermissions;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TargetRequest;
@@ -48,7 +47,7 @@ class StoreTest extends TestCase
     {
         $this->runStore(true);
 
-        $this->assertEquals(UpdatePermissions::ADMIN, $this->subject->target);
+        $this->assertEquals('admin', $this->subject->target);
     }
 
     protected function runStore(bool $isRole = false): void
@@ -56,7 +55,7 @@ class StoreTest extends TestCase
         $this->request = new TargetRequest([
             'url' => 'www.chasethedayaway.com',
             'email' => 'danger@zone.co.uk',
-            'role' => $isRole === true ? UpdatePermissions::ADMIN : 'email',
+            'role' => $isRole === true ? 'admin' : 'email',
         ]);
 
         $this->question->store($this->request, $this->subject, '');

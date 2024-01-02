@@ -1,6 +1,6 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\SupportDetail;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Controllers\SupportPage;
 
 use Illuminate\Http\RedirectResponse;
 use NetworkRailBusinessSystems\SupportPage\Http\Controllers\SupportPageController;
@@ -36,7 +36,7 @@ class DeleteTest extends TestCase
     public function testFlashesSuccessMessage(): void
     {
         $this->assertFlashed(
-            "Record {$this->supportDetail->id} deleted.",
+            "Record #{$this->supportDetail->id} was successfully deleted.",
             'success',
         );
     }
@@ -44,7 +44,7 @@ class DeleteTest extends TestCase
     public function testRedirects(): void
     {
         $this->assertEquals(
-            route('support-details.index'),
+            route('support-page.admin.index'),
             $this->redirect->getTargetUrl(),
         );
     }

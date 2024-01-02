@@ -9,11 +9,15 @@ use Spatie\Permission\Models\Role;
 
 class ToSummaryTest extends TestCase
 {
+    protected Role $role;
+
     protected SupportDetail $supportDetail;
 
     protected function setUp(): void
     {
         parent::setUp();
+
+        $this->role = $this->makeRole('Admin');
 
         $this->supportDetail = new SupportDetail();
     }

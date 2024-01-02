@@ -2,11 +2,11 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\Questions\TargetQuestion;
 
+use Illuminate\Support\Facades\Config;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
-use Spatie\Permission\Models\Role;
 
 class GetQuestionTest extends TestCase
 {
@@ -21,6 +21,12 @@ class GetQuestionTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        $this->makeRole('Admin');
+        $this->makeRole('Other role');
+        $this->makeRole('Excluded role');
+
+        Config::set('support-page.excluded_roles', ['Excluded role']);
 
         $this->question = new TargetQuestion();
         $this->subject = new SupportDetail();
@@ -78,7 +84,9 @@ class GetQuestionTest extends TestCase
 
     public function testHasSystemQuestionOptions(): void
     {
-        $roles = Role::pluck('name', 'id')->toArray();
+        $roles = config('support-page.role_model')::query()
+            ->whereNotIn('name', config('support-page.excluded_roles'))
+            ->pluck('name', 'id')->toArray();
 
         $roles['divider'] = [
             'divider' => true,
@@ -92,6 +100,7 @@ class GetQuestionTest extends TestCase
                     'label' => 'Which email address would you like to use?',
                     'name' => 'email',
                     'hint' => 'Enter an email address including @networkrail.co.uk',
+                    'value' => null,
                 ],
             ],
         ];
@@ -99,6 +108,25 @@ class GetQuestionTest extends TestCase
         $this->assertEquals(
             $roles,
             $this->question->getQuestion($this->subject)->options,
+        );
+    }
+
+    public function testIsNullWhenNotEmail(): void
+    {
+        $this->subject->target = 'HOLIDAY';
+
+        $this->assertNull(
+            $this->question->getQuestion($this->subject)->options['email']['inputs'][0]['value'],
+        );
+    }
+
+    public function testHasTargetWhenIsEmail(): void
+    {
+        $this->subject->target = 'jesse@pinkman.com';
+
+        $this->assertEquals(
+            $this->subject->target,
+            $this->question->getQuestion($this->subject)->options['email']['inputs'][0]['value'],
         );
     }
 
@@ -113,7 +141,7 @@ class GetQuestionTest extends TestCase
     public function testHasSystemQuestionValue(): void
     {
         $this->assertEquals(
-            $this->subject,
+            $this->subject->target,
             $this->question->getQuestion($this->subject)->value,
         );
     }
@@ -173,7 +201,7 @@ class GetQuestionTest extends TestCase
         $this->subject->type = TypeQuestion::GUIDES_AND_RESOURCES;
 
         $this->assertEquals(
-            $this->subject,
+            $this->subject->target,
             $this->question->getQuestion($this->subject)->value,
         );
     }
@@ -183,7 +211,7 @@ class GetQuestionTest extends TestCase
         $this->subject->type = TypeQuestion::TECHNICAL_ISSUES;
 
         $this->assertEquals(
-            $this->subject,
+            $this->subject->target,
             $this->question->getQuestion($this->subject)->value,
         );
     }
