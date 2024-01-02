@@ -17,7 +17,7 @@ trait ResourceCollectionAsArray
      * @param  Request|null  $request A request object, if you have one
      * @return array A complete array with pagination controls
      */
-    public function asArray(Request $request = null): array
+    public function asArray(?Request $request = null): array
     {
         if ($request === null) {
             $request = request();

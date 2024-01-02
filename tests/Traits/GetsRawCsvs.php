@@ -8,7 +8,7 @@ trait GetsRawCsvs
         string $csv,
         string $delimiter = ',',
         bool $hasHeaders = true,
-        string $rowIdentifier = null,
+        ?string $rowIdentifier = null,
     ): array {
         $rows = [];
         $csv = explode("\n", $csv);

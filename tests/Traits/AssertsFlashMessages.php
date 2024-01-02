@@ -12,7 +12,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Tests\Traits;
  */
 trait AssertsFlashMessages
 {
-    public function assertFlashed(string $message, string $level = null): void
+    public function assertFlashed(string $message, ?string $level = null): void
     {
         $flash = flash()
             ->messages->where('message', $message)

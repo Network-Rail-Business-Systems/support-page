@@ -177,7 +177,7 @@ class User extends Authenticatable implements LdapAuthenticatable
     protected static function findFilters(
         QueryBuilder $query,
         string $term,
-        Model $user = null,
+        ?Model $user = null,
     ): QueryBuilder {
         return $query
             ->leftJoin('user_has_roles', 'user_has_roles.user_id', '=', 'users.id')
