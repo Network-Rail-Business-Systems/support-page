@@ -21,15 +21,12 @@ class LabelQuestion extends Question
     /**
      * @param  SupportDetail  $subject
      */
-
-    // change param model to be config('support-page.support_detail_model')?
-
     public function getQuestion(Model $subject): GovukQuestion|array
     {
         return GovukQuestionHelper::input(
             'What is the label for this Support Detail?',
             self::key(),
-        );
+        )->value($subject->label);
     }
 
     /**

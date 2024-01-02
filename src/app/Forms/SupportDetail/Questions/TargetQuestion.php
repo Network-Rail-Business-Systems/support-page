@@ -10,7 +10,6 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TargetRequest;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
-use Spatie\Permission\Models\Role;
 
 class TargetQuestion extends Question
 {
@@ -19,16 +18,17 @@ class TargetQuestion extends Question
         return 'target';
     }
 
-    // change param model to be config('support-page.support_detail_model')?
-
     /**
      * @param  SupportDetail  $subject
      */
     public function getQuestion(Model $subject): GovukQuestion|array
     {
         if ($subject->type === TypeQuestion::SYSTEM_QUESTIONS) {
+            $isEmail = str_contains($subject->target, '@');
 
-            $roles = Role::pluck('name', 'id')->toArray();
+            $roles = config('support-page.role_model')::query()
+                ->whereNotIn('name', config('support-page.excluded_roles'))
+                ->pluck('name', 'id')->toArray();
 
             $roles['divider'] = [
                 'divider' => true,
@@ -42,6 +42,7 @@ class TargetQuestion extends Question
                         'label' => 'Which email address would you like to use?',
                         'name' => 'email',
                         'hint' => 'Enter an email address including @networkrail.co.uk',
+                        'value' => $isEmail === true ? $subject->target : null,
                     ],
                 ],
             ];
@@ -51,7 +52,7 @@ class TargetQuestion extends Question
                 'role',
                 $roles
             )->hint('Select a system role or provide an email address')
-                ->value($subject);
+                ->value($isEmail === true ? 'email' : $subject->target);
 
         } else {
             return GovukQuestionHelper::input(
@@ -60,7 +61,7 @@ class TargetQuestion extends Question
                     : 'What is the link to the enquiry form?',
                 'url',
             )->hint('Make sure the link is accessible to anyone in Network Rail.')
-                ->value($subject);
+                ->value($subject->target);
         }
     }
 
