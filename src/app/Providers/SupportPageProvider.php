@@ -31,7 +31,7 @@ class SupportPageProvider extends ServiceProvider
         ], 'support-page');
 
         $this->publishes([
-            __DIR__.'/../../resources/views/support' => resource_path('views/vendor/support-page/support'),
+            __DIR__.'/../../resources/views' => resource_path('views/vendor/support-page/support'),
         ], 'support-page-views');
     }
 
@@ -51,8 +51,8 @@ class SupportPageProvider extends ServiceProvider
                         ->name('admin.')
                         ->group(function () {
                             Route::get('/manage', 'index')->name('index');
-                            Route::get('/{supportDetail}/confirm', 'confirm')->name('confirm');
-                            Route::delete('/{supportDetail}/delete', 'delete')->name('delete');
+                            Route::get('/{supportDetail}/confirm', 'confirm')->name('delete');
+                            Route::get('/{supportDetail}/deleted', 'delete')->name('deleted');
                         });
                 });
         });

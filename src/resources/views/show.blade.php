@@ -1,4 +1,7 @@
-@php use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion; @endphp
+@extends('govuk::layout.page')
+@php use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+$title = 'blah'
+@endphp
 @section('main')
 
     @foreach($groups as $type => $group)

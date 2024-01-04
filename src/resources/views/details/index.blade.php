@@ -1,3 +1,8 @@
+@extends('govuk::layout.page')
+@php
+$title = 'blah'
+@endphp
+
 @section('main')
     <x-govuk::p>This page allows you to manage Support Details.</x-govuk::p>
 

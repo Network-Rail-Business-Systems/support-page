@@ -1,3 +1,8 @@
+@extends('govuk::layout.page')
+@php
+    $title = 'blah'
+@endphp
+
 @section('main')
 <x-govuk::panel
     colour="green"

@@ -81,6 +81,7 @@ class SupportPageController extends Controller
 
         return view('support-page::details.confirm')
             ->with('supportDetail', $supportDetail);
+
     }
 
     public function delete(SupportDetail $supportDetail): RedirectResponse
