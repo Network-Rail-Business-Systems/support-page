@@ -17,10 +17,10 @@ Publish via the terminal: `php artisan vendor:publish --provider="NetworkRailBus
 ## Configuration
 
 * Add `'manage_support_page'` with admin rights to the UpdatePermissions Command
-* Add a support page admin link to admin blade and prefix it with `@can'manage_support_page'`
+* Add a link to manage Support Details on the admin blade with the route `support-page.admin.index` and wrap it in `@can'manage_support_page'`
 * Add `Route::supportPage();` to web.php
 
-* Register the form in the Govuk config:
+* Register the form and import the class in the Govuk config:
 ```php
 return [
     'forms' => [
@@ -29,16 +29,10 @@ return [
 ```
 * run `php artisan update:permissions` and `php artisan migrate` in the terminal
 
-## Environment variables
+* If required, exclude roles from being an assignable contact for a support detail by adding the role to the registering them form in the Support-page config:
 
-The three env variables below will allow you to change the data being used for the support details and user information.
-
-Below is their defaults:
-
-```dotenv
-    USER_MODEL=User::class
-    SUPPORT_DETAIL_MODEL=SupportDetail::class
-    SUPPORT_DETAIL_COLLECTION=SupportDetailCollection::class
+```php
+'excluded_roles' => ['Developer', 'Business Systems Support'],
 ```
 
 ## Testing information
