@@ -1,6 +1,6 @@
 @extends('govuk::layout.page')
 @php use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-$title = 'blah'
+$title = ''
 @endphp
 @section('main')
 

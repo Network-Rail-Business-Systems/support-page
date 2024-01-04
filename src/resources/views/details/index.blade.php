@@ -1,6 +1,6 @@
 @extends('govuk::layout.page')
 @php
-$title = 'blah'
+$title=''
 @endphp
 
 @section('main')

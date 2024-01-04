@@ -1,13 +1,11 @@
 @extends('govuk::layout.page')
 @php
-    $title = 'blah'
+    $title="Support Detail created";
+    $colour="green";
 @endphp
 
 @section('main')
-<x-govuk::panel
-    colour="green"
-    title="Support Detail created"
->
+<x-govuk::panel>
     The ID is
     <br/><strong>{{ $subject->id }}</strong>
 </x-govuk::panel>
