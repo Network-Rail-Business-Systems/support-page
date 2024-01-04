@@ -20,7 +20,7 @@
         </x-govuk::a>
     </li>
     <li>
-        <x-govuk::a href="{{ route('support-page.admin.index')  }}">
+        <x-govuk::a href="{{ route('support-page.admin.index') }}">
             Return to Manage Support Details page
         </x-govuk::a>
     </li>

@@ -4,9 +4,6 @@ $action="deleted";
 $method="get";
 $submitButtonType="warning";
 $submitButtonLabel="Delete";
-$otherButtonMethod="get";
-$otherButtonHref="{{ route('support-page.admin.index') }}";
-$otherButtonLabel="Cancel";
 $title="blah";
 @endphp
 
@@ -21,7 +18,9 @@ $title="blah";
                 {{ $submitButtonLabel }}
             </x-govuk::button>
 
-            @include('govuk::parts.other-button')
+            <x-govuk::a href="{{ route('support-page.admin.index') }}">
+                Cancel
+            </x-govuk::a>
         </x-govuk::button-group>
     </x-govuk::form>
 @endsection
