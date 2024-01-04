@@ -4,7 +4,7 @@ $action="deleted";
 $method="get";
 $submitButtonType="warning";
 $submitButtonLabel="Delete";
-$title="blah";
+$title="Delete Support Detail #$supportDetail->id";
 @endphp
 
 @section('main')
