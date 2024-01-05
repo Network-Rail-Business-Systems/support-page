@@ -1,6 +1,6 @@
 @extends('govuk::layout.page')
 @php
-$title=''
+$title='Manage Support Details'
 @endphp
 
 @section('main')

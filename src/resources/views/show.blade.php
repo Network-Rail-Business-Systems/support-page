@@ -1,9 +1,8 @@
 @extends('govuk::layout.page')
 @php use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-$title = ''
+$title = 'Support'
 @endphp
 @section('main')
-
     @foreach($groups as $type => $group)
         <x-support-page::support-group
                 description="{{ TypeQuestion::DESCRIPTIONS[$type] }}"

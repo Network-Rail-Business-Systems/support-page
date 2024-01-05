@@ -1,11 +1,8 @@
-@extends('govuk::layout.page')
-@php
-    $colour="green";
-    $title="Support Detail created";
-@endphp
-
 @section('main')
-    <x-govuk::panel>
+    <x-govuk::panel
+            colour="green"
+            title="Support Detail created"
+    >
         The ID is
         <br/><strong>{{ $subject->id }}</strong>
     </x-govuk::panel>
@@ -13,7 +10,7 @@
     <x-govuk::h2>What would you like to do now?</x-govuk::h2>
     <x-govuk::ul bulleted spaced>
         <li>
-            <x-govuk::a href="{{ \NetworkRailBusinessSystems\SupportPage\Models\SupportDetail::editFormRoute($subject) }}}">
+            <x-govuk::a href="{{ \NetworkRailBusinessSystems\SupportPage\Models\SupportDetail::editFormRoute($subject) }}">
                 View created Support Detail
             </x-govuk::a>
         </li>
