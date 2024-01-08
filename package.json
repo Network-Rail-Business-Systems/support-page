@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "larastan": "php ./vendor/bin/phpstan analyse --memory-limit=256M",
+    "pint": "php ./vendor/bin/pint",
+    "test": "php vendor/bin/paratest",
+    "test-slow": "php /vendor/bin/phpunit"
+  },
+  "devDependencies": {
+    "husky": "^8",
+    "laravel-vite-plugin": "^0",
+    "sass": "^1",
+    "vite": "^4"
+  }
+}

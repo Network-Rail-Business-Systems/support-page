@@ -1,19 +1,59 @@
 {
     "name": "networkrailbusinesssystems/support-page",
     "description": "Allows you quickly add a support page to your project",
+    "keywords": [
+        "support",
+        "support page",
+        "help",
+        "help page",
+        "blade template"
+    ],
     "type": "library",
+    "homepage": "https://github.com/Network-Rail-Business-Systems/support-page",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Networkrailbusinesssystems\\SupportPage\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Sim Roberts",
-            "email": "simran.roberts@networkrail.co.uk"
+            "email": "simran.roberts@networkrail.co.uk",
+            "role": "Developer"
         }
     ],
+    "require": {
+        "php": "^8.2",
+        "anthonyedmonds/govuk-laravel": "^1",
+        "illuminate/support": "^10",
+        "laracasts/flash": "^3",
+        "spatie/laravel-permission": "^5.11"
+    },
+    "require-dev": {
+        "brianium/paratest": "^7.1",
+        "laravel/pint": "^1",
+        "larastan/larastan": "^2",
+        "orchestra/testbench": "^8",
+        "phpunit/phpunit": "^10"
+
+    },
+    "autoload": {
+        "psr-4": {
+            "NetworkRailBusinessSystems\\SupportPage\\": "src/app",
+            "NetworkRailBusinessSystems\\SupportPage\\Database\\Factories\\": "src/database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NetworkRailBusinessSystems\\SupportPage\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NetworkRailBusinessSystems\\SupportPage\\Providers\\SupportPageProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
     "minimum-stability": "dev",
-    "require": {}
+    "prefer-stable": true
 }
