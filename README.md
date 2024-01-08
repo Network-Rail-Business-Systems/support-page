@@ -1,6 +1,6 @@
 # Support Page
 
-Use the Support Page Library with GOV.UK Laravel to insert a support page and support admin page.
+Use the Support Page Library with the GOV.UK Laravel library to insert a Support Page and Support Admin Page.
 
 ## What's in the box?
 
@@ -34,10 +34,6 @@ return [
 ```php
 'excluded_roles' => ['Developer', 'Business Systems Support'],
 ```
-
-## Testing information
-
-Need to make some tests
 
 ## Notes
 
