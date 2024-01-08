@@ -1,64 +1,55 @@
 # Support Page
 
-Use the Support Page Library with the GOV.UK Laravel library to insert a Support Page and Support Admin Page.
+Use the Support Page Library to add the following to your GOV.UK Laravel library Project:
+
+* Admin access to create, edit and delete Support Details.
+* A Support Page to display Support Details.
 
 ## What's in the box?
 
-* Laravel 10 Blade GOV.UK Design support page and support page admin
-* Laravel 10 Blade GOV.UK Design support page components
+* Laravel 10 Blade Support Page Admin Access in the GOV.UK Design
+* Laravel 10 Blade Support Page in the GOV.UK Design 
 * PHP 8.2
 
 ## Installation
 
 Via Composer: `composer require networkrailbusinesssystems/support-page`
 
-Publish via the terminal: `php artisan vendor:publish --provider="NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider"`
+## Publish files
+
+All essential files are published via the command `php artisan vendor:publish --provider="NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider"`.
+This command includes the following two tags and their files:
+
+### support-page
+
+This command will publish the config and database migration:
+
+* /config/support-page.php
+* /database/migrations/2023_02_07_105304_create_support_details_table.php
+
+### support-page-views
+
+This command will publish the Blade views:
+
+* /resources/views/details
+* /resources/views/show.blade.php
+
+## Routing
+
+A route macro is provided to handle the Support Page, and it's Admin functions. Add the following to your `routes/web.php` file:
+```php
+Route::supportPage();
+```
 
 ## Configuration
 
-* Add `'manage_support_page'` with admin rights to the UpdatePermissions Command
-* Add a link to manage Support Details on the admin blade with the route `support-page.admin.index` and wrap it in `@can'manage_support_page'`
-* Add `Route::supportPage();` to web.php
-
-* Register the form and import the class in the Govuk config:
-```php
-return [
-    'forms' => [
-        SupportDetailForm::class,
-],
-```
-* run `php artisan update:permissions` and `php artisan migrate` in the terminal
-
-* If required, exclude roles from being an assignable contact for a support detail by adding the role to the registering them form in the Support-page config:
+* Add the permission`'manage_support_page'` with admin rights.
+* Add a 'Manage Support Details' link to the admin blade with the route `support-page.admin.index`. Wrap this section with `@can('manage_support_page')`, `@endcan`.
+* Register the form `SupportDetailForm::class` in the [GOVUK Config](docs/configuration.md).
+* Update permissions and run database migrations.
+* You can exclude roles from being assignable contacts for Support Details by registering the roles in the Support-page config.
+* Example:
 
 ```php
 'excluded_roles' => ['Developer', 'Business Systems Support'],
 ```
-
-## Notes
-
-This library was created from Network Rails template, using a branch created support page and support page admin.
-
-This branch is yet to be merged yet and  includes a change to the User Model which is required for this library:
-
-* Update the User Model Method scopeByRole:
-```php
-public function scopeByRole(Builder $query, string $role, string $column = 'name'): Builder
-{
-    return $query->whereHas('roles', function (Builder $query) use ($role, $column) {
-        $query->where($column, '=', $role);
-    });
-}
-```
-An additional request when working on this library included adding the support page to the Navbar.
-
-* Update the header.blade in govuk->layout:
-```php
-'Support' => [
-    'auth' => true,
-    'link' => route('support'),
-],
-```
-The Model update will be merged as it is an approved PR.
-
-The GOVUK update will be required to be created and submitted as a PR
