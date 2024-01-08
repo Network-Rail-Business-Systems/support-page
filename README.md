@@ -47,8 +47,7 @@ Route::supportPage();
 * Add a 'Manage Support Details' link to the admin blade with the route `support-page.admin.index`. Wrap this section with `@can('manage_support_page')`, `@endcan`.
 * Register the form `SupportDetailForm::class` in the [GOVUK Config](docs/configuration.md).
 * Update permissions and run database migrations.
-* You can exclude roles from being assignable contacts for Support Details by registering the roles in the Support-page config.
-* Example:
+* You can exclude roles from being assignable contacts for Support Details by registering the roles in the Support-page config. Example:
 
 ```php
 'excluded_roles' => ['Developer', 'Business Systems Support'],
