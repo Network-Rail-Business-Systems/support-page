@@ -31,7 +31,8 @@ class SupportPageProvider extends ServiceProvider
         ], 'support-page');
 
         $this->publishes([
-            __DIR__.'/../../resources/views/support' => resource_path('views/vendor/support-page/support'),
+            __DIR__.'/../../resources/views/details' => resource_path('views/vendor/support-page/details'),
+            __DIR__.'/../../resources/views/show.blade.php' => resource_path('views/vendor/support-page/show.blade.php'),
         ], 'support-page-views');
     }
 
