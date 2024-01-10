@@ -15,7 +15,7 @@ views
 
 ## Installation
 
-Via Composer: `composer require networkrailbusinesssystems/support-page`
+Via Composer: `composer require networkrailbusinesssystems/support-page dev-bulma`
 
 ## Publish files
 
