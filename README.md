@@ -1,5 +1,10 @@
 # Support Page
 
+![Composer status](.github/composer.svg)
+![Coverage status](.github/coverage.svg)
+![PHP version](.github/php.svg)
+![Tests status](.github/tests.svg)
+
 Use the Support Page Library to add the following to your GOV.UK Laravel library Project:
 
 * Admin access to create, edit and delete Support Details.
@@ -7,9 +12,9 @@ Use the Support Page Library to add the following to your GOV.UK Laravel library
 
 ## What's in the box?
 
-* Laravel 10 Blade Support Page Admin Access in the GOV.UK Design
-* Laravel 10 Blade Support Page in the GOV.UK Design 
-* PHP 8.2
+* Laravel 11 Blade Support Page Admin Access in the GOV.UK Design
+* Laravel 11 Blade Support Page in the GOV.UK Design 
+* PHP 8.3
 
 ## Installation
 

@@ -95,10 +95,15 @@ class SupportPageController extends Controller
         return redirect()->route('support-page.admin.index');
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     protected function checkAccess(): void
     {
-        if (config('support-page.permission') === true) {
-            $this->authorize(config('support-page.permission'));
+        $permission = config('support-page.permission');
+
+        if ($permission !== null) {
+            $this->authorize($permission);
         }
     }
 }

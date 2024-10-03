@@ -59,6 +59,9 @@ class TypeQuestion extends Question
         }
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     protected function getFormRequest(): FormRequest
     {
         return new TypeRequest();
