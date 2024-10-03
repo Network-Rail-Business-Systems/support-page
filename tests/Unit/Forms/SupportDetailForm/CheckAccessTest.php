@@ -50,6 +50,6 @@ class CheckAccessTest extends TestCase
         $this->expectExceptionMessage('This action is unauthorized');
 
         $this->form->checkAccess();
-        $this->fail();
+        $this->assertFalse(true);
     }
 }
