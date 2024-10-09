@@ -20,7 +20,7 @@ class SupportDetailForm extends Form
     /**
      * @throws AuthorizationException
      */
-    public function checkAccess(): void
+    public function checkAccess(Model $subject): void
     {
         $permission = config('support-page.permission');
 

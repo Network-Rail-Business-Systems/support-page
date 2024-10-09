@@ -5,6 +5,7 @@ namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\SupportDetailF
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Config;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\Models\User;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
@@ -14,11 +15,15 @@ class CheckAccessTest extends TestCase
 
     protected SupportDetailForm $form;
 
+    protected SupportDetail $supportDetail;
+
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->form = new SupportDetailForm();
+
+        $this->supportDetail = new SupportDetail();
     }
 
     public function testCanAccessForm(): void
@@ -26,7 +31,7 @@ class CheckAccessTest extends TestCase
         Config::set('support-page.permission', null);
 
         try {
-            $this->form->checkAccess();
+            $this->form->checkAccess($this->supportDetail);
             $this->assertTrue(true);
         } catch (AuthorizationException $exception) {
             $this->fail('Unable to access the form');
@@ -39,7 +44,7 @@ class CheckAccessTest extends TestCase
 
         $this->signInWithPermission('manage_support_page');
 
-        $this->form->checkAccess();
+        $this->form->checkAccess($this->supportDetail);
         $this->assertTrue(true);
     }
 
@@ -49,7 +54,7 @@ class CheckAccessTest extends TestCase
 
         $this->expectExceptionMessage('This action is unauthorized');
 
-        $this->form->checkAccess();
+        $this->form->checkAccess($this->supportDetail);
         $this->assertFalse(true);
     }
 }
