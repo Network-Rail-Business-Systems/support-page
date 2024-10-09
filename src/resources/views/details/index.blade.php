@@ -1,7 +1,7 @@
 @use(\NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
 @extends('govuk::layout.page')
 @php
-    $title='Manage Support Details'
+$title='Manage Support Details'
 @endphp
 
 @section('main')
@@ -17,9 +17,9 @@
     <x-govuk::section-break/>
 
     <x-govuk::table
-            caption="Exising Support Details"
-            :data="$supportDetails"
-            empty-message="No Support Details exist"
+        caption="Exising Support Details"
+        :data="$supportDetails"
+        empty-message="No Support Details exist"
     >
         <x-govuk::table-column label="Type">
             ~type
