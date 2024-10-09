@@ -1,6 +1,7 @@
+@use(\NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
 @extends('govuk::layout.page')
 @php
-$title='Manage Support Details'
+    $title='Manage Support Details'
 @endphp
 
 @section('main')
@@ -13,7 +14,7 @@ $title='Manage Support Details'
         <li>Manage existing Support Details</li>
     </x-govuk::ul>
 
-    <x-govuk::section-break />
+    <x-govuk::section-break/>
 
     <x-govuk::table
         caption="Exising Support Details"
@@ -29,11 +30,15 @@ $title='Manage Support Details'
         </x-govuk::table-column>
 
         <x-govuk::table-column label="" numeric>
-            <x-govuk::a href="~editLink">Edit<x-govuk::hidden> ~type</x-govuk::hidden></x-govuk::a>
+            <x-govuk::a href="~editLink">Edit
+                <x-govuk::hidden> ~type</x-govuk::hidden>
+            </x-govuk::a>
         </x-govuk::table-column>
 
         <x-govuk::table-column label="" numeric>
-            <x-govuk::a href="~deleteLink">Delete<x-govuk::hidden> ~type</x-govuk::hidden></x-govuk::a>
+            <x-govuk::a href="~deleteLink">Delete
+                <x-govuk::hidden> ~type</x-govuk::hidden>
+            </x-govuk::a>
         </x-govuk::table-column>
     </x-govuk::table>
 @endsection
@@ -43,7 +48,7 @@ $title='Manage Support Details'
 
     <x-govuk::ul spaced>
         <li>
-            <x-govuk::a href="{{ \NetworkRailBusinessSystems\SupportPage\Models\SupportDetail::startFormRoute() }}">
+            <x-govuk::a href="{{ SupportDetail::startFormRoute() }}">
                 Create a new Support Detail
             </x-govuk::a>
     </x-govuk::ul>

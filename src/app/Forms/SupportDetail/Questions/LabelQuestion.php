@@ -37,6 +37,9 @@ class LabelQuestion extends Question
         $subject->label = $request->label;
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     protected function getFormRequest(): FormRequest
     {
         return new LabelRequest();

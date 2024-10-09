@@ -1,10 +1,10 @@
 @extends('govuk::layout.page')
 @php
-$action="deleted";
-$method="get";
-$submitButtonType="warning";
-$submitButtonLabel="Delete";
-$title="Delete Support Detail #$supportDetail->id";
+    $action="deleted";
+    $method="get";
+    $submitButtonType="warning";
+    $submitButtonLabel="Delete";
+    $title="Delete Support Detail #$supportDetail->id";
 @endphp
 
 @section('main')

@@ -79,6 +79,9 @@ class TargetQuestion extends Question
         }
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     protected function getFormRequest(): FormRequest
     {
         return new TargetRequest();
