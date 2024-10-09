@@ -2,6 +2,7 @@
 
 ![Composer status](.github/composer.svg)
 ![Coverage status](.github/coverage.svg)
+![NPM status](.github/npm.svg)
 ![PHP version](.github/php.svg)
 ![Tests status](.github/tests.svg)
 
