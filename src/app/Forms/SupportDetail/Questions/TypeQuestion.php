@@ -53,9 +53,10 @@ class TypeQuestion extends Question
      */
     public function store(Request $request, Model $subject, string $mode): void
     {
-        $subject->type !== $request->type
-            ? $subject->target = null
-            : $subject->type = $request->type;
+        if ($subject->type !== $request->type) {
+            $subject->target = null;
+            $subject->type = $request->type;
+        }
     }
 
     /**
