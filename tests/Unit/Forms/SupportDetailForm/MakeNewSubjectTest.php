@@ -1,6 +1,6 @@
 <?php
 
-namespace Forms\SupportDetailForm;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\SupportDetailForm;
 
 use Illuminate\Support\Facades\Session;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;

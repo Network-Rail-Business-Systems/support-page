@@ -1,8 +1,8 @@
 @use(\NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
 @section('main')
     <x-govuk::panel
-            colour="green"
-            title="Support Detail created"
+        colour="green"
+        title="Support Detail created"
     >
         The ID is
         <br/><strong>{{ $subject->id }}</strong>
