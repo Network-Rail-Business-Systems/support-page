@@ -20,10 +20,12 @@ class SupportDetailForm extends Form
     /**
      * @throws AuthorizationException
      */
-    public function checkAccess(): void
+    public function checkAccess(Model $subject): void
     {
-        if (config('support-page.permission') === true) {
-            $this->authorize(config('support-page.permission'));
+        $permission = config('support-page.permission');
+
+        if ($permission !== null) {
+            $this->authorize($permission);
         }
     }
 

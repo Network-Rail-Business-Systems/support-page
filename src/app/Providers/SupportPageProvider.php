@@ -27,7 +27,7 @@ class SupportPageProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../../config/support-page.php' => config_path('support-page.php'),
-            __DIR__.'/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
+            __DIR__.'/../../database/migrations/2023_00_00_000000_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
         ], 'support-page');
 
         $this->publishes([
