@@ -13,23 +13,23 @@ use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 
 class TypeQuestion extends Question
 {
-    const OPTIONS = [
+    public const array OPTIONS = [
         self::GUIDES_AND_RESOURCES => 'Guides and resources',
         self::SYSTEM_QUESTIONS => 'Systems questions',
         self::TECHNICAL_ISSUES => 'Technical issues',
     ];
 
-    const DESCRIPTIONS = [
+    public const array DESCRIPTIONS = [
         self::GUIDES_AND_RESOURCES => 'User guides and answers to common problems may be available.',
         self::SYSTEM_QUESTIONS => 'For general enquiries about this system you may contact the owners directly.',
         self::TECHNICAL_ISSUES => 'For technical support, such as errors and bugs, you may contact the Business Systems Support team.',
     ];
 
-    const GUIDES_AND_RESOURCES = 'guides-and-resources';
+    public const string GUIDES_AND_RESOURCES = 'guides-and-resources';
 
-    const SYSTEM_QUESTIONS = 'system-questions';
+    public const string SYSTEM_QUESTIONS = 'system-questions';
 
-    const TECHNICAL_ISSUES = 'technical-issues';
+    public const string TECHNICAL_ISSUES = 'technical-issues';
 
     public static function key(): string
     {
@@ -59,6 +59,9 @@ class TypeQuestion extends Question
         }
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     protected function getFormRequest(): FormRequest
     {
         return new TypeRequest();

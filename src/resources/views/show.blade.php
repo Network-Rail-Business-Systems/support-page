@@ -1,5 +1,4 @@
-@php use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion; @endphp
-
+@use(\NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion)
 <div class="columns">
     <section class="column is-two-thirds">
         @foreach($groups as $type => $group)

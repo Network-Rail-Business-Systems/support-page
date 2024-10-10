@@ -1,5 +1,11 @@
 # Support Page
 
+![Composer status](.github/composer.svg)
+![Coverage status](.github/coverage.svg)
+![NPM status](.github/npm.svg)
+![PHP version](.github/php.svg)
+![Tests status](.github/tests.svg)
+
 This version of the Support Page Library is designed to work with Bulma views.
 
 Use this library to add the following to your Project:
@@ -9,9 +15,9 @@ views
 
 ## What's in the box?
 
-* Laravel 10 Blade Support Page Admin Access in the Bulma Design
-* Laravel 10 Blade Support Page in the Bulma Design
-* PHP 8.2
+* Laravel 11 Blade Support Page Admin Access in the Bulma Design
+* Laravel 11 Blade Support Page in the Bulma Design
+* PHP 8.3
 
 ## Installation
 

@@ -1,3 +1,4 @@
+@use(\NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
 <div class="columns">
     <div class="content">
         <div class="notification is-success">
@@ -11,7 +12,7 @@
         <p class="subtitle is-4"><b>What would you like to do now?</b></p>
         <ul>
             <li>
-                <a href="{{ \NetworkRailBusinessSystems\SupportPage\Models\SupportDetail::editFormRoute($subject) }}">
+                <a href="{{ SupportDetail::editFormRoute($subject) }}">
                     View created Support Detail
                 </a>
             </li>

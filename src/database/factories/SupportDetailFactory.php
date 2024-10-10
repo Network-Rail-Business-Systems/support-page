@@ -13,7 +13,7 @@ class SupportDetailFactory extends Factory
     public function definition(): array
     {
         return [
-            'type' => $this->faker->randomKey(TypeQuestion::OPTIONS),
+            'type' => TypeQuestion::GUIDES_AND_RESOURCES,
             'target' => $this->faker->url(),
             'label' => $this->faker->words(3, true),
         ];
@@ -30,6 +30,18 @@ class SupportDetailFactory extends Factory
     {
         return $this->state([
             'label' => $label,
+        ]);
+    }
+
+    public function withSystemQuestions(bool $role = false): Factory
+    {
+        $target = $role === false
+            ? $this->faker->email
+            : config('support-page.role_model')::first()->name;
+
+        return $this->state([
+            'type' => TypeQuestion::SYSTEM_QUESTIONS,
+            'target' => $target
         ]);
     }
 }

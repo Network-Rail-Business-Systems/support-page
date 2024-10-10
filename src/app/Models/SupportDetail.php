@@ -49,10 +49,8 @@ class SupportDetail extends Model
     public function getType(): string
     {
         return $this->type === TypeQuestion::SYSTEM_QUESTIONS
-            ?
-            '(draft a new e-mail)'
-            :
-            '(opens in a new tab)';
+            ? '(draft a new e-mail)'
+            : '(opens in a new tab)';
     }
 
     public function getTarget(): string

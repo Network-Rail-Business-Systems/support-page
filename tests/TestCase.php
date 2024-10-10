@@ -3,16 +3,18 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests;
 
 use AnthonyEdmonds\GovukLaravel\Providers\GovukServiceProvider;
+use AnthonyEdmonds\LaravelTestingTraits\AssertsActivities;
+use AnthonyEdmonds\LaravelTestingTraits\AssertsFlashMessages;
+use AnthonyEdmonds\LaravelTestingTraits\AssertsFormRequests;
+use AnthonyEdmonds\LaravelTestingTraits\AssertsResults;
+use AnthonyEdmonds\LaravelTestingTraits\SignsInUsers;
 use Illuminate\Support\Facades\Config;
 use Laracasts\Flash\FlashServiceProvider;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 use NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider;
 use NetworkRailBusinessSystems\SupportPage\Tests\Models\User;
-use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsActivities;
-use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsFlashMessages;
-use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsFormRequests;
-use NetworkRailBusinessSystems\SupportPage\Tests\Traits\AssertsResults;
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionServiceProvider;
 
@@ -22,6 +24,7 @@ abstract class TestCase extends BaseTestCase
     use AssertsFlashMessages;
     use AssertsFormRequests;
     use AssertsResults;
+    use SignsInUsers;
 
     protected function setUp(): void
     {
@@ -32,6 +35,9 @@ abstract class TestCase extends BaseTestCase
 
         Config::set('support-page.permission', null);
         Config::set('support-page.user_model', User::class);
+        Config::set('testing-traits.user_model', User::class);
+
+        Permission::create(['name' => 'manage_support_page']);
     }
 
     protected function getPackageProviders($app): array
