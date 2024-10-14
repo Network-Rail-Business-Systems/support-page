@@ -1,9 +1,5 @@
 @use(\NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
 @extends('govuk::layout.page')
-@php
-    $title='Manage Support Details'
-@endphp
-
 @section('main')
     <x-govuk::p>This page allows you to manage Support Details.</x-govuk::p>
 

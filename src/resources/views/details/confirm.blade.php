@@ -1,12 +1,4 @@
 @extends('govuk::layout.page')
-@php
-    $action="deleted";
-    $method="get";
-    $submitButtonType="warning";
-    $submitButtonLabel="Delete";
-    $title="Delete Support Detail #$supportDetail->id";
-@endphp
-
 @section('main')
     <x-govuk::p>Deleting this Support Detail will immediately remove it and all of its contents.</x-govuk::p>
     <x-govuk::p>This action cannot be undone.</x-govuk::p>

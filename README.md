@@ -23,8 +23,8 @@ Via Composer: `composer require networkrailbusinesssystems/support-page`
 
 ## Publish files
 
-All essential files are published via the command `php artisan vendor:publish --provider="NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider"`.
-This command includes the following two tags and their files:
+All essential files are published via the command `php artisan vendor:publish --provider="NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider" --tag="support-page"`.
+This command includes the support-page tag files:
 
 ### support-page
 

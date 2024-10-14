@@ -39,15 +39,18 @@ class SupportPageController extends Controller
             );
         }
 
+        $path = preg_replace("/[^0-9.]/", '', base_path());
+
         return view('support-page::show')
             ->with('list', [
                 'Name' => config('app.name'),
                 'Acronym' => config('app.acronym'),
-                'Build' => config('app.build'), // TODO Automatic read from parent folder
+                'Build' => $path,
                 'Laravel' => app()->version(),
                 'PHP' => phpversion(),
             ])
-            ->with('groups', $groups);
+            ->with('groups', $groups)
+            ->with('title', 'Support');
     }
 
     public function owners(string $role): RedirectResponse
@@ -70,6 +73,7 @@ class SupportPageController extends Controller
         $this->checkAccess();
 
         return view('support-page::details.index')
+            ->with('title', 'Manage Support Details')
             ->with('supportDetails', SupportDetailCollection::make(
                 SupportDetail::query()->paginate()
             ));
@@ -80,7 +84,12 @@ class SupportPageController extends Controller
         $this->checkAccess();
 
         return view('support-page::details.confirm')
-            ->with('supportDetail', $supportDetail);
+            ->with('supportDetail', $supportDetail)
+            ->with('action', 'deleted')
+            ->with('method', 'get')
+            ->with('submitButtonType', 'warning')
+            ->with('submitButtonLabel', 'Delete')
+            ->with('title', 'Delete Support Detail #' . $supportDetail->id);
 
     }
 
@@ -90,7 +99,7 @@ class SupportPageController extends Controller
 
         $supportDetail->delete();
 
-        flash()->success("Record #$supportDetail->id was successfully deleted.");
+        flash()->success("Support detail #$supportDetail->id was successfully deleted.");
 
         return redirect()->route('support-page.admin.index');
     }

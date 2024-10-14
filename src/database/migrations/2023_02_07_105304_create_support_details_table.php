@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('type');
             $table->text('target');
             $table->string('label');
-
         });
     }
 
