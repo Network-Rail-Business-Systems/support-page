@@ -39,18 +39,20 @@ class SupportPageController extends Controller
             );
         }
 
-        $path = preg_replace("/[^0-9.]/", '', base_path());
+        $build = base_path();
+        $stringPosition = strrpos($build, '\\');
+        $build = substr($build, $stringPosition +1);
 
         return view('support-page::show')
             ->with('list', [
                 'Name' => config('app.name'),
                 'Acronym' => config('app.acronym'),
-                'Build' => $path,
+                'Build' => $build,
                 'Laravel' => app()->version(),
                 'PHP' => phpversion(),
             ])
             ->with('groups', $groups)
-            ->with('title', 'Support');
+            ->with('title', config('support-page.support_page_title'));
     }
 
     public function owners(string $role): RedirectResponse
@@ -90,7 +92,6 @@ class SupportPageController extends Controller
             ->with('submitButtonType', 'warning')
             ->with('submitButtonLabel', 'Delete')
             ->with('title', 'Delete Support Detail #' . $supportDetail->id);
-
     }
 
     public function delete(SupportDetail $supportDetail): RedirectResponse
