@@ -25,11 +25,15 @@ class ShowTest extends TestCase
     {
         $this->makeRequest();
 
+        $build = base_path();
+        $stringPosition = strrpos($build, '\\');
+        $build = substr($build, $stringPosition +1);
+
         $this->assertEquals(
             [
                 'Name' => config('app.name'),
                 'Acronym' => config('app.acronym'),
-                'Build' => config('app.build'),
+                'Build' => $build,
                 'Laravel' => app()->version(),
                 'PHP' => phpversion(),
             ],
