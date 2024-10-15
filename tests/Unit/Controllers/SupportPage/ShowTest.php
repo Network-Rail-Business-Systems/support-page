@@ -25,9 +25,9 @@ class ShowTest extends TestCase
     {
         $this->makeRequest();
 
-        $build = base_path();
-        $stringPosition = strrpos($build, '\\');
-        $build = substr($build, $stringPosition +1);
+        $path = base_path();
+        $index = strrpos($path, DIRECTORY_SEPARATOR);
+        $build = substr($path, $index + 1);
 
         $this->assertEquals(
             [

@@ -39,9 +39,9 @@ class SupportPageController extends Controller
             );
         }
 
-        $build = base_path();
-        $stringPosition = strrpos($build, '\\');
-        $build = substr($build, $stringPosition +1);
+        $path = base_path();
+        $index = strrpos($path, DIRECTORY_SEPARATOR);
+        $build = substr($path, $index + 1);
 
         return view('support-page::show')
             ->with('list', [
