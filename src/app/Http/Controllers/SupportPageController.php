@@ -32,18 +32,22 @@ class SupportPageController extends Controller
                 TypeQuestion::TECHNICAL_ISSUES,
                 SupportDetailCollection::make([
                     new SupportDetail([
-                        'target' => route('support-page.enquiry'),
+                        'target' => config('support-page.enquiry_route'),
                         'label' => 'Submit an enquiry',
                     ]),
                 ])
             );
         }
 
+        $path = base_path();
+        $index = strrpos($path, DIRECTORY_SEPARATOR);
+        $build = substr($path, $index + 1);
+
         return view('support-page::show')
             ->with('list', [
                 'Name' => config('app.name'),
                 'Acronym' => config('app.acronym'),
-                'Build' => config('app.build'), // TODO Automatic read from parent folder
+                'Build' => $build,
                 'Laravel' => app()->version(),
                 'PHP' => phpversion(),
             ])
@@ -89,7 +93,7 @@ class SupportPageController extends Controller
 
         $supportDetail->delete();
 
-        flash()->success("Record #$supportDetail->id was successfully deleted.");
+        flash()->success("Support detail #$supportDetail->id was successfully deleted.");
 
         return redirect()->route('support-page.admin.index');
     }

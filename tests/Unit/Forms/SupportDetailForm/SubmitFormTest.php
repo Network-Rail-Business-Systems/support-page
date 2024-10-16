@@ -38,6 +38,26 @@ class SubmitFormTest extends TestCase
         );
     }
 
+    public function testFlashedSuccessMessage(): void
+    {
+        $this->makeRequest();
+
+        $this->assertFlashed(
+            "Support detail {$this->subject->id} created",
+            'success',
+        );
+    }
+
+    public function testFlashedEditSuccessMessage(): void
+    {
+        $this->makeRequest(Form::EDIT);
+
+        $this->assertFlashed(
+            "Support detail {$this->subject->id} updated",
+            'success',
+        );
+    }
+
     public function testRedirectsOnFailure(): void
     {
         $this->subject->target = null;
@@ -57,12 +77,12 @@ class SubmitFormTest extends TestCase
         $this->assertDatabaseHas('support_details', $this->subject->getAttributes());
     }
 
-    protected function makeRequest(): void
+    protected function makeRequest(string $mode = Form::NEW): void
     {
         Session::put(SupportDetailForm::key(), $this->subject);
 
         try {
-            $this->form->submit(Form::NEW);
+            $this->form->submit($mode);
         } catch (HttpResponseException $exception) {
             $this->redirect = $exception->getResponse();
         }

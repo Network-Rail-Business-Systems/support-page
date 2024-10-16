@@ -9,7 +9,7 @@
 This version of the Support Page Library is designed to work with Bulma views.
 
 Use this library to add the following to your Project:
-views 
+
 * Admin access to create, edit and delete Support Details.
 * A Support Page to display Support Details.
 
@@ -25,15 +25,16 @@ Via Composer: `composer require networkrailbusinesssystems/support-page dev-bulm
 
 ## Publish files
 
-All essential files are published via the command `php artisan vendor:publish --provider="NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider"`.
-This command includes the following two tags and their files:
+All essential files are published via the command `php artisan vendor:publish --provider="NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider" --tag="support-page"`.
+
+This command includes the support-page tag files:
 
 ### support-page
 
 This command will publish the config and database migration:
 
 * /config/support-page.php
-* /database/migrations/2023_02_07_105304_create_support_details_table.php
+* /database/migrations/2023_00_00_000000_create_support_details_table.php
 
 ### support-page-views
 
@@ -42,22 +43,25 @@ This command will publish the Blade views:
 * /resources/views/details
 * /resources/views/show.blade.php
 
-## Routing
+## Set-up
 
-This library makes use of [GOVUK Laravel Forms](docs/forms.md), add the route macro to enable this.
-
+### Routing
 A route macro is provided to handle the Support Page, and it's Admin functions. Add the following to your `routes/web.php` file:
 ```php
 Route::supportPage();
 ```
 
-## Configuration
-
 * Add the permission`'manage_support_page'` with admin rights.
 * Add a 'Manage Support Details' link to the admin blade with the route `support-page.admin.index`. Wrap this section with `@can('manage_support_page')`, `@endcan`.
-* Register the form `SupportDetailForm::class` in the [GOVUK Config](docs/configuration.md).
+* Register the form `SupportDetailForm::class` in the [GOVUK Config](https://github.com/AnthonyEdmonds/govuk-laravel/blob/main/docs/configuration.md).
 * Update permissions and run database migrations.
-* You can exclude roles from being assignable contacts for Support Details by registering the roles in the Support-page config. Example:
+
+## Configuration
+
+There are three configurable values in the Support-page config:
+
+* You can change the enquiry route by amending the `enquiry_route` value.
+* You can exclude roles from being assignable contacts for Support Details by registering the roles in `excluded_roles`. Example:
 
 ```php
 'excluded_roles' => ['Developer', 'Business Systems Support'],
