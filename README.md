@@ -41,21 +41,41 @@ This command will publish the Blade views:
 * /resources/views/details
 * /resources/views/show.blade.php
 
-## Routing
+## Set-up
+
+### Pre-requisites
+
+The Support Page library requires the [GOVUK Laravel Forms Route Macro](https://github.com/AnthonyEdmonds/govuk-laravel/blob/main/docs/forms.md).
+
+### Routing
 
 A route macro is provided to handle the Support Page, and it's Admin functions. Add the following to your `routes/web.php` file:
 ```php
 Route::supportPage();
 ```
 
+* Add the permission`'manage_support_page'` with admin rights.
+* Add a 'Manage Support Details' link to the admin blade with the route `support-page.admin.index` and wrap the section with `@can`:
+```php
+@can('manage_support_page')
+    <li>
+        <x-govuk::a href="{{ route('support-page.admin.index') }}">
+            Manage Support Details
+        </x-govuk::a>
+    </li>
+@endcan
+```
+
+* Register the form `SupportDetailForm::class` in the [GOVUK Config](https://github.com/AnthonyEdmonds/govuk-laravel/blob/main/docs/configuration.md).
+* Update permissions and run database migrations.
+
 ## Configuration
 
-* Add the permission`'manage_support_page'` with admin rights.
-* Add a 'Manage Support Details' link to the admin blade with the route `support-page.admin.index`. Wrap this section with `@can('manage_support_page')`, `@endcan`.
-* Register the form `SupportDetailForm::class` in the [GOVUK Config](docs/configuration.md).
-* Update permissions and run database migrations.
-* You can exclude roles from being assignable contacts for Support Details by registering the roles in the Support-page config. Example:
+There are three configurable values in the Support-page config:
 
-```php
-'excluded_roles' => ['Developer', 'Business Systems Support'],
-```
+| Option             | Type               | Default      | Usage                                                                  |
+|--------------------|--------------------|--------------|------------------------------------------------------------------------|
+| support_page_title | string             | Support      | Customise the title of the support page                                |
+| enquiry_route      | string             | enquiry      | Customise the enquiry page link                                        |
+| excluded_roles     | array              | []           | Exclude these roles from being assignable contacts for Support Details |
+
