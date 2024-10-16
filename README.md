@@ -55,7 +55,17 @@ Route::supportPage();
 ```
 
 * Add the permission`'manage_support_page'` with admin rights.
-* Add a 'Manage Support Details' link to the admin blade with the route `support-page.admin.index`. Wrap this section with `@can('manage_support_page')`, `@endcan`.
+* Add a 'Manage Support Details' link to the admin blade with the route `support-page.admin.index` and wrap the section with `@can`:
+```php
+@can('manage_support_page')
+    <li>
+        <x-govuk::a href="{{ route('support-page.admin.index') }}">
+            Manage Support Details
+        </x-govuk::a>
+    </li>
+@endcan
+```
+
 * Register the form `SupportDetailForm::class` in the [GOVUK Config](https://github.com/AnthonyEdmonds/govuk-laravel/blob/main/docs/configuration.md).
 * Update permissions and run database migrations.
 
@@ -63,10 +73,9 @@ Route::supportPage();
 
 There are three configurable values in the Support-page config:
 
-* You can change the Support Page title by amending the `support_page_title` value.
-* You can change the enquiry route by amending the `enquiry_route` value.
-* You can exclude roles from being assignable contacts for Support Details by registering the roles in `excluded_roles`. Example:
+| Option             | Type               | Default      | Usage                                                                  |
+|--------------------|--------------------|--------------|------------------------------------------------------------------------|
+| support_page_title | string             | Support      | Customise the title of the support page                                |
+| enquiry_route      | string             | enquiry      | Customise the enquiry page link                                        |
+| excluded_roles     | array              | []           | Exclude these roles from being assignable contacts for Support Details |
 
-```php
-'excluded_roles' => ['Developer', 'Business Systems Support'],
-```
