@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'enquiry_route' => 'enquiry',
+
     'excluded_roles' => [],
 
     'permission' => 'manage_support_page',

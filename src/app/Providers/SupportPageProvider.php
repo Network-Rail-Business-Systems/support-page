@@ -43,8 +43,6 @@ class SupportPageProvider extends ServiceProvider
                 ->name('support-page.')
                 ->controller(SupportPageController::class)
                 ->group(function () {
-                    Route::redirect('/enquiry', config('support-page.enquiry_url'))->name('enquiry');
-
                     Route::get('/', 'show')->name('show');
                     Route::get('/{role}', 'owners')->name('owners');
 

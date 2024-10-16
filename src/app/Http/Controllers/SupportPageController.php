@@ -32,7 +32,7 @@ class SupportPageController extends Controller
                 TypeQuestion::TECHNICAL_ISSUES,
                 SupportDetailCollection::make([
                     new SupportDetail([
-                        'target' => route('support-page.enquiry'),
+                        'target' => route(config('support-page.enquiry_route')),
                         'label' => 'Submit an enquiry',
                     ]),
                 ])
