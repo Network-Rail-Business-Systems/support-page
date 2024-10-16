@@ -45,6 +45,10 @@ This command will publish the Blade views:
 
 ## Set-up
 
+### Pre-requisites
+
+The Support Page library requires the [GOVUK Laravel Forms Route Macro](https://github.com/AnthonyEdmonds/govuk-laravel/blob/main/docs/forms.md).
+
 ### Routing
 A route macro is provided to handle the Support Page, and it's Admin functions. Add the following to your `routes/web.php` file:
 ```php
