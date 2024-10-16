@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'enquiry_url' => 'https://systems.hiav.networkrail.co.uk/home/forms/enquiry/start',
+    'enquiry_route' => 'https://systems.hiav.networkrail.co.uk/home/forms/enquiry/start',
 
     'excluded_roles' => [],
 
