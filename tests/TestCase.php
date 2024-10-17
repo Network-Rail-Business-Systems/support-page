@@ -66,6 +66,7 @@ abstract class TestCase extends BaseTestCase
         $router->get('/')->name('/');
         $router->govukLaravelForms();
         $router->supportPage();
+        $router->redirect('/enquiry', 'https://systems.networkrail.co.uk/enquiry')->name('enquiry');
     }
 
     protected function makeRole(string $name): Role

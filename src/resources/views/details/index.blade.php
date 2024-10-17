@@ -2,6 +2,7 @@
 @use(\NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
 <section>
     <div class="content">
+        <h2>{{ $title }}</h2>
         <p>This page allows you to manage Support Details.</p>
 
         <p>You can:</p>

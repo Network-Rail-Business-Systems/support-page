@@ -32,7 +32,7 @@ class SupportPageController extends Controller
                 TypeQuestion::TECHNICAL_ISSUES,
                 SupportDetailCollection::make([
                     new SupportDetail([
-                        'target' => config('support-page.enquiry_route'),
+                        'target' => route(config('support-page.enquiry_route')),
                         'label' => 'Submit an enquiry',
                     ]),
                 ])
@@ -51,7 +51,8 @@ class SupportPageController extends Controller
                 'Laravel' => app()->version(),
                 'PHP' => phpversion(),
             ])
-            ->with('groups', $groups);
+            ->with('groups', $groups)
+            ->with('title', config('support-page.support_page_title'));
     }
 
     public function owners(string $role): RedirectResponse
@@ -74,6 +75,7 @@ class SupportPageController extends Controller
         $this->checkAccess();
 
         return view('support-page::details.index')
+            ->with('title', 'Manage Support Details')
             ->with('supportDetails', SupportDetailCollection::make(
                 SupportDetail::query()->paginate()
             ));
@@ -84,7 +86,10 @@ class SupportPageController extends Controller
         $this->checkAccess();
 
         return view('support-page::details.confirm')
-            ->with('supportDetail', $supportDetail);
+            ->with('supportDetail', $supportDetail)
+            ->with('action', 'DELETE')
+            ->with('method', 'POST')
+            ->with('title', 'Delete Support Detail #' . $supportDetail->id);
     }
 
     public function delete(SupportDetail $supportDetail): RedirectResponse
