@@ -5,9 +5,9 @@
         <section class="column is-two-thirds">
             @foreach($groups as $type => $group)
                 <x-support-page::support-group
-                        description="{{ TypeQuestion::DESCRIPTIONS[$type] }}"
-                        :group="$group"
-                        title="{{ TypeQuestion::OPTIONS[$type] }}"
+                    description="{{ TypeQuestion::DESCRIPTIONS[$type] }}"
+                    :group="$group"
+                    title="{{ TypeQuestion::OPTIONS[$type] }}"
                 />
             @endforeach
         </section>

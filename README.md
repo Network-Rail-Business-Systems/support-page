@@ -72,10 +72,13 @@ Route::supportPage();
 
 ## Configuration
 
-There are three configurable values in the Support-page config:
+There are six values in the Support-page config:
 
-| Option             | Type               | Default      | Usage                                                                  |
-|--------------------|--------------------|--------------|------------------------------------------------------------------------|
-| support_page_title | string             | Support      | Customise the title of the support page                                |
-| enquiry_route      | string             | enquiry      | Customise the enquiry page link                                        |
-| excluded_roles     | array              | []           | Exclude these roles from being assignable contacts for Support Details |
+| Option             | Type   | Default                              | Usage                                                                  |
+|--------------------|--------|--------------------------------------|------------------------------------------------------------------------|
+| support_page_title | string | Support                              | Customise the title of the support page                                |
+| enquiry_route      | string | enquiry                              | Customise the enquiry page link                                        |
+| excluded_roles     | array  | []                                   | Exclude these roles from being assignable contacts for Support Details |
+| permission         | string | manage_support_page                  | Permission to manage the support page                                  |
+| role_model         | model  | Spatie\Permission\Models\Role::class | Set the Role Model to use                                              |
+| user_model         | model  | App\Models\User::class               | Set the User Model to use                                              |
