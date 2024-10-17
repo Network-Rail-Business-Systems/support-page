@@ -51,12 +51,11 @@ class SupportDetailForm extends Form
             abort(redirect()->back());
         } else {
             $subject->save();
-        }
-    }
 
-    public function confirmationBlade(): string
-    {
-        return 'support-page::details.confirmation';
+            $mode === Form::NEW
+                ? flash()->success("Support detail $subject->id created")
+                : flash()->success("Support detail $subject->id updated");
+        }
     }
 
     public function exitRoute(?Model $subject = null): string

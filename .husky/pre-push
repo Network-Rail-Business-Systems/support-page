@@ -5,4 +5,4 @@ npm run test
 
 php vendor/networkrailbusinesssystems/badges/badges.php
 git add .github/*.svg
-git diff-index --quiet --cached HEAD || git commit -m "Updated badges" --no-verif
+git diff-index --quiet --cached HEAD || git commit -m "Updated badges" --no-verify

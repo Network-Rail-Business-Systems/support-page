@@ -1,11 +1,13 @@
 <?php
 
 return [
-    'enquiry_url' => 'https://systems.hiav.networkrail.co.uk/home/forms/enquiry/start',
+    'enquiry_route' => 'enquiry',
 
     'excluded_roles' => [],
 
     'permission' => 'manage_support_page',
+
+    'support_page_title' => 'Support',
 
     'role_model' => Spatie\Permission\Models\Role::class,
 

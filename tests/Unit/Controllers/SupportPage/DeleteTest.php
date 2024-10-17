@@ -36,7 +36,7 @@ class DeleteTest extends TestCase
     public function testFlashesSuccessMessage(): void
     {
         $this->assertFlashed(
-            "Record #{$this->supportDetail->id} was successfully deleted.",
+            "Support detail #{$this->supportDetail->id} was successfully deleted.",
             'success',
         );
     }

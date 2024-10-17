@@ -1,12 +1,13 @@
 <div class="content">
+    <h2>{{ $title }}</h2>
     <p>Deleting this Support Detail will immediately remove it and all of its contents.</p>
     <p>This action cannot be undone.</p>
     <p><b>Do you want to continue?</b></p>
 </div>
 
-<form action="{{ route('support-page.admin.delete', $supportDetail->id) }}" method="POST">
+<form action="{{ route('support-page.admin.delete', $supportDetail->id) }}" method="{{ $method }}">
     @csrf
-    @method('DELETE')
+    @method($action)
     <div class="field is-grouped">
         <p class="control">
             <button class="button is-danger">Delete</button>
