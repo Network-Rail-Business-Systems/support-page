@@ -77,4 +77,5 @@ There are three configurable values in the Support-page config:
 | Option             | Type               | Default      | Usage                                                                  |
 |--------------------|--------------------|--------------|------------------------------------------------------------------------|
 | support_page_title | string             | Support      | Customise the title of the support page                                |
+| enquiry_route      | string             | enquiry      | Customise the enquiry page link                                        |
 | excluded_roles     | array              | []           | Exclude these roles from being assignable contacts for Support Details |
