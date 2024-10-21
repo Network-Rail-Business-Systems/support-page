@@ -43,7 +43,7 @@ class SubmitFormTest extends TestCase
         $this->makeRequest();
 
         $this->assertFlashed(
-            "Support detail {$this->subject->id} created",
+            "Support detail #{$this->subject->id} created",
             'success',
         );
     }
@@ -53,7 +53,7 @@ class SubmitFormTest extends TestCase
         $this->makeRequest(Form::EDIT);
 
         $this->assertFlashed(
-            "Support detail {$this->subject->id} updated",
+            "Support detail #{$this->subject->id} updated",
             'success',
         );
     }
