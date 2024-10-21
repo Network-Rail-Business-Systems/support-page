@@ -53,8 +53,8 @@ class SupportDetailForm extends Form
             $subject->save();
 
             $mode === Form::NEW
-                ? flash()->success("Support detail $subject->id created")
-                : flash()->success("Support detail $subject->id updated");
+                ? flash()->success("Support detail #$subject->id created")
+                : flash()->success("Support detail #$subject->id updated");
         }
     }
 
