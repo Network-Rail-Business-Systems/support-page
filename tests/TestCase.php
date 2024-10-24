@@ -13,7 +13,6 @@ use Laracasts\Flash\FlashServiceProvider;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 use NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider;
 use NetworkRailBusinessSystems\SupportPage\Tests\Models\User;
-
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -53,7 +52,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function useDatabase(): void
     {
-        $this->app->useDatabasePath(__DIR__.'/../src/database');
+        $this->app->useDatabasePath(__DIR__ . '/../src/database');
         $this->runLaravelMigrations();
     }
 

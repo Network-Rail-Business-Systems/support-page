@@ -24,7 +24,7 @@ class GetTargetTest extends TestCase
 
         $this->assertEquals(
             "mailto:{$this->supportDetail->target}?subject={$this->supportDetail::getEnquirySubject()}",
-            $this->supportDetail->getTarget()
+            $this->supportDetail->getTarget(),
         );
 
     }
@@ -36,7 +36,7 @@ class GetTargetTest extends TestCase
 
         $this->assertEquals(
             route('support-page.owners', [$this->supportDetail->target]),
-            $this->supportDetail->getTarget()
+            $this->supportDetail->getTarget(),
         );
     }
 
@@ -47,7 +47,7 @@ class GetTargetTest extends TestCase
 
         $this->assertEquals(
             $this->supportDetail->target,
-            $this->supportDetail->getTarget()
+            $this->supportDetail->getTarget(),
         );
     }
 }

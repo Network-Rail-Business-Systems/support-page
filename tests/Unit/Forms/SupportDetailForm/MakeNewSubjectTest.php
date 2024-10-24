@@ -24,7 +24,7 @@ class MakeNewSubjectTest extends TestCase
     {
         $this->assertInstanceOf(
             SupportDetail::class,
-            Session::get(SupportDetailForm::key())
+            Session::get(SupportDetailForm::key()),
         );
     }
 }

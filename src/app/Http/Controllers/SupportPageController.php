@@ -35,7 +35,7 @@ class SupportPageController extends Controller
                         'target' => route(config('support-page.enquiry_route')),
                         'label' => 'Submit an enquiry',
                     ]),
-                ])
+                ]),
             );
         }
 
@@ -77,7 +77,7 @@ class SupportPageController extends Controller
         return view('support-page::details.index')
             ->with('title', 'Manage Support Details')
             ->with('supportDetails', SupportDetailCollection::make(
-                SupportDetail::query()->paginate()
+                SupportDetail::query()->paginate(),
             ));
     }
 

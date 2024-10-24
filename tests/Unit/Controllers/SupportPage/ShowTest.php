@@ -37,7 +37,7 @@ class ShowTest extends TestCase
                 'Laravel' => app()->version(),
                 'PHP' => phpversion(),
             ],
-            $this->view->getData()['list']
+            $this->view->getData()['list'],
         );
     }
 

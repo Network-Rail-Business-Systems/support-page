@@ -19,7 +19,7 @@ class TypeRequest extends FormRequest
             TypeQuestion::key() => [
                 'required',
                 Rule::in(
-                    array_keys(TypeQuestion::OPTIONS)
+                    array_keys(TypeQuestion::OPTIONS),
                 ),
             ],
         ];
