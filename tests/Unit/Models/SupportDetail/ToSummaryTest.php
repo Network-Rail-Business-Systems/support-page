@@ -29,7 +29,7 @@ class ToSummaryTest extends TestCase
 
         $this->assertEquals(
             Role::find($this->supportDetail->target)->name,
-            $this->supportDetail->toSummary()['Role']['value']
+            $this->supportDetail->toSummary()['Role']['value'],
         );
     }
 
@@ -44,7 +44,7 @@ class ToSummaryTest extends TestCase
 
         $this->assertEquals(
             $this->supportDetail->target,
-            $this->supportDetail->toSummary()['URL']['value']
+            $this->supportDetail->toSummary()['URL']['value'],
         );
     }
 }

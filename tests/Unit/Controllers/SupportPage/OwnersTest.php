@@ -37,7 +37,7 @@ class OwnersTest extends TestCase
     public function testRedirectsToMailto(): void
     {
         $this->assertEquals(
-            'mailto:'.$this->users->pluck('email')->join(';').'?subject='.SupportDetail::getEnquirySubject(),
+            'mailto:' . $this->users->pluck('email')->join(';') . '?subject=' . SupportDetail::getEnquirySubject(),
             $this->redirect->getTargetUrl(),
         );
     }

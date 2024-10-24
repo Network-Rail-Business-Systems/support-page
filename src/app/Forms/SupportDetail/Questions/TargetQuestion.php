@@ -50,7 +50,7 @@ class TargetQuestion extends Question
             return GovukQuestionHelper::radios(
                 'Who would you like to send system enquiries to?',
                 'role',
-                $roles
+                $roles,
             )->hint('Select a system role or provide an email address')
                 ->value($isEmail === true ? 'email' : $subject->target);
 

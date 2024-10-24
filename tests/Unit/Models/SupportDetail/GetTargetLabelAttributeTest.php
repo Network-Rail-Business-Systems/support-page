@@ -24,7 +24,7 @@ class GetTargetLabelAttributeTest extends TestCase
 
         $this->assertEquals(
             'E-mail',
-            $this->supportDetail->getTargetLabelAttribute()
+            $this->supportDetail->getTargetLabelAttribute(),
         );
     }
 
@@ -35,7 +35,7 @@ class GetTargetLabelAttributeTest extends TestCase
 
         $this->assertEquals(
             'Role',
-            $this->supportDetail->getTargetLabelAttribute()
+            $this->supportDetail->getTargetLabelAttribute(),
         );
     }
 
@@ -46,7 +46,7 @@ class GetTargetLabelAttributeTest extends TestCase
 
         $this->assertEquals(
             'URL',
-            $this->supportDetail->getTargetLabelAttribute()
+            $this->supportDetail->getTargetLabelAttribute(),
         );
     }
 }
