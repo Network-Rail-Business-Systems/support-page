@@ -7,7 +7,7 @@ return [
 
     'permission' => 'manage_support_page',
 
-    'support_page_title' => 'Support',
+    'support_page_title' => 'Help and support',
 
     'role_model' => Spatie\Permission\Models\Role::class,
 
