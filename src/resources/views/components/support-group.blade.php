@@ -5,7 +5,7 @@
 ])
 
 <div class="content">
-    <p class="subtitle is-4">{{ $title }}</p>
+    <p class="subtitle is-3">{{ $title }}</p>
     <p>{{ $description }}</p>
     <ul>
         @foreach($group as $supportDetail)
