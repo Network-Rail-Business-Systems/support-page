@@ -8,9 +8,9 @@
     "test": "vendor/bin/phpunit"
   },
   "devDependencies": {
-    "husky": "^9",
-    "laravel-vite-plugin": "^1",
+    "husky": "^8",
+    "laravel-vite-plugin": "^0",
     "sass": "^1",
-    "vite": "^5"
+    "vite": "^4"
   }
 }
