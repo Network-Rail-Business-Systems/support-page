@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "badges": "php vendor/networkrailbusinesssystems/badges/badges.php",
     "build": "vite build",
     "dev": "vite",
     "larastan": "php ./vendor/bin/phpstan analyse --memory-limit=256M",
