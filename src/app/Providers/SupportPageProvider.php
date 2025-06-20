@@ -51,7 +51,7 @@ class SupportPageProvider extends ServiceProvider
                         ->group(function () {
                             Route::get('/manage', 'index')->name('index');
                             Route::get('/{supportDetail}/confirm', 'confirm')->name('delete');
-                            Route::get('/{supportDetail}/deleted', 'delete')->name('deleted');
+                            Route::delete('/{supportDetail}/deleted', 'delete')->name('deleted');
                         });
                 });
         });

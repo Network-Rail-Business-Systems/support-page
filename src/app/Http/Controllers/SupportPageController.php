@@ -88,7 +88,7 @@ class SupportPageController extends Controller
         return view('support-page::details.confirm')
             ->with('supportDetail', $supportDetail)
             ->with('action', 'deleted')
-            ->with('method', 'get')
+            ->with('method', 'DELETE')
             ->with('title', 'Delete Support Detail #' . $supportDetail->id);
     }
 

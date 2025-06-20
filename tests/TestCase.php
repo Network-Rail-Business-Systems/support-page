@@ -52,7 +52,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function useDatabase(): void
     {
-        $this->app->useDatabasePath(__DIR__.'/../src/database');
+        $this->app->useDatabasePath(__DIR__ . '/../src/database');
         $this->runLaravelMigrations();
     }
 
