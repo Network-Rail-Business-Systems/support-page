@@ -11,8 +11,8 @@ class SupportPageProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/support-page.php',
-            'support-page'
+            __DIR__ . '/../../config/support-page.php',
+            'support-page',
         );
     }
 
@@ -26,13 +26,13 @@ class SupportPageProvider extends ServiceProvider
     protected function bootPublishes(): void
     {
         $this->publishes([
-            __DIR__.'/../../config/support-page.php' => config_path('support-page.php'),
-            __DIR__.'/../../database/migrations/2023_00_00_000000_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
+            __DIR__ . '/../../config/support-page.php' => config_path('support-page.php'),
+            __DIR__ . '/../../database/migrations/2023_00_00_000000_create_support_details_table.php' => database_path('migrations/2023_00_00_000000_create_support_details_table.php'),
         ], 'support-page');
 
         $this->publishes([
-            __DIR__.'/../../resources/views/details' => resource_path('views/vendor/support-page/details'),
-            __DIR__.'/../../resources/views/show.blade.php' => resource_path('views/vendor/support-page/show.blade.php'),
+            __DIR__ . '/../../resources/views/details' => resource_path('views/vendor/support-page/details'),
+            __DIR__ . '/../../resources/views/show.blade.php' => resource_path('views/vendor/support-page/show.blade.php'),
         ], 'support-page-views');
     }
 
@@ -50,8 +50,8 @@ class SupportPageProvider extends ServiceProvider
                         ->name('admin.')
                         ->group(function () {
                             Route::get('/manage', 'index')->name('index');
-                            Route::get('/{supportDetail}/confirm', 'confirm')->name('confirm');
-                            Route::delete('/{supportDetail}/delete', 'delete')->name('delete');
+                            Route::get('/{supportDetail}/confirm', 'confirm')->name('delete');
+                            Route::get('/{supportDetail}/deleted', 'delete')->name('deleted');
                         });
                 });
         });
@@ -60,8 +60,8 @@ class SupportPageProvider extends ServiceProvider
     protected function bootViews(): void
     {
         $this->loadViewsFrom(
-            __DIR__.'/../../resources/views',
-            'support-page'
+            __DIR__ . '/../../resources/views',
+            'support-page',
         );
     }
 }

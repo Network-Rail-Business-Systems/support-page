@@ -90,19 +90,19 @@ class SupportDetail extends Model
                 TypeQuestion::key(),
                 'Type',
                 $this->type,
-                $showChange
+                $showChange,
             ),
             'Label' => $this->makeSummaryItem(
                 LabelQuestion::key(),
                 'Label',
                 $this->label,
-                $showChange
+                $showChange,
             ),
             $targetKey => $this->makeSummaryItem(
                 TargetQuestion::key(),
                 $targetKey,
                 $targetValue,
-                $showChange
+                $showChange,
             ),
         ];
     }

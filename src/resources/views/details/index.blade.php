@@ -1,5 +1,6 @@
 @use(\NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm)
 @use(\NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
+
 <section>
     <div class="content">
         <h2>{{ $title }}</h2>
@@ -17,7 +18,7 @@
     </div>
 
     <table class="table">
-        <caption class="subtitle has-text-left"><b>Exising Support Details</b></caption>
+        <caption class="subtitle has-text-left"><b>Existing Support Details</b></caption>
 
         <thead>
         <tr>
