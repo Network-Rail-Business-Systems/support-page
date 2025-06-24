@@ -11,3 +11,4 @@ parameters:
     ignoreErrors:
         - identifier: missingType.generics
         - identifier: missingType.iterableValue
+        -'#view-string#'

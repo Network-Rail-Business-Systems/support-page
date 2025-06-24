@@ -41,7 +41,7 @@ class SupportDetailFactory extends Factory
 
         return $this->state([
             'type' => TypeQuestion::SYSTEM_QUESTIONS,
-            'target' => $target
+            'target' => $target,
         ]);
     }
 }

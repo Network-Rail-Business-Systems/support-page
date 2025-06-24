@@ -20,18 +20,18 @@
     ],
     "require": {
         "php": "^8.3",
-        "anthonyedmonds/govuk-laravel": "^4",
-        "illuminate/support": "^11",
+        "anthonyedmonds/govuk-laravel": "^5",
+        "illuminate/support": "^12",
         "laracasts/flash": "^3",
         "spatie/laravel-permission": "^6"
     },
     "require-dev": {
-        "anthonyedmonds/laravel-testing-traits": "^0.5.0",
-        "larastan/larastan": "^2",
+        "anthonyedmonds/laravel-testing-traits": "^1",
+        "larastan/larastan": "^3",
         "laravel/pint": "^1",
-        "networkrailbusinesssystems/badges": "^1.1",
-        "orchestra/testbench": "^9",
-        "phpunit/phpunit": "^11"
+        "networkrailbusinesssystems/badges": "^1",
+        "orchestra/testbench": "^10",
+        "phpunit/phpunit": "^12"
     },
     "autoload": {
         "psr-4": {

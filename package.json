@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "badges": "php vendor/networkrailbusinesssystems/badges/badges.php",
     "build": "vite build",
     "dev": "vite",
     "larastan": "php ./vendor/bin/phpstan analyse --memory-limit=256M",
@@ -8,9 +9,9 @@
     "test": "vendor/bin/phpunit"
   },
   "devDependencies": {
-    "husky": "^9",
-    "laravel-vite-plugin": "^1",
+    "husky": "^8",
+    "laravel-vite-plugin": "^0",
     "sass": "^1",
-    "vite": "^5"
+    "vite": "^4"
   }
 }

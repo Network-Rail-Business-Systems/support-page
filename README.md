@@ -15,8 +15,8 @@ Use this library to add the following to your Project:
 
 ## What's in the box?
 
-* Laravel 11 Blade Support Page Admin Access in the Bulma Design
-* Laravel 11 Blade Support Page in the Bulma Design
+* Laravel 12 Blade Support Page Admin Access in the Bulma Design
+* Laravel 12 Blade Support Page in the Bulma Design
 * PHP 8.3
 
 ## Installation
@@ -50,7 +50,7 @@ This command will publish the Blade views:
 The Support Page library requires the [GOVUK Laravel Forms Route Macro](https://github.com/AnthonyEdmonds/govuk-laravel/blob/main/docs/forms.md).
 
 ### Routing
-A route macro is provided to handle the Support Page, and it's Admin functions. Add the following to your `routes/web.php` file:
+A route macro is provided to handle the Support Page, and its Admin functions. Add the following to your `routes/web.php` file:
 ```php
 Route::supportPage();
 ```

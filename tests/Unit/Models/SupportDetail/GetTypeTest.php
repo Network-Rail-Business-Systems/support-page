@@ -23,7 +23,7 @@ class GetTypeTest extends TestCase
 
         $this->assertEquals(
             '(draft a new e-mail)',
-            $this->supportDetail->getType()
+            $this->supportDetail->getType(),
         );
     }
 
@@ -31,7 +31,7 @@ class GetTypeTest extends TestCase
     {
         $this->assertEquals(
             '(opens in a new tab)',
-            $this->supportDetail->getType()
+            $this->supportDetail->getType(),
         );
     }
 }
