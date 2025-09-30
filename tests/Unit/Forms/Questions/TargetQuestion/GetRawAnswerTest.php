@@ -8,7 +8,7 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
-class GetAnswerTest extends TestCase
+class GetRawAnswerTest extends TestCase
 {
     protected TargetQuestion $question;
 
@@ -37,7 +37,7 @@ class GetAnswerTest extends TestCase
 
         $this->assertEquals(
             'email',
-            $this->question->getAnswer('role'),
+            $this->question->getRawAnswer('role'),
         );
     }
 
@@ -45,7 +45,7 @@ class GetAnswerTest extends TestCase
     {
         $this->assertEquals(
             $this->subject->target,
-            $this->question->getAnswer('role'),
+            $this->question->getRawAnswer('role'),
         );
     }
 
@@ -53,7 +53,7 @@ class GetAnswerTest extends TestCase
     {
         $this->assertEquals(
             TypeQuestion::SYSTEM_QUESTIONS,
-            $this->question->getAnswer('type'),
+            $this->question->getRawAnswer('type'),
         );
     }
 }
