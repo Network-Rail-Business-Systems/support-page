@@ -14,13 +14,15 @@ class SupportDetailForm extends Form
         return 'support-detail';
     }
 
-    public function checkAccess(): void
+    public function checkAccess(): static
     {
         $permission = config('support-page.permission');
 
         if ($permission !== null) {
             $this->authorize($permission);
         }
+
+        return $this;
     }
 
     public function tasks(): Tasks

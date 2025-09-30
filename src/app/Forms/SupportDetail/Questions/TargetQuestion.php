@@ -62,13 +62,13 @@ class TargetQuestion extends Question
         return $fields;
     }
 
-    public function getAnswer(string $fieldName): int|string|float|bool|null
+    public function getRawAnswer(string $fieldName): mixed
     {
         return match ($fieldName) {
             'role' => $this->form->model->targetIsEmail() === true
                 ? 'email'
                 : $this->form->model->target,
-            default => parent::getAnswer($fieldName),
+            default => parent::getRawAnswer($fieldName),
         };
     }
 
