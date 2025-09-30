@@ -2,14 +2,9 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions;
 
-use AnthonyEdmonds\GovukLaravel\Forms\Question;
-use AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion as GovukQuestionHelper;
-use AnthonyEdmonds\GovukLaravel\Questions\Question as GovukQuestion;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
+use AnthonyEdmonds\LaravelFormBuilder\Helpers\Field;
+use AnthonyEdmonds\LaravelFormBuilder\Items\Question;
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\LabelRequest;
-use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 
 class LabelQuestion extends Question
 {
@@ -18,30 +13,18 @@ class LabelQuestion extends Question
         return 'label';
     }
 
-    /**
-     * @param  SupportDetail  $subject
-     */
-    public function getQuestion(Model $subject): GovukQuestion|array
+    public function fields(): array
     {
-        return GovukQuestionHelper::input(
-            'What is the label for this Support Detail?',
-            self::key(),
-        )->value($subject->label);
+        return [
+            Field::input(
+                self::key(),
+                'What is the label for this Support Detail?',
+            ),
+        ];
     }
 
-    /**
-     * @param  SupportDetail  $subject
-     */
-    public function store(Request $request, Model $subject, string $mode): void
+    public function formRequest(): string
     {
-        $subject->label = $request->label;
-    }
-
-    /**
-     * @codeCoverageIgnore
-     */
-    protected function getFormRequest(): FormRequest
-    {
-        return new LabelRequest();
+        return LabelRequest::class;
     }
 }

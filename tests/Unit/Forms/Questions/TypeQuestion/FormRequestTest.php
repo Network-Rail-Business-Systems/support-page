@@ -3,39 +3,35 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\Questions\TypeQuestion;
 
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TypeRequest;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
-class StoreTest extends TestCase
+class FormRequestTest extends TestCase
 {
     protected TypeQuestion $question;
 
-    protected SupportDetail $subject;
+    protected SupportDetailForm $form;
 
-    protected TypeRequest $request;
+    protected SupportDetail $subject;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->question = new TypeQuestion();
         $this->subject = new SupportDetail();
+        $this->form = new SupportDetailForm($this->subject);
+        $this->question = $this->form->tasks()
+            ->task('details')
+            ->question('type');
     }
 
-    public function testSubjectHasType(): void
+    public function test(): void
     {
-        $this->runStore();
-
-        $this->assertEquals(TypeQuestion::GUIDES_AND_RESOURCES, $this->subject->type);
-    }
-
-    protected function runStore(): void
-    {
-        $this->request = new TypeRequest([
-            'type' => TypeQuestion::GUIDES_AND_RESOURCES,
-        ]);
-
-        $this->question->store($this->request, $this->subject, '');
+        $this->assertEquals(
+            TypeRequest::class,
+            $this->question->formRequest(),
+        );
     }
 }

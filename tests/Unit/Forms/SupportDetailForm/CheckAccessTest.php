@@ -21,9 +21,8 @@ class CheckAccessTest extends TestCase
     {
         parent::setUp();
 
-        $this->form = new SupportDetailForm();
-
         $this->supportDetail = new SupportDetail();
+        $this->form = new SupportDetailForm($this->supportDetail);
     }
 
     public function testCanAccessForm(): void
@@ -31,7 +30,7 @@ class CheckAccessTest extends TestCase
         Config::set('support-page.permission', null);
 
         try {
-            $this->form->checkAccess($this->supportDetail);
+            $this->form->checkAccess();
             $this->assertTrue(true);
         } catch (AuthorizationException $exception) {
             $this->fail('Unable to access the form');
@@ -44,7 +43,7 @@ class CheckAccessTest extends TestCase
 
         $this->signInWithPermission('manage_support_page');
 
-        $this->form->checkAccess($this->supportDetail);
+        $this->form->checkAccess();
         $this->assertTrue(true);
     }
 
@@ -54,7 +53,7 @@ class CheckAccessTest extends TestCase
 
         $this->expectExceptionMessage('This action is unauthorized');
 
-        $this->form->checkAccess($this->supportDetail);
+        $this->form->checkAccess();
         $this->assertFalse(true);
     }
 }

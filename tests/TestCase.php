@@ -3,6 +3,7 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests;
 
 use AnthonyEdmonds\GovukLaravel\Providers\GovukServiceProvider;
+use AnthonyEdmonds\LaravelFormBuilder\LaravelFormBuilderServiceProvider;
 use AnthonyEdmonds\LaravelTestingTraits\AssertsActivities;
 use AnthonyEdmonds\LaravelTestingTraits\AssertsFlashMessages;
 use AnthonyEdmonds\LaravelTestingTraits\AssertsFormRequests;
@@ -44,6 +45,7 @@ abstract class TestCase extends BaseTestCase
     {
         return [
             GovukServiceProvider::class,
+            LaravelFormBuilderServiceProvider::class,
             FlashServiceProvider::class,
             PermissionServiceProvider::class,
             SupportPageProvider::class,
@@ -58,13 +60,13 @@ abstract class TestCase extends BaseTestCase
 
     protected function setUpRoutes(): void
     {
-        Config::set('govuk.forms', [
+        Config::set('form-builder.forms', [
             SupportDetailForm::class,
         ]);
 
         $router = app('router');
         $router->get('/')->name('/');
-        $router->govukLaravelForms();
+        $router->laravelFormBuilder();
         $router->supportPage();
         $router->redirect('/enquiry', 'https://systems.networkrail.co.uk/enquiry')->name('enquiry');
     }

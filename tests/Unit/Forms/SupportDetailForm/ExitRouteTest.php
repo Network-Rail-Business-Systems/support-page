@@ -3,9 +3,10 @@
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\SupportDetailForm;
 
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
-class ExitBladeTest extends TestCase
+class ExitRouteTest extends TestCase
 {
     protected SupportDetailForm $form;
 
@@ -13,10 +14,12 @@ class ExitBladeTest extends TestCase
     {
         parent::setUp();
 
-        $this->form = new SupportDetailForm();
+        $this->form = new SupportDetailForm(
+            new SupportDetail(),
+        );
     }
 
-    public function testReturnsExitRoute(): void
+    public function test(): void
     {
         $this->assertEquals(
             route('support-page.admin.index'),

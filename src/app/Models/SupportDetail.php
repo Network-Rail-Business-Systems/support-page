@@ -2,26 +2,24 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Models;
 
-use AnthonyEdmonds\GovukLaravel\Traits\HasForm;
+use AnthonyEdmonds\LaravelFormBuilder\Interfaces\UsesForm;
+use AnthonyEdmonds\LaravelFormBuilder\Traits\HasForm;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use NetworkRailBusinessSystems\SupportPage\Database\Factories\SupportDetailFactory;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 
 /**
- * @property string $targetLabel
- * @property string $type
- * @property string|null $target
- * @property string $label
- * @property int $id
  * @property Carbon $created_at
+ * @property int $id
+ * @property string $label
+ * @property string|null $target
+ * @property string $target_label
+ * @property string $type
  * @property Carbon $updated_at
  */
-class SupportDetail extends Model
+class SupportDetail extends Model implements UsesForm
 {
     use HasFactory;
     use HasForm;
@@ -36,11 +34,32 @@ class SupportDetail extends Model
         'updated_at' => 'datetime',
     ];
 
-    public static function formClass(): string
+    // UsesForm
+    public function viewRoute(): string
     {
-        return SupportDetailForm::class;
+        return route('support-page.admin.index');
     }
 
+    // TODO May not be needed anymore
+    public function submitIsValid(): true|string
+    {
+        if ($this->target === null) {
+            return "$this->target_label cannot be blank.";
+        }
+
+        return true;
+    }
+
+    public function saveAndSubmit(): void
+    {
+        $this->save();
+
+        $this->wasRecentlyCreated === true
+            ? flash()->success("Support detail #$this->id created")
+            : flash()->success("Support detail #$this->id updated");
+    }
+
+    // Utilities
     public static function getEnquirySubject(): string
     {
         return 'Enquiry about ' . rawurlencode(config('app.name'));
@@ -56,8 +75,8 @@ class SupportDetail extends Model
     public function getTarget(): string
     {
         if ($this->type === TypeQuestion::SYSTEM_QUESTIONS) {
-            if (str_contains($this->target, '@') === true) {
-                return "mailto:{$this->target}?subject={$this::getEnquirySubject()}";
+            if ($this->targetIsEmail() === true) {
+                return "mailto:$this->target?subject={$this::getEnquirySubject()}";
             } else {
                 return route('support-page.owners', [$this->target]);
             }
@@ -69,7 +88,7 @@ class SupportDetail extends Model
     public function getTargetLabelAttribute(): string
     {
         if ($this->type === TypeQuestion::SYSTEM_QUESTIONS) {
-            return str_contains($this->target, '@') === true
+            return $this->targetIsEmail() === true
                 ? 'E-mail'
                 : 'Role';
         } else {
@@ -77,34 +96,9 @@ class SupportDetail extends Model
         }
     }
 
-    public function toSummary(bool $showChange = false): array
+    public function targetIsEmail(): bool
     {
-        $targetKey = $this->targetLabel;
-
-        $targetKey === 'Role' && $this->target !== null
-           ? $targetValue = config('support-page.role_model')::find($this->target)->name
-           : $targetValue = $this->target;
-
-        return [
-            'Type' => $this->makeSummaryItem(
-                TypeQuestion::key(),
-                'Type',
-                $this->type,
-                $showChange,
-            ),
-            'Label' => $this->makeSummaryItem(
-                LabelQuestion::key(),
-                'Label',
-                $this->label,
-                $showChange,
-            ),
-            $targetKey => $this->makeSummaryItem(
-                TargetQuestion::key(),
-                $targetKey,
-                $targetValue,
-                $showChange,
-            ),
-        ];
+        return str_contains($this->target, '@') === true;
     }
 
     protected static function newFactory(): SupportDetailFactory

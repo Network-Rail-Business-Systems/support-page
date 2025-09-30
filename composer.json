@@ -19,8 +19,9 @@
         }
     ],
     "require": {
-        "php": "^8",
-        "anthonyedmonds/govuk-laravel": "^5",
+        "php": "^8.3",
+        "anthonyedmonds/govuk-laravel": "dev-feature/form-builder-v2",
+        "anthonyedmonds/laravel-form-builder": "^0.1.0",
         "illuminate/support": "^12",
         "laracasts/flash": "^3",
         "spatie/laravel-permission": "^6"

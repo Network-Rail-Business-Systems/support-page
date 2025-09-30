@@ -2,15 +2,13 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions;
 
-use AnthonyEdmonds\GovukLaravel\Forms\Question;
-use AnthonyEdmonds\GovukLaravel\Helpers\GovukQuestion as GovukQuestionHelper;
-use AnthonyEdmonds\GovukLaravel\Questions\Question as GovukQuestion;
-use Illuminate\Database\Eloquent\Model;
+use AnthonyEdmonds\LaravelFormBuilder\Helpers\Field;
+use AnthonyEdmonds\LaravelFormBuilder\Items\Question;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 use NetworkRailBusinessSystems\SupportPage\Http\Requests\Support\TypeRequest;
-use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 
+/** @property SupportDetailForm $form */
 class TypeQuestion extends Question
 {
     public const array OPTIONS = [
@@ -36,34 +34,29 @@ class TypeQuestion extends Question
         return 'type';
     }
 
-    /**
-     * @param  SupportDetail  $subject
-     */
-    public function getQuestion(Model $subject): GovukQuestion|array
+    public function fields(): array
     {
-        return GovukQuestionHelper::radios(
-            'Which type of Support Detail is this?',
-            self::key(),
-            self::OPTIONS,
-        )->value($subject);
+        return [
+            Field::radios(
+                self::key(),
+                'Which type of Support Detail is this?',
+                self::OPTIONS,
+            ),
+        ];
     }
 
-    /**
-     * @param  SupportDetail  $subject
-     */
-    public function store(Request $request, Model $subject, string $mode): void
+    public function formRequest(): string
     {
-        if ($subject->type !== $request->type) {
-            $subject->target = null;
-            $subject->type = $request->type;
+        return TypeRequest::class;
+    }
+
+    public function applySave(FormRequest $formRequest): void
+    {
+        $type = $formRequest->get('type');
+
+        if ($this->form->model->type !== $type) {
+            $this->form->model->target = null;
+            $this->form->model->type = $type;
         }
-    }
-
-    /**
-     * @codeCoverageIgnore
-     */
-    protected function getFormRequest(): FormRequest
-    {
-        return new TypeRequest();
     }
 }
