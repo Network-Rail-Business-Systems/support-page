@@ -39,4 +39,14 @@ class SupportDetailForm extends Form
     {
         return route('support-page.admin.index');
     }
+
+    public function startIsEnabled(): bool
+    {
+        return false;
+    }
+
+    public function confirmationIsEnabled(): bool
+    {
+        return false;
+    }
 }
