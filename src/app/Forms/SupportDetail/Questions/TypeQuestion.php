@@ -55,8 +55,11 @@ class TypeQuestion extends Question
         $type = $formRequest->get('type');
 
         if ($this->form->model->type !== $type) {
-            $this->form->model->target = null;
             $this->form->model->type = $type;
+
+            $this->form->model->target = $type !== self::SYSTEM_QUESTIONS
+                ? 'url'
+                : null;
         }
     }
 }

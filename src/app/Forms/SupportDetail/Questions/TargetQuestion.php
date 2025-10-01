@@ -18,58 +18,71 @@ class TargetQuestion extends Question
 
     public function fields(): array
     {
-        $fields = [];
-
-        if ($this->form->model->type === TypeQuestion::SYSTEM_QUESTIONS) {
-            $roles = config('support-page.role_model')::query()
-                ->whereNotIn('name', config('support-page.excluded_roles'))
-                ->pluck('name', 'id')->toArray();
-
-            $roles['divider'] = [
+        $options = [
+            'role' => [
+                'label' => 'Use a system role',
+                'inputs' => [
+                    [
+                        'label' => 'Which role would you like to send requests to?',
+                        'name' => 'role',
+                        'options' => config('support-page.role_model')::query()
+                            ->whereNotIn('name', config('support-page.excluded_roles'))
+                            ->pluck('name', 'id')
+                            ->toArray(),
+                        'value' => $this->form->model->role,
+                    ],
+                ],
+            ],
+            'divider' => [
                 'divider' => true,
                 'label' => 'or',
-            ];
-
-            $roles['email'] = [
+            ],
+            'email' => [
                 'label' => 'Use an email address',
                 'inputs' => [
                     [
                         'label' => 'Which email address would you like to use?',
                         'name' => 'email',
                         'hint' => 'Enter an email address including @networkrail.co.uk',
-                        'value' => $this->form->model->targetIsEmail() === true
-                            ? $this->form->model->target
-                            : null,
+                        'value' => $this->form->model->email,
+                        'width' => 20,
                     ],
                 ],
-            ];
+            ],
+        ];
 
-            $fields[] = Field::radios(
-                'role',
+        return [
+            Field::radios(
+                'target',
                 'Who would you like to send system enquiries to?',
-                $roles,
-            )->setHint('Select a system role or provide an email address');
+                $options,
+            )
+                ->setHint('Select a system role or provide an email address'),
+        ];
+    }
 
-        } else {
-            $fields[] = Field::input(
-                'url',
-                $this->form->model->type === TypeQuestion::GUIDES_AND_RESOURCES
-                    ? 'What is the link to the guide or resource?'
-                    : 'What is the link to the enquiry form?',
-            )->setHint('Make sure the link is accessible to anyone in Network Rail.');
-        }
+    public function validationData(): array
+    {
+        return [
+            'email' => $this->form->model->email,
+            'role' => $this->form->model->role,
+            'target' => $this->form->model->target,
+        ];
+    }
 
-        return $fields;
+    public function getFormattedAnswer(string $fieldKey): string
+    {
+        return ($this->form->model->target === 'email'
+            ? $this->form->model->email
+            : $this->form->model->role)
+            ?? $this->blankAnswerLabel($fieldKey);
     }
 
     public function getRawAnswer(string $fieldName): mixed
     {
-        return match ($fieldName) {
-            'role' => $this->form->model->targetIsEmail() === true
-                ? 'email'
-                : $this->form->model->target,
-            default => parent::getRawAnswer($fieldName),
-        };
+        return $this->form->model->target === 'email'
+            ? $this->form->model->email
+            : $this->form->model->role;
     }
 
     public function formRequest(): string
@@ -79,12 +92,24 @@ class TargetQuestion extends Question
 
     public function applySave(FormRequest $formRequest): void
     {
-        if ($this->form->model->type === TypeQuestion::SYSTEM_QUESTIONS) {
-            $this->form->model->target = $formRequest->get('role') === 'email'
-                ? $formRequest->get('email')
-                : $formRequest->get('role');
+        $this->form->model->target = $formRequest->get('target');
+
+        if ($this->form->model->target === 'email') {
+            $this->form->model->email = $formRequest->get('email');
+            $this->form->model->role = null;
         } else {
-            $this->form->model->target = $formRequest->get('url');
+            $this->form->model->email = null;
+            $this->form->model->role = $formRequest->get('role');;
         }
+    }
+
+    public function isNotRequired(): bool
+    {
+        return $this->form->model->type !== TypeQuestion::SYSTEM_QUESTIONS;
+    }
+
+    public function cannotStart(): bool
+    {
+        return $this->form->model->type === null;
     }
 }

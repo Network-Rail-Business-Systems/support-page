@@ -11,9 +11,13 @@ return new class extends Migration {
             $table->id();
             $table->timestamps();
 
-            $table->string('type');
-            $table->text('target');
             $table->string('label');
+            $table->string('type');
+            $table->string('target');
+
+            $table->string('email')->nullable();
+            $table->string('role')->nullable();
+            $table->text('url')->nullable();
         });
     }
 

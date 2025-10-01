@@ -6,6 +6,7 @@ use AnthonyEdmonds\LaravelFormBuilder\Items\Task;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\UrlQuestion;
 
 class SupportDetailTask extends Task
 {
@@ -22,9 +23,10 @@ class SupportDetailTask extends Task
     public function questions(): array
     {
         return [
-            TypeQuestion::class,
             LabelQuestion::class,
+            TypeQuestion::class,
             TargetQuestion::class,
+            UrlQuestion::class,
         ];
     }
 }

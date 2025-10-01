@@ -46,7 +46,7 @@ class FieldsTest extends TestCase
         $fields = $this->question->fields();
 
         $this->assertEquals(
-            'role',
+            'target',
             $fields[0]->name,
         );
 
@@ -76,6 +76,7 @@ class FieldsTest extends TestCase
                             'name' => 'email',
                             'hint' => 'Enter an email address including @networkrail.co.uk',
                             'value' => $this->form->model->target,
+                            'width' => 20,
                         ],
                     ],
                 ],
@@ -106,6 +107,7 @@ class FieldsTest extends TestCase
                             'name' => 'email',
                             'hint' => 'Enter an email address including @networkrail.co.uk',
                             'value' => null,
+                            'width' => 20,
                         ],
                     ],
                 ],
@@ -120,7 +122,7 @@ class FieldsTest extends TestCase
         $fields = $this->question->fields();
 
         $this->assertEquals(
-            'url',
+            'target',
             $fields[0]->name,
         );
 

@@ -43,5 +43,10 @@ class FieldsTest extends TestCase
             'What is the label for this Support Detail?',
             $fields[0]->label,
         );
+
+        $this->assertEquals(
+            20,
+            $fields[0]->width,
+        );
     }
 }

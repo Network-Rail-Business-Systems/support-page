@@ -19,7 +19,7 @@ class LabelQuestion extends Question
             Field::input(
                 self::key(),
                 'What is the label for this Support Detail?',
-            ),
+            )->setWidth(20),
         ];
     }
 
