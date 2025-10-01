@@ -4,7 +4,9 @@ namespace NetworkRailBusinessSystems\SupportPage\Http\Requests\Support;
 
 use Illuminate\Foundation\Http\FormRequest;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 
+/** @property SupportDetail $model */
 class TargetRequest extends FormRequest
 {
     public function authorize(): bool
@@ -14,7 +16,7 @@ class TargetRequest extends FormRequest
 
     public function rules(): array
     {
-        return $this->subject->type === TypeQuestion::SYSTEM_QUESTIONS
+        return $this->model->type === TypeQuestion::SYSTEM_QUESTIONS
             ? [
                 'email' => [
                     'exclude_unless:role,email',
