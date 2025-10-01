@@ -18,12 +18,12 @@ class RulesTest extends TestCase
         parent::setUp();
         $this->request = new TargetRequest();
 
-        $this->request->subject = SupportDetail::factory()->make();
+        $this->request->model = SupportDetail::factory()->make();
     }
 
     public function testReturnsEmailAndRole(): void
     {
-        $this->request->subject->type = TypeQuestion::SYSTEM_QUESTIONS;
+        $this->request->model->type = TypeQuestion::SYSTEM_QUESTIONS;
         $this->rules = $this->request->rules();
         $this->assertArrayHasKey('email', $this->rules);
         $this->assertArrayHasKey('role', $this->rules);
@@ -31,7 +31,7 @@ class RulesTest extends TestCase
 
     public function testReturnsUrl(): void
     {
-        $this->request->subject->type = TypeQuestion::GUIDES_AND_RESOURCES;
+        $this->request->model->type = TypeQuestion::GUIDES_AND_RESOURCES;
         $this->rules = $this->request->rules();
         $this->assertArrayHasKey('url', $this->rules);
     }
