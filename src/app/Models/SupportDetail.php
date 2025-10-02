@@ -12,16 +12,14 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQue
 
 /**
  * @property Carbon $created_at
- * @property ?string $email
  * @property int $id
  * @property string $label
  * @property string $link
- * @property ?string $role
+ * @property string $mode
  * @property string $suffix
  * @property ?string $target
- * @property string $type
+ * @property ?string $type
  * @property Carbon $updated_at
- * @property ?string $url
  */
 class SupportDetail extends Model implements UsesForm
 {
@@ -29,17 +27,14 @@ class SupportDetail extends Model implements UsesForm
     use HasForm;
 
     protected $fillable = [
-        'email',
         'label',
-        'role',
+        'target',
         'type',
-        'url',
     ];
 
     protected $guarded = [
         'created_at',
         'id',
-        'target',
         'updated_at',
     ];
 
@@ -63,31 +58,10 @@ class SupportDetail extends Model implements UsesForm
 
     public function submitIsValid(): true|string
     {
-        if ($this->type = TypeQuestion::SYSTEM_QUESTIONS) {
-            if ($this->target === null) {
-                return 'You must select a target';
-            }
-
-            if (
-                $this->target === 'email'
-                && $this->email === null
-            ) {
-                return 'You must provide an e-mail address';
-            }
-
-            if (
-                $this->target === 'role'
-                && $this->role === null
-            ) {
-                return 'You must select a system role';
-            }
-        } else {
-            if ($this->url === null) {
-                return 'Provide a valid URL';
-            }
-        }
-
-        return true;
+        // TODO Form Builder will prevent this by default in future version
+        return $this->target === null
+            ? 'You must provide a target for this support detail'
+            : true;
     }
 
     public function saveAndSubmit(): void
@@ -103,12 +77,21 @@ class SupportDetail extends Model implements UsesForm
     public function getLinkAttribute(): string
     {
         if ($this->type === TypeQuestion::SYSTEM_QUESTIONS) {
-            return $this->target === 'email'
-                ? "mailto:$this->email?subject={$this::getEnquirySubject()}"
-                : route('support-page.owners', [$this->role]);
+            return $this->targetIsEmail() === true
+                ? "mailto:$this->target?subject={$this::getEnquirySubject()}"
+                : route('support-page.owners', $this->target);
         } else {
-            return $this->url;
+            return $this->target;
         }
+    }
+
+    public function getModeAttribute(): string
+    {
+        return match (true) {
+            $this->target === null => '',
+            $this->targetIsEmail() === true => 'email',
+            default => 'role',
+        };
     }
 
     public function getSuffixAttribute(): string
@@ -122,5 +105,10 @@ class SupportDetail extends Model implements UsesForm
     public static function getEnquirySubject(): string
     {
         return 'Enquiry about ' . rawurlencode(config('app.name'));
+    }
+
+    public function targetIsEmail(): bool
+    {
+        return str_contains($this->target, '@') === true;
     }
 }

@@ -7,7 +7,9 @@ use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQu
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\UrlQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 
+/** @property SupportDetailForm $form */
 class SupportDetailTask extends Task
 {
     public static function key(): string
@@ -25,8 +27,9 @@ class SupportDetailTask extends Task
         return [
             LabelQuestion::class,
             TypeQuestion::class,
-            TargetQuestion::class,
-            UrlQuestion::class,
+            $this->form->model->type === TypeQuestion::SYSTEM_QUESTIONS
+                ? TargetQuestion::class
+                : UrlQuestion::class,
         ];
     }
 }

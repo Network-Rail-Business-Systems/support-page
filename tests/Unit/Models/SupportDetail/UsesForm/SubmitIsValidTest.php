@@ -28,7 +28,7 @@ class SubmitIsValidTest extends TestCase
     public function testStringWhenNoTarget(): void
     {
         $this->assertEquals(
-            $this->supportDetail->target_label . ' cannot be blank.',
+            'You must provide a target for this support detail',
             $this->supportDetail->submitIsValid(),
         );
     }

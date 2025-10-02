@@ -59,7 +59,7 @@ class SupportPageController extends Controller
     {
         $emails = config('support-page.user_model')::query()
             ->whereHas('roles', function (Builder $query) use ($role) {
-                $query->where('id', '=', $role);
+                $query->where('name', '=', $role);
             })
             ->orderBy('email')
             ->pluck('email')

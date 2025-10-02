@@ -1,12 +1,12 @@
 <?php
 
-namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Models\SupportDetail\Utilities;
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Models\SupportDetail\Getters;
 
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
-class GetTypeTest extends TestCase
+class SuffixTest extends TestCase
 {
     protected SupportDetail $supportDetail;
 
@@ -17,21 +17,23 @@ class GetTypeTest extends TestCase
         $this->supportDetail = new SupportDetail();
     }
 
-    public function testDraftEmailWhenSystemQuestion(): void
+    public function testWhenSystem(): void
     {
         $this->supportDetail->type = TypeQuestion::SYSTEM_QUESTIONS;
 
         $this->assertEquals(
             '(draft a new e-mail)',
-            $this->supportDetail->getType(),
+            $this->supportDetail->suffix,
         );
     }
 
-    public function testNewTabWhenOther(): void
+    public function testOtherwise(): void
     {
+        $this->supportDetail->type = TypeQuestion::TECHNICAL_ISSUES;
+
         $this->assertEquals(
             '(opens in a new tab)',
-            $this->supportDetail->getType(),
+            $this->supportDetail->suffix,
         );
     }
 }

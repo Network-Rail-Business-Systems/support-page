@@ -8,7 +8,6 @@ use NetworkRailBusinessSystems\SupportPage\Http\Controllers\SupportPageControlle
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\Models\User;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
-use Spatie\Permission\Models\Role;
 
 class OwnersTest extends TestCase
 {
@@ -31,7 +30,7 @@ class OwnersTest extends TestCase
             ->sortBy('email');
 
         $this->controller = new SupportPageController();
-        $this->redirect = $this->controller->owners(Role::findByName('admin')->id);
+        $this->redirect = $this->controller->owners('admin');
     }
 
     public function testRedirectsToMailto(): void

@@ -19,12 +19,13 @@ class UrlQuestion extends Question
     {
         return [
             Field::input(
-                'url',
+                'target',
                 $this->form->model->type === TypeQuestion::GUIDES_AND_RESOURCES
                     ? 'What is the link to the guide or resource?'
                     : 'What is the link to the enquiry form?',
             )
-                ->setHint('Make sure the link is accessible to anyone in Network Rail.'),
+                ->setHint('Make sure the link is accessible to anyone in Network Rail')
+                ->setWidth(20),
         ];
     }
 
@@ -35,7 +36,7 @@ class UrlQuestion extends Question
 
     public function isNotRequired(): bool
     {
-        return $this->form->model->type !== TypeQuestion::SYSTEM_QUESTIONS;
+        return $this->form->model->type === TypeQuestion::SYSTEM_QUESTIONS;
     }
 
     public function cannotStart(): bool

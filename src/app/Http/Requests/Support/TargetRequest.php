@@ -17,7 +17,7 @@ class TargetRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'target' => [
+            'mode' => [
                 'required',
                 'string',
                 Rule::in([
@@ -26,13 +26,13 @@ class TargetRequest extends FormRequest
                 ]),
             ],
             'email' => [
-                'exclude_unless:target,email',
+                'exclude_unless:mode,email',
                 'required',
                 'string',
                 'email',
             ],
             'role' => [
-                'exclude_unless:target,role',
+                'exclude_unless:mode,role',
                 'required',
                 'integer',
                 'exists:roles,id',

@@ -19,8 +19,6 @@ class ApplySaveTest extends TestCase
 
     protected TargetRequest $request;
 
-    protected TypeQuestion $type;
-
     protected function setUp(): void
     {
         parent::setUp();
@@ -35,36 +33,27 @@ class ApplySaveTest extends TestCase
             ->question('target');
     }
 
-    public function testSubjectHasTargetUrl(): void
-    {
-        $this->subject->type = TypeQuestion::GUIDES_AND_RESOURCES;
-        $this->runStore();
-
-        $this->assertEquals('www.chasethedayaway.com', $this->subject->target);
-    }
-
-    public function testSubjectHasTargetEmail(): void
-    {
-        $this->runStore();
-
-        $this->assertEquals('danger@zone.co.uk', $this->subject->target);
-    }
-
-    public function testSubjectHasTargetRole(): void
-    {
-        $this->runStore(true);
-
-        $this->assertEquals('admin', $this->subject->target);
-    }
-
-    protected function runStore(bool $isRole = false): void
+    public function testEmail(): void
     {
         $this->request = new TargetRequest([
-            'url' => 'www.chasethedayaway.com',
-            'email' => 'danger@zone.co.uk',
-            'role' => $isRole === true ? 'admin' : 'email',
+            'email' => 'a@b.com',
+            'mode' => 'email',
         ]);
 
         $this->question->applySave($this->request);
+
+        $this->assertEquals('a@b.com', $this->subject->target);
+    }
+
+    public function testRole(): void
+    {
+        $this->request = new TargetRequest([
+            'mode' => 'role',
+            'role' => 'Admin',
+        ]);
+
+        $this->question->applySave($this->request);
+
+        $this->assertEquals('Admin', $this->subject->target);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions;
 
+use AnthonyEdmonds\LaravelFormBuilder\Enums\InputType;
 use AnthonyEdmonds\LaravelFormBuilder\Helpers\Field;
 use AnthonyEdmonds\LaravelFormBuilder\Items\Question;
 use Illuminate\Foundation\Http\FormRequest;
@@ -27,9 +28,10 @@ class TargetQuestion extends Question
                         'name' => 'role',
                         'options' => config('support-page.role_model')::query()
                             ->whereNotIn('name', config('support-page.excluded_roles'))
-                            ->pluck('name', 'id')
+                            ->pluck('name', 'name')
                             ->toArray(),
-                        'value' => $this->form->model->role,
+                        'type' => InputType::Select,
+                        'value' => $this->form->model->target,
                     ],
                 ],
             ],
@@ -44,7 +46,7 @@ class TargetQuestion extends Question
                         'label' => 'Which email address would you like to use?',
                         'name' => 'email',
                         'hint' => 'Enter an email address including @networkrail.co.uk',
-                        'value' => $this->form->model->email,
+                        'value' => $this->form->model->target,
                         'width' => 20,
                     ],
                 ],
@@ -53,10 +55,11 @@ class TargetQuestion extends Question
 
         return [
             Field::radios(
-                'target',
+                'mode',
                 'Who would you like to send system enquiries to?',
                 $options,
             )
+                ->setDisplayName('Target')
                 ->setHint('Select a system role or provide an email address'),
         ];
     }
@@ -64,25 +67,15 @@ class TargetQuestion extends Question
     public function validationData(): array
     {
         return [
-            'email' => $this->form->model->email,
-            'role' => $this->form->model->role,
-            'target' => $this->form->model->target,
+            'email' => $this->form->model->target,
+            'role' => $this->form->model->target,
+            'mode' => $this->form->model->mode,
         ];
     }
 
     public function getFormattedAnswer(string $fieldKey): string
     {
-        return ($this->form->model->target === 'email'
-            ? $this->form->model->email
-            : $this->form->model->role)
-            ?? $this->blankAnswerLabel($fieldKey);
-    }
-
-    public function getRawAnswer(string $fieldName): mixed
-    {
-        return $this->form->model->target === 'email'
-            ? $this->form->model->email
-            : $this->form->model->role;
+        return $this->form->model->target ?? $this->blankAnswerLabel($fieldKey);
     }
 
     public function formRequest(): string
@@ -92,15 +85,9 @@ class TargetQuestion extends Question
 
     public function applySave(FormRequest $formRequest): void
     {
-        $this->form->model->target = $formRequest->get('target');
-
-        if ($this->form->model->target === 'email') {
-            $this->form->model->email = $formRequest->get('email');
-            $this->form->model->role = null;
-        } else {
-            $this->form->model->email = null;
-            $this->form->model->role = $formRequest->get('role');;
-        }
+        $this->form->model->target = $formRequest->get('mode') === 'email'
+            ? $formRequest->get('email')
+            : $formRequest->get('role');
     }
 
     public function isNotRequired(): bool

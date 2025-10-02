@@ -2,6 +2,7 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\Questions\TargetQuestion;
 
+use AnthonyEdmonds\LaravelFormBuilder\Enums\InputType;
 use Illuminate\Support\Facades\Config;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
@@ -32,6 +33,9 @@ class FieldsTest extends TestCase
         Config::set('support-page.excluded_roles', ['Excluded role']);
 
         $this->subject = new SupportDetail();
+        $this->subject->type = TypeQuestion::SYSTEM_QUESTIONS;
+        $this->subject->target = 'a@b.com';
+
         $this->form = new SupportDetailForm($this->subject);
 
         $this->question = $this->form->tasks()
@@ -39,14 +43,12 @@ class FieldsTest extends TestCase
             ->question('target');
     }
 
-    public function testRoleWhenEmail(): void
+    public function test(): void
     {
-        $this->subject->type = TypeQuestion::SYSTEM_QUESTIONS;
-        $this->subject->target = 'a@b.com';
         $fields = $this->question->fields();
 
         $this->assertEquals(
-            'target',
+            'mode',
             $fields[0]->name,
         );
 
@@ -61,9 +63,27 @@ class FieldsTest extends TestCase
         );
 
         $this->assertEquals(
+            'Target',
+            $fields[0]->displayName,
+        );
+
+        $this->assertEquals(
             [
-                1 => 'Admin',
-                2 => 'Other role',
+                'role' => [
+                    'label' => 'Use a system role',
+                    'inputs' => [
+                        [
+                            'label' => 'Which role would you like to send requests to?',
+                            'name' => 'role',
+                            'options' => [
+                                'Admin' => 'Admin',
+                                'Other role' => 'Other role',
+                            ],
+                            'type' => InputType::Select,
+                            'value' => $this->subject->target,
+                        ],
+                    ],
+                ],
                 'divider' => [
                     'divider' => true,
                     'label' => 'or',
@@ -82,69 +102,6 @@ class FieldsTest extends TestCase
                 ],
             ],
             $fields[0]->options,
-        );
-    }
-
-    public function testRoleWhenNot(): void
-    {
-        $this->subject->type = TypeQuestion::SYSTEM_QUESTIONS;
-        $this->subject->target = '';
-        $fields = $this->question->fields();
-
-        $this->assertEquals(
-            [
-                1 => 'Admin',
-                2 => 'Other role',
-                'divider' => [
-                    'divider' => true,
-                    'label' => 'or',
-                ],
-                'email' => [
-                    'label' => 'Use an email address',
-                    'inputs' => [
-                        [
-                            'label' => 'Which email address would you like to use?',
-                            'name' => 'email',
-                            'hint' => 'Enter an email address including @networkrail.co.uk',
-                            'value' => null,
-                            'width' => 20,
-                        ],
-                    ],
-                ],
-            ],
-            $fields[0]->options,
-        );
-    }
-
-    public function testUrlWhenGuide(): void
-    {
-        $this->subject->type = TypeQuestion::GUIDES_AND_RESOURCES;
-        $fields = $this->question->fields();
-
-        $this->assertEquals(
-            'target',
-            $fields[0]->name,
-        );
-
-        $this->assertEquals(
-            'What is the link to the guide or resource?',
-            $fields[0]->label,
-        );
-
-        $this->assertEquals(
-            'Make sure the link is accessible to anyone in Network Rail.',
-            $fields[0]->hint,
-        );
-    }
-
-    public function testUrlWhenNot(): void
-    {
-        $this->subject->type = TypeQuestion::TECHNICAL_ISSUES;
-        $fields = $this->question->fields();
-
-        $this->assertEquals(
-            'What is the link to the enquiry form?',
-            $fields[0]->label,
         );
     }
 }

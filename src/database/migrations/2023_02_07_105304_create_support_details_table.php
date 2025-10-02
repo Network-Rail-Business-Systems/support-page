@@ -13,11 +13,7 @@ return new class extends Migration {
 
             $table->string('label');
             $table->string('type');
-            $table->string('target');
-
-            $table->string('email')->nullable();
-            $table->string('role')->nullable();
-            $table->text('url')->nullable();
+            $table->text('target');
         });
     }
 

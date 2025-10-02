@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AnthonyEdmonds/govuk-laravel.git",
-                "reference": "cde0e5f0fd44e71b39870e2b6bb6482e9e3c6256"
+                "reference": "8ce8d7fc4ac21f00bec062e6ef531f235bbd386c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AnthonyEdmonds/govuk-laravel/zipball/cde0e5f0fd44e71b39870e2b6bb6482e9e3c6256",
-                "reference": "cde0e5f0fd44e71b39870e2b6bb6482e9e3c6256",
+                "url": "https://api.github.com/repos/AnthonyEdmonds/govuk-laravel/zipball/8ce8d7fc4ac21f00bec062e6ef531f235bbd386c",
+                "reference": "8ce8d7fc4ac21f00bec062e6ef531f235bbd386c",
                 "shasum": ""
             },
             "require": {
@@ -75,20 +75,20 @@
                 "issues": "https://github.com/AnthonyEdmonds/govuk-laravel/issues",
                 "source": "https://github.com/AnthonyEdmonds/govuk-laravel/tree/feature/form-builder-v2"
             },
-            "time": "2025-09-30T08:29:11+00:00"
+            "time": "2025-10-01T11:52:53+00:00"
         },
         {
             "name": "anthonyedmonds/laravel-form-builder",
-            "version": "0.2.0",
+            "version": "0.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AnthonyEdmonds/laravel-form-builder.git",
-                "reference": "4dbf5a366b61da960673d2cfcaa62dbbfb9526d3"
+                "reference": "ae98f170a14aece1fcd6639350dc1efc05a9c125"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AnthonyEdmonds/laravel-form-builder/zipball/4dbf5a366b61da960673d2cfcaa62dbbfb9526d3",
-                "reference": "4dbf5a366b61da960673d2cfcaa62dbbfb9526d3",
+                "url": "https://api.github.com/repos/AnthonyEdmonds/laravel-form-builder/zipball/ae98f170a14aece1fcd6639350dc1efc05a9c125",
+                "reference": "ae98f170a14aece1fcd6639350dc1efc05a9c125",
                 "shasum": ""
             },
             "require": {
@@ -140,9 +140,9 @@
             ],
             "support": {
                 "issues": "https://github.com/AnthonyEdmonds/laravel-form-builder/issues",
-                "source": "https://github.com/AnthonyEdmonds/laravel-form-builder/tree/0.2.0"
+                "source": "https://github.com/AnthonyEdmonds/laravel-form-builder/tree/0.4.4"
             },
-            "time": "2025-09-30T08:00:11+00:00"
+            "time": "2025-10-02T07:32:20+00:00"
         },
         {
             "name": "brick/math",
@@ -1250,16 +1250,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.32.0",
+            "version": "v12.32.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c30b044aae29ad87419ebedf377338bf4668a4c9"
+                "reference": "77b2740391cd2a825ba59d6fada45e9b8b9bcc5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c30b044aae29ad87419ebedf377338bf4668a4c9",
-                "reference": "c30b044aae29ad87419ebedf377338bf4668a4c9",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/77b2740391cd2a825ba59d6fada45e9b8b9bcc5a",
+                "reference": "77b2740391cd2a825ba59d6fada45e9b8b9bcc5a",
                 "shasum": ""
             },
             "require": {
@@ -1465,7 +1465,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-09-30T10:30:26+00:00"
+            "time": "2025-09-30T17:39:22+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -7446,16 +7446,16 @@
         },
         {
             "name": "orchestra/sidekick",
-            "version": "v1.2.14",
+            "version": "v1.2.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/sidekick.git",
-                "reference": "0f7d1d96d390e7bf9118f280dfae74b8b2fb0a00"
+                "reference": "2b165b602f56bbe05a5116fbfd76e4eb4986d1c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/sidekick/zipball/0f7d1d96d390e7bf9118f280dfae74b8b2fb0a00",
-                "reference": "0f7d1d96d390e7bf9118f280dfae74b8b2fb0a00",
+                "url": "https://api.github.com/repos/orchestral/sidekick/zipball/2b165b602f56bbe05a5116fbfd76e4eb4986d1c4",
+                "reference": "2b165b602f56bbe05a5116fbfd76e4eb4986d1c4",
                 "shasum": ""
             },
             "require": {
@@ -7468,7 +7468,7 @@
                 "laravel/framework": "^10.48.29|^11.44.7|^12.1.1|^13.0",
                 "laravel/pint": "^1.4",
                 "mockery/mockery": "^1.5.1",
-                "orchestra/testbench-core": "^8.37.0|^9.14.0|^10.0|^11.0",
+                "orchestra/testbench-core": "^8.37.0|^9.14.0|^10.2.0|^11.0",
                 "phpstan/phpstan": "^2.1.14",
                 "phpunit/phpunit": "^10.0|^11.0|^12.0",
                 "symfony/process": "^6.0|^7.0"
@@ -7497,9 +7497,9 @@
             "description": "Packages Toolkit Utilities and Helpers for Laravel",
             "support": {
                 "issues": "https://github.com/orchestral/sidekick/issues",
-                "source": "https://github.com/orchestral/sidekick/tree/v1.2.14"
+                "source": "https://github.com/orchestral/sidekick/tree/v1.2.16"
             },
-            "time": "2025-08-06T23:54:27+00:00"
+            "time": "2025-10-01T22:10:05+00:00"
         },
         {
             "name": "orchestra/testbench",
