@@ -34,8 +34,8 @@ class TargetRequest extends FormRequest
             'role' => [
                 'exclude_unless:mode,role',
                 'required',
-                'integer',
-                'exists:roles,id',
+                'string',
+                'exists:roles,name',
             ],
         ];
     }
