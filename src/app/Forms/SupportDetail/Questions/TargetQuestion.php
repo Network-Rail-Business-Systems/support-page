@@ -30,7 +30,7 @@ class TargetQuestion extends Question
                             ->whereNotIn('name', config('support-page.excluded_roles'))
                             ->pluck('name', 'name')
                             ->toArray(),
-                        'type' => InputType::Select,
+                        'type' => InputType::Select->value,
                         'value' => $this->form->model->target,
                     ],
                 ],

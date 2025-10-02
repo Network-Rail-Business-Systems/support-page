@@ -79,7 +79,7 @@ class FieldsTest extends TestCase
                                 'Admin' => 'Admin',
                                 'Other role' => 'Other role',
                             ],
-                            'type' => InputType::Select,
+                            'type' => InputType::Select->value,
                             'value' => $this->subject->target,
                         ],
                     ],
