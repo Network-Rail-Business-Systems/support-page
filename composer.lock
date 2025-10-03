@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb6b29e6bf78be5c8b90ff8b526440aa",
+    "content-hash": "a7be1cee1a4003877dafbe2e272d40b1",
     "packages": [
         {
             "name": "anthonyedmonds/govuk-laravel",
-            "version": "dev-feature/form-builder-v2",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AnthonyEdmonds/govuk-laravel.git",
-                "reference": "8ce8d7fc4ac21f00bec062e6ef531f235bbd386c"
+                "reference": "b7eef6c11a0abd9824836e8d39df712932ca0433"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AnthonyEdmonds/govuk-laravel/zipball/8ce8d7fc4ac21f00bec062e6ef531f235bbd386c",
-                "reference": "8ce8d7fc4ac21f00bec062e6ef531f235bbd386c",
+                "url": "https://api.github.com/repos/AnthonyEdmonds/govuk-laravel/zipball/b7eef6c11a0abd9824836e8d39df712932ca0433",
+                "reference": "b7eef6c11a0abd9824836e8d39df712932ca0433",
                 "shasum": ""
             },
             "require": {
@@ -73,9 +73,9 @@
             ],
             "support": {
                 "issues": "https://github.com/AnthonyEdmonds/govuk-laravel/issues",
-                "source": "https://github.com/AnthonyEdmonds/govuk-laravel/tree/feature/form-builder-v2"
+                "source": "https://github.com/AnthonyEdmonds/govuk-laravel/tree/6.0.0"
             },
-            "time": "2025-10-01T11:52:53+00:00"
+            "time": "2025-10-03T07:24:02+00:00"
         },
         {
             "name": "anthonyedmonds/laravel-form-builder",
@@ -7446,16 +7446,16 @@
         },
         {
             "name": "orchestra/sidekick",
-            "version": "v1.2.16",
+            "version": "v1.2.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/sidekick.git",
-                "reference": "2b165b602f56bbe05a5116fbfd76e4eb4986d1c4"
+                "reference": "371ce2882ee3f5bf826b36e75d461e51c9cd76c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/sidekick/zipball/2b165b602f56bbe05a5116fbfd76e4eb4986d1c4",
-                "reference": "2b165b602f56bbe05a5116fbfd76e4eb4986d1c4",
+                "url": "https://api.github.com/repos/orchestral/sidekick/zipball/371ce2882ee3f5bf826b36e75d461e51c9cd76c2",
+                "reference": "371ce2882ee3f5bf826b36e75d461e51c9cd76c2",
                 "shasum": ""
             },
             "require": {
@@ -7497,9 +7497,9 @@
             "description": "Packages Toolkit Utilities and Helpers for Laravel",
             "support": {
                 "issues": "https://github.com/orchestral/sidekick/issues",
-                "source": "https://github.com/orchestral/sidekick/tree/v1.2.16"
+                "source": "https://github.com/orchestral/sidekick/tree/v1.2.17"
             },
-            "time": "2025-10-01T22:10:05+00:00"
+            "time": "2025-10-02T11:02:26+00:00"
         },
         {
             "name": "orchestra/testbench",
@@ -7837,16 +7837,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.29",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpstan/phpstan-phar-composer-source.git",
-                "reference": "git"
-            },
+            "version": "2.1.30",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/d618573eed4a1b6b75e37b2e0b65ac65c885d88e",
-                "reference": "d618573eed4a1b6b75e37b2e0b65ac65c885d88e",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a4a7f159927983dd4f7c8020ed227d80b7f39d7d",
+                "reference": "a4a7f159927983dd4f7c8020ed227d80b7f39d7d",
                 "shasum": ""
             },
             "require": {
@@ -7891,7 +7886,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-09-25T06:58:18+00:00"
+            "time": "2025-10-02T16:07:52+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -9488,9 +9483,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "anthonyedmonds/govuk-laravel": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
