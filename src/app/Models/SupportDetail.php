@@ -58,7 +58,6 @@ class SupportDetail extends Model implements UsesForm
 
     public function submitIsValid(): true|string
     {
-        // TODO Form Builder will prevent this by default in future version
         return $this->target === null
             ? 'You must provide a target for this support detail'
             : true;

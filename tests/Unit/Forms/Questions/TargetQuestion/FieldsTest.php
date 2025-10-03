@@ -43,7 +43,7 @@ class FieldsTest extends TestCase
             ->question('target');
     }
 
-    public function test(): void
+    public function testWhenEmail(): void
     {
         $fields = $this->question->fields();
 
@@ -80,7 +80,7 @@ class FieldsTest extends TestCase
                                 'Other role' => 'Other role',
                             ],
                             'type' => InputType::Select->value,
-                            'value' => $this->subject->target,
+                            'value' => null,
                         ],
                     ],
                 ],
@@ -102,6 +102,22 @@ class FieldsTest extends TestCase
                 ],
             ],
             $fields[0]->options,
+        );
+    }
+
+    public function testWhenRole(): void
+    {
+        $this->subject->target = 'Admin';
+        $fields = $this->question->fields();
+
+        $this->assertEquals(
+            'Admin',
+            $fields[0]->options['role']['inputs'][0]['value'],
+        );
+
+        $this->assertEquals(
+            '',
+            $fields[0]->options['email']['inputs'][0]['value'],
         );
     }
 }

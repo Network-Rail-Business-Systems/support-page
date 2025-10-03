@@ -31,7 +31,9 @@ class TargetQuestion extends Question
                             ->pluck('name', 'name')
                             ->toArray(),
                         'type' => InputType::Select->value,
-                        'value' => $this->form->model->target,
+                        'value' => $this->form->model->targetIsEmail() === false
+                            ? $this->form->model->target
+                            : '',
                     ],
                 ],
             ],
@@ -46,7 +48,9 @@ class TargetQuestion extends Question
                         'label' => 'Which email address would you like to use?',
                         'name' => 'email',
                         'hint' => 'Enter an email address including @networkrail.co.uk',
-                        'value' => $this->form->model->target,
+                        'value' => $this->form->model->targetIsEmail() === true
+                            ? $this->form->model->target
+                            : '',
                         'width' => 20,
                     ],
                 ],
@@ -98,5 +102,10 @@ class TargetQuestion extends Question
     public function cannotStart(): bool
     {
         return $this->form->model->type === null;
+    }
+
+    public function hasAnswer(string $fieldName): bool
+    {
+        return parent::hasAnswer('target');
     }
 }
