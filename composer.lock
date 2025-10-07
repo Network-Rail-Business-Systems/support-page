@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7be1cee1a4003877dafbe2e272d40b1",
+    "content-hash": "999a114279c8dae8323cd53ae906c310",
     "packages": [
         {
             "name": "anthonyedmonds/govuk-laravel",
@@ -79,16 +79,16 @@
         },
         {
             "name": "anthonyedmonds/laravel-form-builder",
-            "version": "0.4.4",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AnthonyEdmonds/laravel-form-builder.git",
-                "reference": "ae98f170a14aece1fcd6639350dc1efc05a9c125"
+                "reference": "1e6173ba3a60aa4cdeb14de39565e784083ec9aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AnthonyEdmonds/laravel-form-builder/zipball/ae98f170a14aece1fcd6639350dc1efc05a9c125",
-                "reference": "ae98f170a14aece1fcd6639350dc1efc05a9c125",
+                "url": "https://api.github.com/repos/AnthonyEdmonds/laravel-form-builder/zipball/1e6173ba3a60aa4cdeb14de39565e784083ec9aa",
+                "reference": "1e6173ba3a60aa4cdeb14de39565e784083ec9aa",
                 "shasum": ""
             },
             "require": {
@@ -140,9 +140,9 @@
             ],
             "support": {
                 "issues": "https://github.com/AnthonyEdmonds/laravel-form-builder/issues",
-                "source": "https://github.com/AnthonyEdmonds/laravel-form-builder/tree/0.4.4"
+                "source": "https://github.com/AnthonyEdmonds/laravel-form-builder/tree/1.0.0"
             },
-            "time": "2025-10-02T07:32:20+00:00"
+            "time": "2025-10-07T07:40:17+00:00"
         },
         {
             "name": "brick/math",
