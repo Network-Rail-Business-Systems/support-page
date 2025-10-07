@@ -2,113 +2,112 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Models;
 
-use AnthonyEdmonds\GovukLaravel\Traits\HasForm;
+use AnthonyEdmonds\LaravelFormBuilder\Interfaces\UsesForm;
+use AnthonyEdmonds\LaravelFormBuilder\Traits\HasForm;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use NetworkRailBusinessSystems\SupportPage\Database\Factories\SupportDetailFactory;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\LabelQuestion;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
 
 /**
- * @property string $targetLabel
- * @property string $type
- * @property string|null $target
- * @property string $label
- * @property int $id
  * @property Carbon $created_at
+ * @property int $id
+ * @property string $label
+ * @property string $link
+ * @property string $mode
+ * @property string $suffix
+ * @property ?string $target
+ * @property ?string $type
  * @property Carbon $updated_at
  */
-class SupportDetail extends Model
+class SupportDetail extends Model implements UsesForm
 {
     use HasFactory;
     use HasForm;
 
-    protected $fillable = ['type', 'target', 'label'];
+    protected $fillable = [
+        'label',
+        'target',
+        'type',
+    ];
 
-    protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $guarded = [
+        'created_at',
+        'id',
+        'updated_at',
+    ];
 
     protected $casts = [
-        'id' => 'integer',
         'created_at' => 'datetime',
+        'id' => 'integer',
         'updated_at' => 'datetime',
     ];
 
-    public static function formClass(): string
+    // Setup
+    protected static function newFactory(): SupportDetailFactory
     {
-        return SupportDetailForm::class;
+        return new SupportDetailFactory();
     }
 
-    public static function getEnquirySubject(): string
+    // UsesForm
+    public function viewRoute(): string
     {
-        return 'Enquiry about ' . rawurlencode(config('app.name'));
+        return route('support-page.admin.index');
     }
 
-    public function getType(): string
+    public function submitIsValid(): true|string
+    {
+        return $this->target === null
+            ? 'You must provide a target for this support detail'
+            : true;
+    }
+
+    public function saveAndSubmit(): void
+    {
+        $this->save();
+
+        $this->wasRecentlyCreated === true
+            ? flash()->success("Support detail #$this->id created")
+            : flash()->success("Support detail #$this->id updated");
+    }
+
+    // Getters
+    public function getLinkAttribute(): string
+    {
+        if ($this->type === TypeQuestion::SYSTEM_QUESTIONS) {
+            return $this->targetIsEmail() === true
+                ? "mailto:$this->target?subject={$this::getEnquirySubject()}"
+                : route('support-page.owners', $this->target);
+        } else {
+            return $this->target;
+        }
+    }
+
+    public function getModeAttribute(): string
+    {
+        return match (true) {
+            $this->target === null => '',
+            $this->targetIsEmail() === true => 'email',
+            default => 'role',
+        };
+    }
+
+    public function getSuffixAttribute(): string
     {
         return $this->type === TypeQuestion::SYSTEM_QUESTIONS
             ? '(draft a new e-mail)'
             : '(opens in a new tab)';
     }
 
-    public function getTarget(): string
+    // Utilities
+    public static function getEnquirySubject(): string
     {
-        if ($this->type === TypeQuestion::SYSTEM_QUESTIONS) {
-            if (str_contains($this->target, '@') === true) {
-                return "mailto:{$this->target}?subject={$this::getEnquirySubject()}";
-            } else {
-                return route('support-page.owners', [$this->target]);
-            }
-        } else {
-            return $this->target;
-        }
+        return 'Enquiry about ' . rawurlencode(config('app.name'));
     }
 
-    public function getTargetLabelAttribute(): string
+    public function targetIsEmail(): bool
     {
-        if ($this->type === TypeQuestion::SYSTEM_QUESTIONS) {
-            return str_contains($this->target, '@') === true
-                ? 'E-mail'
-                : 'Role';
-        } else {
-            return 'URL';
-        }
-    }
-
-    public function toSummary(bool $showChange = false): array
-    {
-        $targetKey = $this->targetLabel;
-
-        $targetKey === 'Role' && $this->target !== null
-           ? $targetValue = config('support-page.role_model')::find($this->target)->name
-           : $targetValue = $this->target;
-
-        return [
-            'Type' => $this->makeSummaryItem(
-                TypeQuestion::key(),
-                'Type',
-                $this->type,
-                $showChange,
-            ),
-            'Label' => $this->makeSummaryItem(
-                LabelQuestion::key(),
-                'Label',
-                $this->label,
-                $showChange,
-            ),
-            $targetKey => $this->makeSummaryItem(
-                TargetQuestion::key(),
-                $targetKey,
-                $targetValue,
-                $showChange,
-            ),
-        ];
-    }
-
-    protected static function newFactory(): SupportDetailFactory
-    {
-        return new SupportDetailFactory();
+        return str_contains($this->target, '@') === true;
     }
 }

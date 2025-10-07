@@ -1,0 +1,48 @@
+<?php
+
+namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Forms\Questions\TargetQuestion;
+
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TargetQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
+use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
+
+class HasAnswerTest extends TestCase
+{
+    protected TargetQuestion $question;
+
+    protected SupportDetail $supportDetail;
+
+    protected SupportDetailForm $form;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->supportDetail = new SupportDetail();
+        $this->supportDetail->type = TypeQuestion::SYSTEM_QUESTIONS;
+
+        $this->form = new SupportDetailForm($this->supportDetail);
+        $this->question = $this->form
+            ->tasks()
+            ->task('details')
+            ->question('target');
+    }
+
+    public function testFalseWhenUnset(): void
+    {
+        $this->assertFalse(
+            $this->question->hasAnswer('target'),
+        );
+    }
+
+    public function testTrueWhenSet(): void
+    {
+        $this->supportDetail->target = 'Blah';
+
+        $this->assertTrue(
+            $this->question->hasAnswer('target'),
+        );
+    }
+}

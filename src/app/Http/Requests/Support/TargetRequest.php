@@ -3,8 +3,10 @@
 namespace NetworkRailBusinessSystems\SupportPage\Http\Requests\Support;
 
 use Illuminate\Foundation\Http\FormRequest;
-use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use Illuminate\Validation\Rule;
+use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 
+/** @property SupportDetail $model */
 class TargetRequest extends FormRequest
 {
     public function authorize(): bool
@@ -14,27 +16,27 @@ class TargetRequest extends FormRequest
 
     public function rules(): array
     {
-        return $this->subject->type === TypeQuestion::SYSTEM_QUESTIONS
-            ? [
-                'email' => [
-                    'exclude_unless:role,email',
-                    'required',
-                    'string',
+        return [
+            'mode' => [
+                'required',
+                'string',
+                Rule::in([
                     'email',
-                ],
-                'role' => [
-                    'exclude_if:role,email',
-                    'required',
-                    'integer',
-                    'exists:roles,id',
-                ],
-            ]
-            : [
-                'url' => [
-                    'required',
-                    'string',
-                    'url',
-                ],
-            ];
+                    'role',
+                ]),
+            ],
+            'email' => [
+                'exclude_unless:mode,email',
+                'required',
+                'string',
+                'email',
+            ],
+            'role' => [
+                'exclude_unless:mode,role',
+                'required',
+                'string',
+                'exists:roles,name',
+            ],
+        ];
     }
 }

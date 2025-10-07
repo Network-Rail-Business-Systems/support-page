@@ -2,7 +2,6 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Resources\SupportDetailResource;
 
-use Illuminate\Http\Request;
 use NetworkRailBusinessSystems\SupportPage\Http\Resources\SupportDetailResource;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
@@ -18,16 +17,20 @@ class ToArrayTest extends TestCase
         parent::setUp();
 
         $this->subject = SupportDetail::factory()->create();
-
         $this->resource = new SupportDetailResource($this->subject);
     }
 
     public function testHasArrayKeys(): void
     {
-        $keys = ['type', 'target', 'label', 'editLink', 'deleteLink'];
-
-        foreach ($keys as $key) {
-            $this->assertArrayHasKey($key, $this->resource->toArray(new Request()));
-        }
+        $this->assertEquals(
+            [
+                'type' => $this->subject->type,
+                'target' => $this->subject->target,
+                'label' => $this->subject->label,
+                'editLink' => $this->subject->form()->editRoute(),
+                'deleteLink' => route('support-page.admin.delete', $this->subject->id),
+            ],
+            $this->resource->toArray(request()),
+        );
     }
 }

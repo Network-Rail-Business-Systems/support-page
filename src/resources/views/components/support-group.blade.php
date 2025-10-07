@@ -9,8 +9,8 @@
 <x-govuk::ul>
     @foreach($group as $supportDetail)
         <li>
-            <x-govuk::a href="{{ $supportDetail->getTarget() }}" target="_blank">
-                {{ $supportDetail->label }} {{ $supportDetail->getType() }}
+            <x-govuk::a href="{{ $supportDetail->link }}" target="_blank">
+                {{ $supportDetail->label }} {{ $supportDetail->suffix }}
             </x-govuk::a>
         </li>
     @endforeach

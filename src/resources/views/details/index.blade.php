@@ -44,7 +44,7 @@
 
     <x-govuk::ul spaced>
         <li>
-            <x-govuk::a href="{{ SupportDetail::startFormRoute() }}">
+            <x-govuk::a href="{{ SupportDetail::formRoute() }}">
                 Create a new Support Detail
             </x-govuk::a>
     </x-govuk::ul>

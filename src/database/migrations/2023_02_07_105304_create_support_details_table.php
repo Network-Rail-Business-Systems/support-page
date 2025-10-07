@@ -11,9 +11,9 @@ return new class extends Migration {
             $table->id();
             $table->timestamps();
 
+            $table->string('label');
             $table->string('type');
             $table->text('target');
-            $table->string('label');
         });
     }
 
