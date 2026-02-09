@@ -58,9 +58,11 @@ class SupportDetail extends Model implements UsesForm
 
     public function submitIsValid(): true|string
     {
-        return $this->target === null
-            ? 'You must provide a target for this support detail'
-            : true;
+        if ($this->target === null) {
+            return 'You must provide a target for this support detail';
+        }
+
+        return $this->tasksAreComplete();
     }
 
     public function saveAndSubmit(): void

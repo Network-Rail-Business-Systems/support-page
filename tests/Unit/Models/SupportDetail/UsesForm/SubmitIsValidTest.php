@@ -2,6 +2,7 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Tests\Unit\Models\SupportDetail\UsesForm;
 
+use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
 use NetworkRailBusinessSystems\SupportPage\Models\SupportDetail;
 use NetworkRailBusinessSystems\SupportPage\Tests\TestCase;
 
@@ -18,7 +19,9 @@ class SubmitIsValidTest extends TestCase
 
     public function testTrueWhenOk(): void
     {
-        $this->supportDetail->target = 'Potato';
+        $this->supportDetail->type = TypeQuestion::GUIDES_AND_RESOURCES;
+        $this->supportDetail->label = 'Goose';
+        $this->supportDetail->target = 'https://google.com';
 
         $this->assertTrue(
             $this->supportDetail->submitIsValid(),
