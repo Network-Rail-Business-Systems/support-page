@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "999a114279c8dae8323cd53ae906c310",
+    "content-hash": "ea762322dba33f0b0ff70f19139d4c4e",
     "packages": [
         {
             "name": "anthonyedmonds/govuk-laravel",
-            "version": "6.6.0",
+            "version": "7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AnthonyEdmonds/govuk-laravel.git",
-                "reference": "bbdb641ef5dc000a354c691ad2c159b68d5c845c"
+                "reference": "cc5a96a0dcaef9c54801d4e7314ad98778b5dac4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AnthonyEdmonds/govuk-laravel/zipball/bbdb641ef5dc000a354c691ad2c159b68d5c845c",
-                "reference": "bbdb641ef5dc000a354c691ad2c159b68d5c845c",
+                "url": "https://api.github.com/repos/AnthonyEdmonds/govuk-laravel/zipball/cc5a96a0dcaef9c54801d4e7314ad98778b5dac4",
+                "reference": "cc5a96a0dcaef9c54801d4e7314ad98778b5dac4",
                 "shasum": ""
             },
             "require": {
@@ -73,9 +73,9 @@
             ],
             "support": {
                 "issues": "https://github.com/AnthonyEdmonds/govuk-laravel/issues",
-                "source": "https://github.com/AnthonyEdmonds/govuk-laravel/tree/6.6.0"
+                "source": "https://github.com/AnthonyEdmonds/govuk-laravel/tree/7.0.0"
             },
-            "time": "2026-02-06T08:46:24+00:00"
+            "time": "2026-02-10T11:51:08+00:00"
         },
         {
             "name": "anthonyedmonds/laravel-form-builder",
@@ -3415,16 +3415,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "6.24.0",
+            "version": "6.24.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "76adb1fc8d07c16a0721c35c4cc330b7a12598d7"
+                "reference": "eefc9d17eba80d023d6bff313f882cb2bcd691a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/76adb1fc8d07c16a0721c35c4cc330b7a12598d7",
-                "reference": "76adb1fc8d07c16a0721c35c4cc330b7a12598d7",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/eefc9d17eba80d023d6bff313f882cb2bcd691a3",
+                "reference": "eefc9d17eba80d023d6bff313f882cb2bcd691a3",
                 "shasum": ""
             },
             "require": {
@@ -3486,7 +3486,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-permission/issues",
-                "source": "https://github.com/spatie/laravel-permission/tree/6.24.0"
+                "source": "https://github.com/spatie/laravel-permission/tree/6.24.1"
             },
             "funding": [
                 {
@@ -3494,7 +3494,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-12-13T21:45:21+00:00"
+            "time": "2026-02-09T21:10:03+00:00"
         },
         {
             "name": "symfony/clock",
