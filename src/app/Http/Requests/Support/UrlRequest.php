@@ -23,4 +23,11 @@ class UrlRequest extends FormRequest
             ],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'target.*' => 'Provide a valid URL starting with "https://".',
+        ];
+    }
 }
