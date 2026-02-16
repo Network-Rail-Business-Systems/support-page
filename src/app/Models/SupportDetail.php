@@ -74,6 +74,11 @@ class SupportDetail extends Model implements UsesForm
             : flash()->success("Support detail #$this->id updated");
     }
 
+    public function draftIsEnabled(): bool
+    {
+        return false;
+    }
+
     // Getters
     public function getLinkAttribute(): string
     {
