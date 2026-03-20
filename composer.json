@@ -20,18 +20,18 @@
     ],
     "require": {
         "php": "^8.3",
-        "anthonyedmonds/govuk-laravel": "^7",
-        "anthonyedmonds/laravel-form-builder": "^1",
-        "illuminate/support": "^12",
+        "anthonyedmonds/govuk-laravel": "dev-laravel-13",
+        "anthonyedmonds/laravel-form-builder": "dev-laravel-13",
+        "illuminate/support": "^13",
         "laracasts/flash": "^3",
         "spatie/laravel-permission": "^6"
     },
     "require-dev": {
-        "anthonyedmonds/laravel-testing-traits": "^1",
+        "anthonyedmonds/laravel-testing-traits": "dev-laravel-13",
         "larastan/larastan": "^3",
         "laravel/pint": "^1",
-        "networkrailbusinesssystems/badges": "^1",
-        "orchestra/testbench": "^10",
+        "networkrailbusinesssystems/badges": "dev-laravel-13",
+        "orchestra/testbench": "^11",
         "phpunit/phpunit": "^12"
     },
     "autoload": {
