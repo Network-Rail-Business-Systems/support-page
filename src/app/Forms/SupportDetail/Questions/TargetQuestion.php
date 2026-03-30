@@ -63,6 +63,7 @@ class TargetQuestion extends Question
                 'Who would you like to send system enquiries to?',
                 $options,
             )
+                ->setAttribute('target')
                 ->setDisplayName('Target')
                 ->setHint('Select a system role or provide an email address'),
         ];
@@ -75,11 +76,6 @@ class TargetQuestion extends Question
             'role' => $this->form->model->target,
             'mode' => $this->form->model->mode,
         ];
-    }
-
-    public function getFormattedAnswer(string $fieldKey): string
-    {
-        return $this->form->model->target ?? $this->blankAnswerLabel($fieldKey);
     }
 
     public function formRequest(): string
@@ -102,10 +98,5 @@ class TargetQuestion extends Question
     public function cannotStart(): bool
     {
         return $this->form->model->type === null;
-    }
-
-    public function hasAnswer(string $fieldName): bool
-    {
-        return parent::hasAnswer('target');
     }
 }
