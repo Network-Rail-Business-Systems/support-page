@@ -1254,16 +1254,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v13.14.0",
+            "version": "v13.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e60b1c817a9ef7da319e4007de6cfda5301a58c0"
+                "reference": "7e23b2aa4e1133a43835c93a810b4bedc40e425b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e60b1c817a9ef7da319e4007de6cfda5301a58c0",
-                "reference": "e60b1c817a9ef7da319e4007de6cfda5301a58c0",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/7e23b2aa4e1133a43835c93a810b4bedc40e425b",
+                "reference": "7e23b2aa4e1133a43835c93a810b4bedc40e425b",
                 "shasum": ""
             },
             "require": {
@@ -1474,7 +1474,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2026-06-04T18:46:35+00:00"
+            "time": "2026-06-09T13:45:51+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -6386,16 +6386,16 @@
     "packages-dev": [
         {
             "name": "anthonyedmonds/laravel-testing-traits",
-            "version": "1.3.1",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AnthonyEdmonds/laravel-testing-traits.git",
-                "reference": "fee38ca70a8eccc1cab70187b1604906b32514d8"
+                "reference": "14c792300224c819b4e8f44d01d1bfd1fadb30a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AnthonyEdmonds/laravel-testing-traits/zipball/fee38ca70a8eccc1cab70187b1604906b32514d8",
-                "reference": "fee38ca70a8eccc1cab70187b1604906b32514d8",
+                "url": "https://api.github.com/repos/AnthonyEdmonds/laravel-testing-traits/zipball/14c792300224c819b4e8f44d01d1bfd1fadb30a2",
+                "reference": "14c792300224c819b4e8f44d01d1bfd1fadb30a2",
                 "shasum": ""
             },
             "require": {
@@ -6438,9 +6438,9 @@
             ],
             "support": {
                 "issues": "https://github.com/AnthonyEdmonds/laravel-testing-traits/issues",
-                "source": "https://github.com/AnthonyEdmonds/laravel-testing-traits/tree/1.3.1"
+                "source": "https://github.com/AnthonyEdmonds/laravel-testing-traits/tree/1.3.2"
             },
-            "time": "2026-05-27T07:25:42+00:00"
+            "time": "2026-06-09T14:09:41+00:00"
         },
         {
             "name": "composer/semver",

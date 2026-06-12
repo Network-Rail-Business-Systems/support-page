@@ -1,57 +1,53 @@
-# Support Page
-
 ![Composer status](.github/composer.svg)
 ![Coverage status](.github/coverage.svg)
 ![NPM status](.github/npm.svg)
 ![PHP version](.github/php.svg)
 ![Tests status](.github/tests.svg)
 
-Use the Support Page Library to add the following to your GOV.UK Laravel library Project:
+# Support Page
 
-* Admin access to create, edit and delete Support Details.
-* A Support Page to display Support Details.
+Allows you quickly add a support page to your project
 
 ## What's in the box?
 
-* Laravel 11 Blade Support Page Admin Access in the GOV.UK Design
-* Laravel 11 Blade Support Page in the GOV.UK Design 
+* Laravel Blade Support Page and administration
+   * Available in GOV.UK or Bulma designs 
 * PHP 8.3
 
 ## Installation
 
-Via Composer: `composer require networkrailbusinesssystems/support-page`
+`composer require networkrailbusinesssystems/support-page`
 
-## Publish files
-
-All essential files are published via the command `php artisan vendor:publish --provider="NetworkRailBusinessSystems\SupportPage\Providers\SupportPageProvider" --tag="support-page"`.
-
-This command includes the support-page tag files:
-
-### support-page
-
-This command will publish the config and database migration:
-
-* /config/support-page.php
-* /database/migrations/2023_02_07_105304_create_support_details_table.php
-
-### support-page-views
-
-This command will publish the Blade views:
-
-* /resources/views/details
-* /resources/views/show.blade.php
-
-## Set-up
+## Setup
 
 ### Pre-requisites
 
-The Support Page library requires the [GOVUK Laravel Forms Route Macro](https://github.com/AnthonyEdmonds/govuk-laravel/blob/main/docs/forms.md).
+The Support Page library requires the [Form Builder](https://github.com/AnthonyEdmonds/laravel-form-builder) route macro.
+
+### Publish files
+
+All essential files are published via `php artisan vendor:publish` under the `support-page` tag.
+
+This includes the support-page config and migration files.
+
+#### support-page-views
+
+If you need to override the blades, the `support-page-views` tag will publish them for the selected template.
 
 ### Routing
 
-A route macro is provided to handle the Support Page, and it's Admin functions. Add the following to your `routes/web.php` file:
+Two route macros are provided to handle the Support Page and its Admin functions. 
+
+As an example, add the following to your `routes/web.php` file:
 ```php
 Route::supportPage();
+
+Route::middleware('auth')
+    ->prefix('/admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::supportPageAdmin();
+    });
 ```
 
 * Add the permission`'manage_support_page'` with admin rights.
