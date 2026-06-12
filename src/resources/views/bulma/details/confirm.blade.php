@@ -1,3 +1,5 @@
+@use(NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
+
 <div class="content">
     <h2>{{ $title }}</h2>
     <p>Deleting this Support Detail will immediately remove it and all of its contents.</p>
@@ -5,7 +7,7 @@
     <p><b>Do you want to continue?</b></p>
 </div>
 
-<form action="{{ route('support-page.admin.delete', $supportDetail->id) }}" method="{{ $method }}">
+<form action="{{ route(SupportDetail::routeName('delete'), $supportDetail->id) }}" method="{{ $method }}">
     @csrf
     @method($action)
     <div class="field is-grouped">
@@ -14,7 +16,7 @@
         </p>
 
         <p class="control">
-            <a class="button" href="{{ route('support-page.admin.index') }}">Cancel</a>
+            <a class="button" href="{{ route(SupportDetail::routeName('index')) }}">Cancel</a>
         </p>
     </div>
 </form>

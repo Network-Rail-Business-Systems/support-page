@@ -22,7 +22,7 @@ class ExitRouteTest extends TestCase
     public function test(): void
     {
         $this->assertEquals(
-            route('support-page.admin.index'),
+            route('support-page.index'),
             $this->form->exitRoute(),
         );
     }

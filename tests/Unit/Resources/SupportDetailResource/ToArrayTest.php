@@ -28,7 +28,7 @@ class ToArrayTest extends TestCase
                 'target' => $this->subject->target,
                 'label' => $this->subject->label,
                 'editLink' => $this->subject->form()->editRoute(),
-                'deleteLink' => route('support-page.admin.delete', $this->subject->id),
+                'deleteLink' => route('support-page.delete', $this->subject->id),
             ],
             $this->resource->toArray(request()),
         );
