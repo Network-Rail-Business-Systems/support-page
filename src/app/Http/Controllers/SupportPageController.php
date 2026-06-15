@@ -102,7 +102,9 @@ class SupportPageController extends Controller
 
         flash()->success("Support detail #$supportDetail->id was successfully deleted.");
 
-        return redirect()->route('support-page.admin.index');
+        return redirect()->route(
+            SupportDetail::routeName('index'),
+        );
     }
 
     /**

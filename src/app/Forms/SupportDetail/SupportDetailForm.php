@@ -37,7 +37,7 @@ class SupportDetailForm extends Form
 
     public function exitRoute(): string
     {
-        return route('support-page.admin.index');
+        return route(SupportDetail::routeName('index'));
     }
 
     public function startIsEnabled(): bool

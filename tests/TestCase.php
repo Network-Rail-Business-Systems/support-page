@@ -68,6 +68,7 @@ abstract class TestCase extends BaseTestCase
         $router->get('/')->name('/');
         $router->laravelFormBuilder();
         $router->supportPage();
+        $router->supportPageAdmin();
         $router->redirect('/enquiry', 'https://systems.networkrail.co.uk/enquiry')->name('enquiry');
     }
 

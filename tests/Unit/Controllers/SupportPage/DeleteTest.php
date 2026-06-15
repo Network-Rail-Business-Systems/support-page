@@ -25,26 +25,20 @@ class DeleteTest extends TestCase
         $this->redirect = $this->controller->delete($this->supportDetail);
     }
 
-    public function testDeletesRecord(): void
+    public function test(): void
     {
         $this->assertDatabaseMissing(
             'support_details',
             $this->supportDetail->getAttributes(),
         );
-    }
 
-    public function testFlashesSuccessMessage(): void
-    {
         $this->assertFlashed(
             "Support detail #{$this->supportDetail->id} was successfully deleted.",
             'success',
         );
-    }
 
-    public function testRedirects(): void
-    {
         $this->assertEquals(
-            route('support-page.admin.index'),
+            route('support-page.index'),
             $this->redirect->getTargetUrl(),
         );
     }

@@ -12,4 +12,7 @@ return [
     'role_model' => Spatie\Permission\Models\Role::class,
 
     'user_model' => App\Models\User::class,
+
+    /** Which blade template set to use: govuk, bulma */
+    'template' => 'govuk',
 ];

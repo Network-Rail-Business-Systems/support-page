@@ -7,8 +7,11 @@ use AnthonyEdmonds\LaravelFormBuilder\Traits\HasForm;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Routing\RouteCollection;
+use Illuminate\Support\Facades\Route;
 use NetworkRailBusinessSystems\SupportPage\Database\Factories\SupportDetailFactory;
 use NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\Questions\TypeQuestion;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 /**
  * @property Carbon $created_at
@@ -53,7 +56,7 @@ class SupportDetail extends Model implements UsesForm
     // UsesForm
     public function viewRoute(): string
     {
-        return route('support-page.admin.index');
+        return route(SupportDetail::routeName('index'));
     }
 
     public function submitIsValid(): true|string
@@ -85,7 +88,7 @@ class SupportDetail extends Model implements UsesForm
         if ($this->type === TypeQuestion::SYSTEM_QUESTIONS) {
             return $this->targetIsEmail() === true
                 ? "mailto:$this->target?subject={$this::getEnquirySubject()}"
-                : route('support-page.owners', $this->target);
+                : route(SupportDetail::routeName('owners'), $this->target);
         } else {
             return $this->target;
         }
@@ -111,6 +114,22 @@ class SupportDetail extends Model implements UsesForm
     public static function getEnquirySubject(): string
     {
         return 'Enquiry about ' . rawurlencode(config('app.name'));
+    }
+
+    public static function routeName(string $endpoint): string
+    {
+        /** @var RouteCollection $routes */
+        $routes = Route::getRoutes();
+
+        foreach ($routes as $route) {
+            $name = $route->getName();
+
+            if (str_ends_with($name, "support-page.$endpoint") === true) {
+                return $name;
+            }
+        }
+
+        throw new RouteNotFoundException("The Support Page \"$endpoint\" route has not been registered");
     }
 
     public function targetIsEmail(): bool

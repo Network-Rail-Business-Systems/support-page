@@ -1,3 +1,5 @@
+@use(NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
+
 @extends('govuk::layout.page')
 @section('main')
     <x-govuk::p>Deleting this Support Detail will immediately remove it and all of its contents.</x-govuk::p>
@@ -10,7 +12,7 @@
                 {{ $submitButtonLabel }}
             </x-govuk::button>
 
-            <x-govuk::a href="{{ route('support-page.admin.index') }}">
+            <x-govuk::a href="{{ route(SupportDetail::routeName('index')) }}">
                 Cancel
             </x-govuk::a>
         </x-govuk::button-group>

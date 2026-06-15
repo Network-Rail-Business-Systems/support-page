@@ -25,14 +25,15 @@ class SupportPageProvider extends ServiceProvider
 
     protected function bootPublishes(): void
     {
+        $template = config('support-page.template', 'govuk');
+
         $this->publishes([
             __DIR__ . '/../../config/support-page.php' => config_path('support-page.php'),
             __DIR__ . '/../../database/migrations/2023_02_07_105304_create_support_details_table.php' => database_path('migrations/2023_02_07_105304_create_support_details_table.php'),
         ], 'support-page');
 
         $this->publishes([
-            __DIR__ . '/../../resources/views/details' => resource_path('views/vendor/support-page/details'),
-            __DIR__ . '/../../resources/views/show.blade.php' => resource_path('views/vendor/support-page/show.blade.php'),
+            __DIR__ . "/../../resources/views/$template" => resource_path('views/vendor/support-page'),
         ], 'support-page-views');
     }
 
@@ -45,22 +46,27 @@ class SupportPageProvider extends ServiceProvider
                 ->group(function () {
                     Route::get('/', 'show')->name('show');
                     Route::get('/{role}', 'owners')->name('owners');
+                });
+        });
 
-                    Route::prefix('/admin')
-                        ->name('admin.')
-                        ->group(function () {
-                            Route::get('/manage', 'index')->name('index');
-                            Route::get('/{supportDetail}/confirm', 'confirm')->name('delete');
-                            Route::get('/{supportDetail}/deleted', 'delete')->name('deleted');
-                        });
+        Route::macro('supportPageAdmin', function () {
+            Route::prefix('/support')
+                ->name('support-page.')
+                ->controller(SupportPageController::class)
+                ->group(function () {
+                    Route::get('/manage', 'index')->name('index');
+                    Route::get('/{supportDetail}/confirm', 'confirm')->name('delete');
+                    Route::get('/{supportDetail}/deleted', 'delete')->name('deleted');
                 });
         });
     }
 
     protected function bootViews(): void
     {
+        $template = config('support-page.template', 'govuk');
+
         $this->loadViewsFrom(
-            __DIR__ . '/../../resources/views',
+            __DIR__ . "/../../resources/views/$template",
             'support-page',
         );
     }
