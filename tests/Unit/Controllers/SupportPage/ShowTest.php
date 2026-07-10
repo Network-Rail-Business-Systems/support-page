@@ -40,7 +40,7 @@ class ShowTest extends TestCase
                 'Build' => $build,
                 'Laravel' => app()->version(),
                 'PHP' => phpversion(),
-                'Server' => 'systems-4',
+                'Server' => 'systems' . (((int) substr(gethostname(), -1)) - 4),
             ],
             $this->view->getData()['list'],
         );
