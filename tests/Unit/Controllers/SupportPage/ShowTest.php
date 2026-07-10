@@ -29,6 +29,10 @@ class ShowTest extends TestCase
         $index = strrpos($path, DIRECTORY_SEPARATOR);
         $build = substr($path, $index + 1);
 
+        $this->assertTrue(
+            $this->view->getData()['groups']->has(TypeQuestion::TECHNICAL_ISSUES),
+        );
+
         $this->assertEquals(
             [
                 'Name' => config('app.name'),
@@ -36,6 +40,7 @@ class ShowTest extends TestCase
                 'Build' => $build,
                 'Laravel' => app()->version(),
                 'PHP' => phpversion(),
+                'Server' => 'systems' . (((int) substr(gethostname(), -1)) - 4),
             ],
             $this->view->getData()['list'],
         );
@@ -50,16 +55,6 @@ class ShowTest extends TestCase
                 $this->view->getData()['groups']->has($key),
             );
         }
-    }
-
-    public function testCreatesTechnicalQuestions(): void
-    {
-        $this->makeRequest();
-
-        $this->assertTrue(
-            $this->view->getData()['groups']->has(TypeQuestion::TECHNICAL_ISSUES),
-        );
-
     }
 
     protected function makeRequest(bool $hasGroups = false): void

@@ -42,6 +42,7 @@ class SupportPageController extends Controller
         $path = base_path();
         $index = strrpos($path, DIRECTORY_SEPARATOR);
         $build = substr($path, $index + 1);
+        $server = ((int) substr(gethostname(), -1)) - 4;
 
         return view('support-page::show')
             ->with('list', [
@@ -50,6 +51,7 @@ class SupportPageController extends Controller
                 'Build' => $build,
                 'Laravel' => app()->version(),
                 'PHP' => phpversion(),
+                'Server' => "systems$server",
             ])
             ->with('groups', $groups)
             ->with('title', config('support-page.support_page_title'));
