@@ -96,7 +96,7 @@
                     @endphp
 
                     <div class="field">
-                        @if(!empty($input['label']))
+                        @if(empty($input['label']) === false)
                             <label
                                 for="{{ $field->id }}-{{ $value }}-{{ $index }}"
                                 class="label"

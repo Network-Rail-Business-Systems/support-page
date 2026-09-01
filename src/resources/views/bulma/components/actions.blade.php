@@ -7,15 +7,15 @@
 ])
 
 <div
-        class="buttons"
-        @if($gap) style="gap: {{ $gap }};" @endif
+    class="buttons"
+    @if($gap) style="gap: {{ $gap }};" @endif
 >
     @if($submit !== null)
         <form
-                action="{{ $submit->link }}"
-                enctype="multipart/form-data"
-                method="POST"
-                style="margin: 0;"
+            action="{{ $submit->link }}"
+            enctype="multipart/form-data"
+            method="POST"
+            style="margin: 0;"
         >
             @csrf
 
@@ -27,12 +27,12 @@
 
     @foreach($actions as $index => $action)
         <a
-                href="{{ $action->link }}"
-                @class([
-                    'button is-primary' => $index === $primary,
-                    'button' => $index === $secondary,
-                    'is-underlined' => $index !== $primary && $index !== $secondary,
-                ])
+            href="{{ $action->link }}"
+            @class([
+                'button is-primary' => $index === $primary,
+                'button' => $index === $secondary,
+                'is-underlined' => $index !== $primary && $index !== $secondary,
+            ])
         >
             {{ $action->label }}
         </a>

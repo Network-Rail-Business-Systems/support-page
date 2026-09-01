@@ -47,7 +47,7 @@
     </table>
 
     <x-form-builder::actions
-            :actions="$actions"
-            primary="back"
+        :actions="$actions"
+        primary="back"
     />
 </div>
