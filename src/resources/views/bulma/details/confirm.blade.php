@@ -1,5 +1,6 @@
 @use(NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
 
+
 <div class="content">
     <h2>{{ $title }}</h2>
     <p>Deleting this Support Detail will immediately remove it and all of its contents.</p>

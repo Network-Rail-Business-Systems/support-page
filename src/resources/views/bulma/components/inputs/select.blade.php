@@ -1,0 +1,24 @@
+@props([
+    'field',
+])
+
+<div class="select @error($field->name) is-danger @enderror">
+    <select
+        id="{{ $field->id }}"
+        name="{{ $field->name }}"
+    >
+        <option value="">
+            Please select
+        </option>
+        @forelse($field->options as $label => $value)
+            <option
+                    @selected($value === old($field->name, $field->value))
+                    value="{{ $value }}"
+            >
+                {{ $label }}
+            </option>
+        @empty
+            <option>{{ $field->noOptionsMessage }}</option>
+        @endforelse
+    </select>
+</div>

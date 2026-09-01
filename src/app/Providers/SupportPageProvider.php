@@ -2,6 +2,7 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use NetworkRailBusinessSystems\SupportPage\Http\Controllers\SupportPageController;
@@ -33,7 +34,7 @@ class SupportPageProvider extends ServiceProvider
         ], 'support-page');
 
         $this->publishes([
-            __DIR__ . "/../../resources/views/$template" => resource_path('views/vendor/support-page'),
+            __DIR__ . "/../../resources/views/$template" => resource_path("views/vendor/support-page/{$template}"),
         ], 'support-page-views');
     }
 
@@ -65,9 +66,35 @@ class SupportPageProvider extends ServiceProvider
     {
         $template = config('support-page.template', 'govuk');
 
+        $packageViews = __DIR__ . "/../../resources/views/{$template}";
+
+        $publishedViews = resource_path(
+            "views/vendor/support-page/{$template}"
+        );
+
         $this->loadViewsFrom(
-            __DIR__ . "/../../resources/views/$template",
+            [
+                $publishedViews,
+                $packageViews,
+            ],
             'support-page',
         );
+
+
+        if ($template === 'bulma') {
+            $finder = app('view')->getFinder();
+
+            $finder->prependNamespace(
+                'form-builder',
+                $packageViews
+            );
+
+            if (is_dir($publishedViews) === true) {
+                $finder->prependNamespace(
+                    'form-builder',
+                    $publishedViews
+                );
+            }
+        }
     }
 }

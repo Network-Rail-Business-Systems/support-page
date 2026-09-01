@@ -85,9 +85,9 @@ class TargetQuestion extends Question
 
     public function applySave(FormRequest $formRequest): void
     {
-        $this->form->model->target = $formRequest->get('mode') === 'email'
-            ? $formRequest->get('email')
-            : $formRequest->get('role');
+        $this->form->model->target = $formRequest->input('mode') === 'email'
+            ? $formRequest->input('email')
+            : $formRequest->input('role');
     }
 
     public function isNotRequired(): bool

@@ -23,9 +23,9 @@
     <dl class="{{ $listClasses }}">
         @foreach($list as $key => $data)
             <x-support-page::support-item
-                    :key="$key"
-                    :value="$data['value'] ?? $data"
-                    :action="$data['action'] ?? $defaultAction"
+                :key="$key"
+                :value="$data['value'] ?? $data"
+                :action="$data['action'] ?? $defaultAction"
             />
         @endforeach
     </dl>
