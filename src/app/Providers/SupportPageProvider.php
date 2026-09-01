@@ -2,7 +2,6 @@
 
 namespace NetworkRailBusinessSystems\SupportPage\Providers;
 
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use NetworkRailBusinessSystems\SupportPage\Http\Controllers\SupportPageController;
@@ -69,7 +68,7 @@ class SupportPageProvider extends ServiceProvider
         $packageViews = __DIR__ . "/../../resources/views/{$template}";
 
         $publishedViews = resource_path(
-            "views/vendor/support-page/{$template}"
+            "views/vendor/support-page/{$template}",
         );
 
         $this->loadViewsFrom(
@@ -86,13 +85,13 @@ class SupportPageProvider extends ServiceProvider
 
             $finder->prependNamespace(
                 'form-builder',
-                $packageViews
+                $packageViews,
             );
 
             if (is_dir($publishedViews) === true) {
                 $finder->prependNamespace(
                     'form-builder',
-                    $publishedViews
+                    $publishedViews,
                 );
             }
         }
