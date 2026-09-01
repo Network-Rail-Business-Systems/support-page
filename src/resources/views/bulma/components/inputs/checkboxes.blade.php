@@ -13,7 +13,7 @@
             name="{{ $field->name }}[]"
             type="checkbox"
             value="{{ $value }}"
-        >
+        />
 
         {{ $label }}
     </label>

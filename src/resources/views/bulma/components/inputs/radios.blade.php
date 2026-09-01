@@ -18,11 +18,15 @@
 
     if (empty($selected) === true) {
         foreach ($field->options as $value => $option) {
-            if (is_array($option) === false|| empty($option['inputs']) === true) {
-                continue;
-            }
+        if (is_array($option) === false) {
+            continue;
+        }
 
-            foreach ($option['inputs'] as $input) {
+        if (empty($option['inputs']) === true) {
+            continue;
+        }
+
+        foreach ($option['inputs'] as $input) {
                 $inputValue = $input['value'] ?? null;
 
                 if (empty($inputValue) === false) {

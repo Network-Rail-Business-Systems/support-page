@@ -1,4 +1,3 @@
-
 <x-form-builder::breadcrumbs :breadcrumbs="$breadcrumbs" />
 
 <div class="content">

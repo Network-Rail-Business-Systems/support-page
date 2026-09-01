@@ -11,38 +11,38 @@
 
     <table class="table is-fullwidth">
         <tbody>
-        @forelse($questions as $label => $details)
-            <tr>
-                <th>
-                    {{ $label }}
-                </th>
+            @forelse($questions as $label => $details)
+                <tr>
+                    <th>
+                        {{ $label }}
+                    </th>
 
-                <td>
-                    {{ $details['value'] }}
-                </td>
+                    <td>
+                        {{ $details['value'] }}
+                    </td>
 
-                <td class="has-text-right">
-                    @isset($details['status'])
-                        <x-form-builder::status :status="$details['status']" :colour="$details['colour']" />
-                    @endisset
+                    <td class="has-text-right">
+                        @isset($details['status'])
+                            <x-form-builder::status :status="$details['status']" :colour="$details['colour']" />
+                        @endisset
 
-                    @isset($details['actions']['change'])
-                        <a
-                            href="{{ $details['actions']['change']['url'] }}"
-                            class="is-underlined ml-3"
-                        >
-                            {{ $details['actions']['change']['label'] }}
-                        </a>
-                    @endisset
-                </td>
-            </tr>
-        @empty
-            <tr>
-                <td colspan="3">
-                    No questions have been added to this task.
-                </td>
-            </tr>
-        @endforelse
+                        @isset($details['actions']['change'])
+                            <a
+                                href="{{ $details['actions']['change']['url'] }}"
+                                class="is-underlined ml-3"
+                            >
+                                {{ $details['actions']['change']['label'] }}
+                            </a>
+                        @endisset
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="3">
+                        No questions have been added to this task.
+                    </td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
 

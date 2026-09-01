@@ -19,7 +19,6 @@
 
     @forelse($summary as $task)
         <div class="mb-5">
-
             <div class="is-flex is-justify-content-space-between is-align-items-center has-background-light p-3">
                 <h2 id="{{ $task['id'] }}" class="is-size-5 has-text-weight-semibold mb-0">
                     {{ $task['title'] }}
@@ -85,8 +84,8 @@
     @endforelse
 
     <x-form-builder::actions
-            :actions="$actions"
-            :submit="$submit"
-            gap="1rem"
+        :actions="$actions"
+        :submit="$submit"
+        gap="1rem"
     />
 </div>

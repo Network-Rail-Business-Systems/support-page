@@ -33,7 +33,7 @@ class SupportPageProvider extends ServiceProvider
         ], 'support-page');
 
         $this->publishes([
-            __DIR__ . "/../../resources/views/$template" => resource_path("views/vendor/support-page/{$template}"),
+            __DIR__ . "/../../resources/views/$template" => resource_path("views/vendor/support-page"),
         ], 'support-page-views');
     }
 
@@ -65,10 +65,10 @@ class SupportPageProvider extends ServiceProvider
     {
         $template = config('support-page.template', 'govuk');
 
-        $packageViews = __DIR__ . "/../../resources/views/{$template}";
+        $packageViews = __DIR__ . "/../../resources/views/$template";
 
         $publishedViews = resource_path(
-            "views/vendor/support-page/{$template}",
+            "views/vendor/support-page",
         );
 
         $this->loadViewsFrom(
