@@ -17,11 +17,12 @@ class BootViewTest extends TestCase
         config()->set('support-page.template', 'bulma');
 
         $this->provider = new SupportPageProvider($this->app);
-        $this->provider->boot();
     }
 
     public function test(): void
     {
+        $this->provider->boot();
+
         $this->assertTrue(
             View::exists('support-page::show'),
         );
@@ -37,5 +38,34 @@ class BootViewTest extends TestCase
         $this->assertTrue(
             View::exists('form-builder::components.inputs.input'),
         );
+    }
+
+    public function testPublishedBulmaViews(): void
+    {
+        $publishedViews = resource_path(
+            'views/vendor/support-page/bulma',
+        );
+
+        if (is_dir($publishedViews) === false) {
+            mkdir($publishedViews, 0755, true);
+        }
+
+        file_put_contents(
+            $publishedViews . '/question.blade.php',
+            '<div>Published question</div>',
+        );
+
+        $this->provider->boot();
+
+        $hints = app('view')->getFinder()->getHints();
+
+        $this->assertContains(
+            $publishedViews,
+            $hints['form-builder'],
+        );
+
+        unlink($publishedViews . '/question.blade.php');
+
+        rmdir($publishedViews);
     }
 }
