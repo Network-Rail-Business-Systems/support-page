@@ -1,12 +1,12 @@
-<x-form-builder::breadcrumbs :breadcrumbs="$breadcrumbs" />
+<x-support-page::breadcrumbs :breadcrumbs="$breadcrumbs" />
 
 <div id="content">
     <div class="content">
         <h2 class="subtitle is-4">{{ $title }}</h2>
 
-        <x-form-builder::description :description="$description" />
+        <x-support-page::description :description="$description" />
 
-        <x-form-builder::actions
+        <x-support-page::actions
             :actions="$actions"
             primary="resume"
             secondary="restart"

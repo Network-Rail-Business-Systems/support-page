@@ -1,6 +1,8 @@
 @use(NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm)
 @use(NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
 
+<x-support-page::breadcrumbs />
+
 <div class="content">
     <h2>{{ $title }}</h2>
 

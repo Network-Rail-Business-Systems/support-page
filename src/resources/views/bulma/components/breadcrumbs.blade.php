@@ -1,5 +1,5 @@
 @props([
-    'breadcrumbs',
+    'breadcrumbs' => ['Home'],
 ])
 
 <nav

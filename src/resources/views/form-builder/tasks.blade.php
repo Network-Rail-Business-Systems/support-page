@@ -2,12 +2,12 @@
     $currentGroup = null;
 @endphp
 
-<x-form-builder::breadcrumbs :breadcrumbs="$breadcrumbs" />
+<x-support-page::breadcrumbs :breadcrumbs="$breadcrumbs" />
 
 <div class="content">
     <h1>{{ $title }}</h1>
 
-    <x-form-builder::description :description="$description" />
+    <x-support-page::description :description="$description" />
 
     @forelse($tasks as $task)
         @if($task['group'] !== $currentGroup && $task['group'] !== null)
@@ -39,7 +39,7 @@
             </div>
 
             <div class="ml-5">
-                <x-form-builder::status :status="$task['status']" :colour="$task['colour']" />
+                <x-support-page::status :status="$task['status']" :colour="$task['colour']" />
             </div>
         </div>
 
@@ -48,14 +48,13 @@
         @php
             $currentGroup = $task['group'];
         @endphp
-
     @empty
         <div class="notification is-light">
             No tasks have been added to this form.
         </div>
     @endforelse
 
-    <x-form-builder::actions
+    <x-support-page::actions
         :actions="$actions"
         primary="summary"
         gap="1rem"

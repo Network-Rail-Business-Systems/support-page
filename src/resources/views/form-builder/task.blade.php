@@ -1,12 +1,12 @@
-<x-form-builder::breadcrumbs :breadcrumbs="$breadcrumbs" />
+<x-support-page::breadcrumbs :breadcrumbs="$breadcrumbs" />
 
 <div class="content">
-    <h1>{{ $title }}</h1>
+    <h1>{{ $title }} - IN SUPPORT</h1>
 
-    <x-form-builder::description :description="$description" />
+    <x-support-page::description :description="$description" />
 
     @isset($status)
-        <x-form-builder::status :status="$status" :colour={{ $colour ?? null }}" />
+        <x-support-page::status :status="$status" :colour={{ $colour ?? null }}" />
     @endisset
 
     <table class="table is-fullwidth">
@@ -23,7 +23,7 @@
 
                     <td class="has-text-right">
                         @isset($details['status'])
-                            <x-form-builder::status :status="$details['status']" :colour="$details['colour']" />
+                            <x-support-page::status :status="$details['status']" :colour="$details['colour']" />
                         @endisset
 
                         @isset($details['actions']['change'])
@@ -46,7 +46,7 @@
         </tbody>
     </table>
 
-    <x-form-builder::actions
+    <x-support-page::actions
         :actions="$actions"
         primary="back"
     />

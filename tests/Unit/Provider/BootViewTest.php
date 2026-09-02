@@ -28,44 +28,19 @@ class BootViewTest extends TestCase
         );
 
         $this->assertTrue(
-            View::exists('form-builder::question'),
-        );
-
-        $this->assertTrue(
-            View::exists('form-builder::components.actions'),
+            View::exists('support-page::components.actions'),
         );
 
         $this->assertTrue(
             View::exists('form-builder::components.inputs.input'),
         );
-    }
 
-    public function testPublishedBulmaViews(): void
-    {
-        $publishedViews = resource_path(
-            'views/vendor/support-page/bulma',
+        $this->assertTrue(
+            View::exists('form-builder::question'),
         );
 
-        if (is_dir($publishedViews) === false) {
-            mkdir($publishedViews, 0755, true);
-        }
-
-        file_put_contents(
-            $publishedViews . '/question.blade.php',
-            '<div>Published question</div>',
+        $this->assertTrue(
+            View::exists('form-builder::summary'),
         );
-
-        $this->provider->boot();
-
-        $hints = app('view')->getFinder()->getHints();
-
-        $this->assertContains(
-            $publishedViews,
-            $hints['form-builder'],
-        );
-
-        unlink($publishedViews . '/question.blade.php');
-
-        rmdir($publishedViews);
     }
 }

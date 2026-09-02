@@ -5,23 +5,23 @@
 @use(AnthonyEdmonds\LaravelFormBuilder\Enums\InputType)
 
 <div class="field">
-     @if($field->isTitle === true)
+    @if($field->isTitle === true)
         <h1 class="title is-4 mb-2">
-     @endif
+    @endif
 
     <label for="{{ $field->id }}" class="label">
         {{ $field->label }}
 
         @if($field->optional === true)
             <span class="has-text-grey has-text-weight-normal">
-        {{ $field->optionalLabel }}
-    </span>
+                {{ $field->optionalLabel }}
+            </span>
         @endif
     </label>
 
     @if($field->isTitle === true)
         </h1>
-    @endif
+     @endif
 
     @empty($field->hint)
     @else
@@ -32,7 +32,7 @@
 
     @error($field->name)
         <p class="help is-danger mb-2">
-         {{ $message }}
+            {{ $message }}
         </p>
     @enderror
 
@@ -40,27 +40,27 @@
         @switch($field->type)
 
             @case(InputType::Checkbox)
-                <x-form-builder::inputs.checkboxes :field="$field" />
+                <x-support-page::inputs.checkboxes :field="$field" />
                 @break
 
             @case(InputType::Hidden)
-                <x-form-builder::inputs.hidden :field="$field" />
+                <x-support-page::inputs.hidden :field="$field" />
                 @break
 
             @case(InputType::Radio)
-                <x-form-builder::inputs.radios :field="$field" />
+                <x-support-page::inputs.radios :field="$field" />
                 @break
 
             @case(InputType::Select)
-                <x-form-builder::inputs.select :field="$field" />
+                <x-support-page::inputs.select :field="$field" />
                 @break
 
             @case(InputType::TextArea)
-                <x-form-builder::inputs.textarea :field="$field" />
+                <x-support-page::inputs.textarea :field="$field" />
                 @break
 
             @default
-                <x-form-builder::inputs.input :field="$field" />
+                <x-support-page::inputs.input :field="$field" />
         @endswitch
     </div>
 </div>

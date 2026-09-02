@@ -1,4 +1,4 @@
-<x-form-builder::breadcrumbs :breadcrumbs="$breadcrumbs" />
+<x-support-page::breadcrumbs :breadcrumbs="$breadcrumbs" />
 
 <div class="content">
     @if ($errors->any())
@@ -15,7 +15,7 @@
 
     <h1>{{ $title }}</h1>
 
-    <x-form-builder::description :description="$description" />
+    <x-support-page::description :description="$description" />
 
     @forelse($summary as $task)
         <div class="mb-5">
@@ -25,7 +25,7 @@
                 </h2>
 
                 <div class="is-flex is-align-items-center" style="gap: 0.75rem;">
-                    <x-form-builder::status :status="$task['status']" :colour="$task['colour']" />
+                    <x-support-page::status :status="$task['status']" :colour="$task['colour']" />
 
                     @isset($task['actions']['change'])
                         <a
@@ -52,7 +52,7 @@
 
                         <td class="has-text-right">
                             @isset($details['status'])
-                                <x-form-builder::status :status="$details['status']" :colour="$details['colour']" />
+                                <x-support-page::status :status="$details['status']" :colour="$details['colour']" />
                             @endisset
 
                             @isset($details['actions']['change'])
@@ -76,14 +76,12 @@
                 @endforelse
                 </tbody>
             </table>
-
         </div>
-
     @empty
         <p>No tasks have been added to this form.</p>
     @endforelse
 
-    <x-form-builder::actions
+    <x-support-page::actions
         :actions="$actions"
         :submit="$submit"
         gap="1rem"

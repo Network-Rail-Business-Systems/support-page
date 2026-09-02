@@ -123,9 +123,9 @@
 
                         <div class="control">
                             @if($inputType === 'select')
-                                <x-form-builder::inputs.select :field="$inputField" />
+                                <x-support-page::inputs.select :field="$inputField" />
                             @else
-                                <x-form-builder::inputs.input :field="$inputField" />
+                                <x-support-page::inputs.input :field="$inputField" />
                             @endif
                         </div>
                     </div>

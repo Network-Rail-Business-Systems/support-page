@@ -1,10 +1,12 @@
-<x-form-builder::breadcrumbs :breadcrumbs="$breadcrumbs" />
+<x-support-page::breadcrumbs :breadcrumbs="$breadcrumbs" />
 
 <div id="content">
     @if($hideTitle === false)
         <h1 class="title is-2">{{ $title }}</h1>
 
-        <x-form-builder::description :description="$description" />
+        @include('support-page::components.description', [
+            'description' => $description,
+        ])
     @endif
 
     <form
@@ -17,7 +19,7 @@
         @yield('before-fields')
 
         @forelse($fields as $field)
-            <x-form-builder::field :field="$field" />
+            <x-support-page::field :field="$field" />
         @empty
             <div class="notification is-warning is-light">
                 No fields have been added to this question.
@@ -26,7 +28,7 @@
 
         @yield('after-fields')
 
-        <x-form-builder::actions
+        <x-support-page::actions
             :actions="$actions"
             :submit="$save"
             gap="1rem"
