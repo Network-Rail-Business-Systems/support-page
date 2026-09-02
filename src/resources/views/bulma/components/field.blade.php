@@ -38,7 +38,6 @@
 
     <div class="control" style="max-width: 500px;">
         @switch($field->type)
-
             @case(InputType::Checkbox)
                 <x-support-page::inputs.checkboxes :field="$field" />
                 @break

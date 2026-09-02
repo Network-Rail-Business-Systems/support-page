@@ -14,7 +14,6 @@
             type="checkbox"
             value="{{ $value }}"
         />
-
         {{ $label }}
     </label>
 @empty

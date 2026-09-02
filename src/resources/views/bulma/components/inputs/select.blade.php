@@ -7,13 +7,10 @@
         id="{{ $field->id }}"
         name="{{ $field->name }}"
     >
-        <option value="">
-            Please select
-        </option>
         @forelse($field->options as $label => $value)
             <option
-                    @selected($value === old($field->name, $field->value))
-                    value="{{ $value }}"
+                @selected($value === old($field->name, $field->value))
+                value="{{ $value }}"
             >
                 {{ $label }}
             </option>

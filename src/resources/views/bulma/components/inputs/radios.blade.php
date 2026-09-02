@@ -75,17 +75,16 @@
                 document
                     .getElementById('{{ $field->id }}-inputs-{{ $loop->index }}')
                     ?.classList.remove('is-hidden');
-            "
-            >
+            " />
             {{ $label }}
         </label>
+
         @if(count($inputs) > 0)
             <div
                 id="{{ $field->id }}-inputs-{{ $loop->index }}"
                 data-radio-group="{{ $field->name }}"
                 class="ml-5 mt-3 {{ $selected !== $value ? 'is-hidden' : '' }}"
             >
-
                 @foreach($inputs as $index => $input)
                     @php
                         $inputType = $input['type'] ?? 'input';
@@ -120,7 +119,6 @@
                                 {{ $message }}
                             </p>
                         @enderror
-
                         <div class="control">
                             @if($inputType === 'select')
                                 <x-support-page::inputs.select :field="$inputField" />
@@ -133,7 +131,6 @@
             </div>
         @endif
     </div>
-
 @empty
     <p class="help">
         {{ $field->noOptionsMessage }}
