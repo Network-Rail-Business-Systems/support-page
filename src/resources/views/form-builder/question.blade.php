@@ -4,9 +4,7 @@
     @if($hideTitle === false)
         <h1 class="title is-2">{{ $title }}</h1>
 
-        @include('support-page::components.description', [
-            'description' => $description,
-        ])
+        <x-support-page::description :description="$description" />
     @endif
 
     <form
