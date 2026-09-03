@@ -52,7 +52,7 @@ class TypeQuestion extends Question
 
     public function applySave(FormRequest $formRequest): void
     {
-        $type = $formRequest->get('type');
+        $type = $formRequest->input('type');
 
         if ($this->form->model->type !== $type) {
             $this->form->model->type = $type;
