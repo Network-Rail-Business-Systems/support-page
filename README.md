@@ -77,3 +77,8 @@ There are three configurable values in the Support-page config:
 | permission         | string | manage_support_page                  | Permission to manage the support page                                  |
 | role_model         | model  | Spatie\Permission\Models\Role::class | Set the Role Model to use                                              |
 | user_model         | model  | App\Models\User::class               | Set the User Model to use                                              |
+| layout.name        | string | null                                 | Blade view to extend when rendering the support page                   |
+| layout.section     | string | null                                 | Layout section to render content into                                  |
+| template           | string | govuk                                | Set the layout to use (govuk or bulma)                                 |
+
+The optional `layout` configuration options only apply to the Bulma templates.

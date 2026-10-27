@@ -36,12 +36,6 @@ class SupportPageProvider extends ServiceProvider
             __DIR__ . "/../../resources/views/$template" => resource_path("views/vendor/support-page"),
         ], 'support-page-views');
 
-        if ($template === 'bulma') {
-            $this->publishes([
-                __DIR__ . '/../../resources/views/form-builder'
-                => resource_path('views/vendor/form-builder'),
-            ], 'support-page-views');
-        }
     }
 
     protected function bootRoutes(): void
