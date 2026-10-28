@@ -11,8 +11,8 @@
     <ul>
         @foreach($group as $supportDetail)
             <li>
-                <a href="{{ $supportDetail->resource->target }}" target="_blank">
-                    {{ $supportDetail->label }} {{ $supportDetail->resource->type }}
+                <a href="{{ $supportDetail->link }}" target="_blank">
+                    {{ $supportDetail->label }} {{ $supportDetail->suffix }}
                 </a>
             </li>
         @endforeach

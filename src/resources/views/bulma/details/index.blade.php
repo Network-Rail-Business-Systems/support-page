@@ -1,60 +1,68 @@
 @use(NetworkRailBusinessSystems\SupportPage\Forms\SupportDetail\SupportDetailForm)
 @use(NetworkRailBusinessSystems\SupportPage\Models\SupportDetail)
 
-<x-support-page::breadcrumbs />
+<x-support-page::layout>
+    <div class="column is-full">
+        <div class="is-flex" style="justify-content: space-between; flex-wrap: wrap;">
+            <h2 class="title mb-3">{{ $title }}</h2>
+        </div>
+    </div>
 
-<div class="content">
-    <h2>{{ $title }}</h2>
+    <div class="column is-full">
+        <section>
+            <div class="content">
+                <p>This page allows you to manage Support Details.</p>
+                <p>You can:</p>
 
-    <p>This page allows you to manage Support Details.</p>
-    <p>You can:</p>
+                <ul>
+                    <li>
+                        <a href="{{ SupportDetail::formRoute() }}">
+                            Create a new Support Detail
+                        </a>
+                    </li>
 
-    <ul>
-        <li>
-            <a href="{{ SupportDetail::formRoute() }}">
-                Create a new Support Detail
-            </a>
-        </li>
+                    <li>
+                        Manage existing Support Details
+                    </li>
+                </ul>
 
-        <li>
-            Manage existing Support Details
-        </li>
-    </ul>
+                <table class="table is-fullwidth">
+                    <caption class="subtitle has-text-left">
+                        <strong>
+                            Existing Support Details
+                        </strong>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Label</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($supportDetails as $supportDetail)
+                            <tr>
+                                <td>{{ $supportDetail->type }}</td>
+                                <td>{{ $supportDetail->label }}</td>
+                                <td>
+                                    <a href="{{ route('forms.edit', [SupportDetailForm::key(), $supportDetail->id])}}">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="{{ route(SupportDetail::routeName('delete'), $supportDetail->id) }}">Delete</a>
+                                </td>
 
-    <table class="table is-fullwidth">
-        <caption class="subtitle has-text-left">
-            <strong>
-                Existing Support Details
-            </strong>
-        </caption>
-        <thead>
-            <tr>
-                <th>Type</th>
-                <th>Label</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-        @forelse($supportDetails as $supportDetail)
-            <tr>
-                <td>{{ $supportDetail->type }}</td>
-                <td>{{ $supportDetail->label }}</td>
-                <td>
-                    <a href="{{ route('forms.edit', [SupportDetailForm::key(), $supportDetail->id])}}">Edit</a>
-                </td>
-                <td>
-                    <a href="{{ route(SupportDetail::routeName('delete'), $supportDetail->id) }}">Delete</a>
-                </td>
-
-            </tr>
-        @empty
-            <tr>
-                <td colspan="4">
-                    No Support Details exist
-                </td>
-            </tr>
-        @endforelse
-        </tbody>
-    </table>
-</div>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4">
+                                    No Support Details exist
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</x-support-page::layout>
