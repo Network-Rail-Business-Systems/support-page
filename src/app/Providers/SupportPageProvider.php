@@ -35,7 +35,6 @@ class SupportPageProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . "/../../resources/views/$template" => resource_path("views/vendor/support-page"),
         ], 'support-page-views');
-
     }
 
     protected function bootRoutes(): void

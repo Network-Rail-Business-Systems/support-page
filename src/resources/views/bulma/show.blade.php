@@ -25,7 +25,7 @@
                     <section class="column is-one-third">
                         <aside>
                             <p class="subtitle is-4"><b>System details</b></p>
-                            <x-support-page::support-summary-list :list="$list"/>
+                            <x-support-page::support-summary-list :list="$list" />
                         </aside>
                     </section>
                 </div>
