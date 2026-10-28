@@ -15,10 +15,12 @@
                 <p><b>Do you want to continue?</b></p>
             </div>
 
-            <form action="{{ route(SupportDetail::routeName('delete'), $supportDetail->id) }}"
-                method="{{ $method }}">
+            <form
+                action="{{ route(SupportDetail::routeName($action), $supportDetail->id) }}"
+                method="{{ $method }}"
+            >
                 @csrf
-                @method($action)
+
                 <div class="field is-grouped">
                     <p class="control">
                         <button class="button is-danger">Delete</button>

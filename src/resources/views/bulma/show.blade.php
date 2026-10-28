@@ -2,7 +2,7 @@
 
 <x-support-page::layout>
     <div class="column is-full">
-        <x-support-page::breadcrumbs/>
+        <x-support-page::breadcrumbs />
         <div class="is-flex" style="justify-content: space-between; flex-wrap: wrap;">
             <h2 class="title mb-3">{{ $title }}</h2>
         </div>

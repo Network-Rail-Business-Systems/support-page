@@ -11,7 +11,6 @@
     <div class="column is-full">
         <section>
             <div class="content">
-
                 <p>This page allows you to manage Support Details.</p>
                 <p>You can:</p>
 
@@ -34,33 +33,33 @@
                         </strong>
                     </caption>
                     <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Label</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
+                        <tr>
+                            <th>Type</th>
+                            <th>Label</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
                     </thead>
                     <tbody>
-                    @forelse($supportDetails as $supportDetail)
-                        <tr>
-                            <td>{{ $supportDetail->type }}</td>
-                            <td>{{ $supportDetail->label }}</td>
-                            <td>
-                                <a href="{{ route('forms.edit', [SupportDetailForm::key(), $supportDetail->id])}}">Edit</a>
-                            </td>
-                            <td>
-                                <a href="{{ route(SupportDetail::routeName('delete'), $supportDetail->id) }}">Delete</a>
-                            </td>
+                        @forelse($supportDetails as $supportDetail)
+                            <tr>
+                                <td>{{ $supportDetail->type }}</td>
+                                <td>{{ $supportDetail->label }}</td>
+                                <td>
+                                    <a href="{{ route('forms.edit', [SupportDetailForm::key(), $supportDetail->id])}}">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="{{ route(SupportDetail::routeName('delete'), $supportDetail->id) }}">Delete</a>
+                                </td>
 
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4">
-                                No Support Details exist
-                            </td>
-                        </tr>
-                    @endforelse
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4">
+                                    No Support Details exist
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
