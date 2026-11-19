@@ -22,13 +22,13 @@
                 @csrf
 
                 <div class="field is-grouped">
-                    <p class="control">
+                    <div class="control">
                         <button class="button is-danger">Delete</button>
-                    </p>
+                    </div>
 
-                    <p class="control">
+                    <div class="control">
                         <a class="button" href="{{ route(SupportDetail::routeName('index')) }}">Cancel</a>
-                    </p>
+                    </div>
                 </div>
             </form>
         </section>
